@@ -24,3 +24,20 @@
 │       ├── script.js
 │       └── style.css
 └── .venv/
+
+
+
++---------------------+       +-------------------+       +-------------------+
+| Client-side         |       | Server-side       |       | Database          |
+| (Web Browser, etc.) |<----->| Python, JS        |<----->| SQLite, alchemy,  |
+| HTML, CSS, JS       |       |                   |       | File system       |
+| Frontend            |       |                   |       | HTML, CSS, images |
++---------------------+       +-------------------+       +-------------------+
+                                         |                           |
+                                         +--------- Backend ---------+
+Frameworks:
+- Flask
+- Flaskalchemy/Mongo DB
+- Bootstrap
+
+
