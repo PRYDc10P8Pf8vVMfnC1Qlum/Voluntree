@@ -1,4 +1,5 @@
 # Volontree
+Watch in edit mode for correct view.
 ├── flaskr/
 │   ├── db.py
 │   ├── schema.sql
