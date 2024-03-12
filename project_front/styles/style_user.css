@@ -151,6 +151,7 @@ a {
     margin: 0 auto;
     width: 90%;
     justify-content: space-between;
+    display: flex;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 50px;
@@ -326,6 +327,15 @@ button:hover{
     }
     .card-small-text{
         font-size: 12px;
+    }
+    .change-info{
+      flex-direction: column;
+      align-items: center;
+    }
+    form{
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 }
 
@@ -525,7 +535,7 @@ button:hover{
     width: 100%;
     outline: none;
     font-size: 1rem;
-    color: #707070;
+    color: #5d5d5d;
     margin-top: 8px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -539,241 +549,162 @@ button:hover{
     cursor: pointer;
   }
   label {
-    color: #707070;
+    color: #5d5d5d;
   }
 
-
-  .username{
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 60px;
-    font-weight: 700;
-    margin-top: 30px;
-    margin-left: 50px
+  .change-info{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+.change-image{
+  flex: 0 1 30%;
+}
+.text-info{
+  flex: 0 1 60%;
+}
+.change-title{
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.change{
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #1b4a4f;
+  border-radius: 10px;
+}
+form{
+  padding: 0px 10px;
 }
 
-.mail{
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    /* position: relative; */
-    font-size: 22px;
-    font-weight: 400;
-    width: 40%;
-    margin-top: 0;
-    margin-left: 55px
+
+.exit{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-left: 50px;
+}
+.exit-profile{
+  padding: 20px 10px 20px 40px;
+  font-weight: 700;
+  color: #333;
+  background: url('../img/exit.png') 10px 50%/ 20px auto no-repeat;
+  border: 2px #fff solid;
+  transition: 0.2s;
+  margin-right: 60px;
+}
+.exit-profile:hover{
+  border: 2px #333 solid;
 }
 
-.bio{
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 30px;
-    margin-left: 55px
+.delete-profile{
+  padding: 20px 10px 20px 40px;
+  font-weight: 700;
+  color: red;
+  background: url('../img/delete.png') 10px 50%/ 20px auto no-repeat;
+  border: 2px #fff solid;
+  transition: 0.2s;
+  margin-right: 60px;
+}
+.delete-profile:hover{
+  border: 2px red solid;
 }
 
-.about{
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    width: 80%;
-    margin-top: 30px;
-    margin-left: 55px
-}
-
-.black_part{
-    height: 815px;
-    width: 50%;
-    position: relative;
-    margin-top: 0%;
-    float: right;
-    background-color: rgba(32, 32, 37, 1);
-}
-/* #radio-input input[type="radio"]:checked{
-    animation: radio-translate .5s ease-in-out;
-} */
-
-.btn#events_button, .btn#settings_button{
-    background: none;
-    border: none;
-    outline: none;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 26px;
-    text-decoration: none;
-    position: relative;
-    display: inline;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-    margin-top: 20px;
-    /* margin-left: 100px; */
-}
-
-.btn#events_button::before, .btn#settings_button::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background-color: rgba(189, 229, 193, 1);
-    bottom: 0;
-    left:0px;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform .2s ease-in-out;
-}
-.btn#events_button:hover::before, .btn#settings_button:hover::before{
-    transform-origin: left;
-    transform: scaleX(1);
-}
-.btn#events_button:active::before, .btn#settings_button:active::before{
-    background-color: rgba(189, 229, 193, 1);
-}
-.btn#events_button:active, .btn#settings_button:active{
-    color: rgba(189, 229, 193, 1);
-}
-/* .settings_button{
-    font-family: 'Inter', sans-serif;
-    font-size: 26px;
-    text-decoration: none;
-    position: absolute;
-    font-weight: 600;
-    color: white;
-    margin-top: 20px;
-    right: 100px;
-}
-
-.settings_button::before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background-color: rgba(189, 229, 193, 1);
-    bottom: 0;
-    left:0px;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform .2s ease-in-out;
-}
-.settings_button:hover::before{
-    transform-origin: left;
-    transform: scaleX(1);
-}
-.settings_button:active::before{
-    background-color: rgba(189, 229, 193, 1);
-}
-.settings_button:active{
-    color: rgba(189, 229, 193, 1);
-} */
-/* .special{
-    /* background-color: rgba(189, 229, 193, 1); */
-    /* color: rgb(255, 255, 255);
-/* } */ 
-
-.change_pfp{
-    position: relative;
-    margin-top: 30px;
-    margin-left: 60px;
-    
-}
-.change_pfp img{
-    border-radius: 10px;
-}
-.change_pfp_btn{
-    position: absolute;
-    margin-left: 170px;
-    top: 150px;
-    color: #fffafa;
-    background: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    cursor: pointer;
-}
-.change_pfp_btn:hover{
-    color: rgba(189, 229, 193, 1);
-}
-.change_pfp_btn:active{
-    color: rgba(189, 229, 193, 1);
-}
-
-/* Try */
-/* .change_pfp:hover{
-    color: aquamarine;
-} */
-
-.section{
-    position: relative;
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    margin-top: 20px;
-    margin-left: 60px;
-}
-#forms{
-    position: relative;
+@media (max-width: 1170px) {
+  .change-title{
+    text-align: center;
+    padding-left: 30px;
+  }
+  form{
     display: flex;
-	flex-direction: column;
-	margin-top: 50;
-    /* width: 10%; */
-	/* max-width: 300px; */
-	align-content: left;
-	margin-top: 5px;
-}
-.label{
-    color: white;
-    font-weight: 100;
-    display: inline-block;
-    /* width: 6em; */
-    margin-left: 50px;
-    margin-top: 0;
-}
-
-input{
-    border: none;
-    border-bottom: 1px solid #333;
-    background: none;
-    color: #333;
+    flex-direction: column;
+    margin-left: 40px;
+  }
+  .form :where(.input-box input, .select-box) {
     position: relative;
-    width: 300px;
-    /* margin-top: 20px; */
-    /* position: relative; */
-    /* top: -24px; */
-    left: 50px;
-}
-#change_about{
-    width: 85%;
-}
-
-.container#button{
-    justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 25px;
-
-    /* max-width: 1200px; */
-
-}
-.container#button.col{
-    justify-content: center;
-}
-.btn#exit_pf, .btn#delete_pf{
-    background: none;
-    border: none;
+    height: 50px;
+    width: 80%;
     outline: none;
-    font-size: 20px;
+    font-size: 1rem;
+    color: #5d5d5d;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+  }
 }
-.btn#delete_pf{
-    color: red;
-}
-.container#socials{
-    display: flex; 
-    padding-top: 15px;
-    padding-left: 55px;
-    align-content: flex-start; 
-}
-.container#socials.col{
+
+@media (max-width: 860px) {
+  #settings-blok{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  .input-box{
+    text-align: center;
+  }
+  .change{
+    margin-top: 20px;
+    padding: 0;
+  }
+  .form{
+    margin: 0;
+    padding: 0;
+
+  }
+  .change-title{
+    margin: 0;
+    margin-top: 50px;
+    padding: 0;
+  }
+  .exit{
+    display: flex;
+    width: 100%;
+    align-items: center;
     padding-left: 0;
-    vertical-align: middle;
+    justify-content: center;
+  }
+  .exit-profile{
+    padding: 20px 10px 20px 40px;
+    font-weight: 700;
+    color: #333;
+    background: url('../img/exit.png') 10px 50%/ 20px auto no-repeat;
+    border: 2px #fff solid;
+    transition: 0.2s;
+    margin-right: 60px;
+
+  }
+  .exit-profile:hover{
+    border: 2px #333 solid;
+  }
+  
+  .delete-profile{
+    padding: 20px 10px 20px 40px;
+    font-weight: 700;
+    color: red;
+    background: url('../img/delete.png') 10px 50%/ 20px auto no-repeat;
+    border: 2px #fff solid;
+    transition: 0.2s;
+    margin: 0;
+  }
+}
+
+
+@media (max-width: 860px) {
+  .exit{
+    flex-direction: column;
+  }
+  .exit-profile{
+    margin-right: 0px;
+
+  }
 }
