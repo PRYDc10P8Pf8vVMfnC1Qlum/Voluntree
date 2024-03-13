@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Create event</title>
+    <link rel="stylesheet" href="../static/styles/style_create_event.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script>
+    function text(x){
+        if (x == 0) document.getElementById("offline-code").style.display = "block", document.getElementById("online-code").style.display = "none", document.getElementById("check-online").checked = false;
+        else document.getElementById("offline-code").style.display = "none", document.getElementById("online-code").style.display = "block", document.getElementById("check-offline").checked = false;
+        return;
+    }
+    </script>
+  </head>
+  <body>
+    <section class="container">
+      <header>Додавання події</header>
+      <form action="#" class="form">
+        <div class="input-box">
+          <label>Назва події</label>
+          <input type="text" placeholder="Введіть назву" required />
+        </div>
+        <div class="input-box">
+            <label>Пошта для зв'язку</label>
+            <input type="email" placeholder="Введіть пошту для зв'язку" required />
+        </div>
+        <div class="input-box">
+            <label>Опис події</label>
+            <input type="text" placeholder="Введіть опис" required />
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Дата події</label>
+            <input type="date" placeholder="Оберіть дату" required />
+          </div>
+          <div class="input-box">
+            <label>Час початку</label>
+            <input type="time" placeholder="Введіть час події" required />
+          </div>
+        </div>
+        <div class="format-box">
+          <h3>Місце проведення</h3>
+          <div class="format-option">
+            <div class="format">
+              <input type="radio" id="check-offline" name="format1" onclick="text(0)" checked/>
+              <label for="check-offline">Оффлайн</label>
+            </div>
+            <div class="format">
+              <input type="radio" id="check-online" name="format" onclick="text(1)" />
+              <label for="check-online">Онлайн</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-box address" id = "offline-code">
+          <label>Адреса</label>
+          <input type="text" placeholder="Місто" required />
+          <input type="text" placeholder="Вулиця, будинок" required />
+        </div>
+        <div class="input-box link" id = "online-code">
+            <label>Посилання</label>
+            <input type="text" placeholder="Вставте посилання на подію" />
+        </div>
+
+        <div class="small-container">
+            <div class="select-btn">
+                <span class="btn-text">Оберіть теги</span>
+                <span class="arrow-dwn">
+                    <input type="checkbox" class="fa-solid fa-chevron-down">
+                </span>
+            </div>
+            <div class="list-items">
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="1">
+                    <label class="form-check-label" for="1">
+                        Допомога захисникам
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="2">
+                    <label class="form-check-label" for="2">
+                        Донорство крові
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="3">
+                    <label class="form-check-label" for="3">
+                        Правозахист
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="4">
+                    <label class="form-check-label" for="4">
+                        Волонтерство у пробації
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="5">
+                    <label class="form-check-label" for="5">
+                        Спорт
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="6">
+                    <label class="form-check-label" for="6">
+                        Освіта та наука
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="7">
+                    <label class="form-check-label" for="7">
+                        Онлайн волонтерство
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="8">
+                    <label class="form-check-label" for="8">
+                        Волонтерство з ВПО
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="9">
+                    <label class="form-check-label" for="9">
+                        Волонтерство на заходах
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="10">
+                    <label class="form-check-label" for="10">
+                        Екологія та зоозахист
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="11">
+                    <label class="form-check-label" for="11">
+                        Інтелектуальне волонтерство
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="12">
+                    <label class="form-check-label" for="12">
+                        Культура та мистецтво
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="13">
+                    <label class="form-check-label" for="13">
+                        Міжнародне волонтерство
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="14">
+                    <label class="form-check-label" for="14">
+                        Переклади та журналістика
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Психологічна допомога
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="15">
+                    <label class="form-check-label" for="15">
+                        Регулярне волонтерство
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="16">
+                    <label class="form-check-label" for="16">
+                        Соціальна допомога
+                    </label>
+                </div>
+                <div class="form-check category">
+                    <input class="form-check-input" type="checkbox" value="" id="17">
+                    <label class="form-check-label" for="17">
+                        Розвиток міста
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="photo-container">
+            <div class="photo-wrapper">
+            <div class="image">
+                <img src="" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="text">
+                    Файл ще не обрано!
+                </div>
+            </div>
+            <div id="cancel-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="file-name">
+                Ім'я файлу
+            </div>
+            </div>
+            <button onclick="defaultBtnActive()" id="custom-btn">Оберіть фото події</button>
+            <input id="default-btn" type="file" hidden>
+        </div>
+        <button><a href="success.html">Створити подію</a></button>
+    </form>
+    </section>
+    <script>
+        const wrapper = document.querySelector(".wrapper");
+        const fileName = document.querySelector(".file-name");
+        const defaultBtn = document.querySelector("#default-btn");
+        const customBtn = document.querySelector("#custom-btn");
+        const cancelBtn = document.querySelector("#cancel-btn i");
+        const img = document.querySelector("img");
+        let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+        function defaultBtnActive(){
+          defaultBtn.click();
+        }
+        defaultBtn.addEventListener("change", function(){
+          const file = this.files[0];
+          if(file){
+            const reader = new FileReader();
+            reader.onload = function(){
+              const result = reader.result;
+              img.src = result;
+              wrapper.classList.add("active");
+            }
+            cancelBtn.addEventListener("click", function(){
+              img.src = "";
+              wrapper.classList.remove("active");
+            })
+            reader.readAsDataURL(file);
+          }
+          if(this.value){
+            let valueStore = this.value.match(regExp);
+            fileName.textContent = valueStore;
+          }
+        });
+    </script>
+    <script src="../static/js/script.js"></script>
+    </body>
+</html>

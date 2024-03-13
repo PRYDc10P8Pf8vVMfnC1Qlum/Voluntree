@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/styles/style_volunteer.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>signin-signup</title>
+</head>
+<body>
+    <div class="container">
+        <div class="signin-signup">
+            <form action="" class="sign-in-form">
+                <h2 class="title">Вхід</h2>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Пошта">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Пароль">
+                </div>
+                <input type="submit" value="Увійти" class="btn">
+                <p class="account-text">Не маєте акаунту? <a href="#" id="sign-up-btn2">Зареєструватися</a></p>
+            </form>
+            <form action="" class="sign-up-form">
+                <h2 class="title">Реєстрація</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Ім'я користувача">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Пошта">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Пароль">
+                </div>
+                <input type="submit" value="Зареєструватися" id='sign-up-btn2' class="btn">
+                <p class="account-text">Уже маєте аккаунт? <a href="#" id="sign-in-btn2">Sign in</a></p>
+            </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <img src="../static/img/logo_dark.png" style="width: 100px;" class="image">
+                    <h3>Уже маєте акаунт?</h3>
+                    <p></p>
+                    <button class="btn" id="sign-in-btn">Увійти</button>
+                </div>
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <img src="../static/img/logo_dark.png" style="width: 100px;" class="image">
+                    <h3>Не маєте акаунту?</h3>
+                    <p>Пориньте у світ волонтерства разом з Voluntree!</p>
+                    <button class="btn" id="sign-up-btn">Зареєструватися</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/script_volunteer.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+
+
+.margined{
+  margin-top: 100px;
+}
+
+.filter{
+  background-color: rgb(81,121,112);
+  padding: 20px;
+  border-radius: 50px;
+  width: 355px;
+}
+
+.filter-title{
+  color: rgb(225, 226, 226);
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+}
+h1{
+  font-size: 60px;
+  font-weight: 800;
+  padding: 30px 0 ;
+}
+.category{
+  margin: 10px;
+  color: rgb(225, 226, 226);
+  font-size: 21px;
+}
+
+.find{
+  background-color: rgb(189, 229, 193);
+  border-color: rgb(189, 229, 193);
+  color: rgb(47, 61, 70);
+  border-radius: 25px;
+  font-size: large;
+  font-weight: 600;
+  width: 60%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  height: 50px;
+}
+
+.find:hover{
+  background-color: rgb(79, 110, 82);
+  border-color: rgb(189, 229, 193);
+}
+
+.search{
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.search-field{
+  border-radius: 20px;
+}
+
+.button-box{
+  text-align: center;
+}
+
+.wrap-content{
+  display: flex;
+  justify-content: center;
+}
+
+.footer{
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.motto{
+  color: #686A6C;
+  font-size: 25px;
+}
+
+.name{
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.more{
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 7px;
+  border-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+
+.number{
+  background-color: #517970;
+  color: #fff;
+  margin-left: 4px;
+  padding: 6px;
+  border-radius: 10px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-text{
+  margin-bottom: 0px;
+}
+
+.more:hover{
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #686A6C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper{
+  width: 100%;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0;
+}
+.footer-title{
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 31px;
+  margin-top: 10px;
+}
+.footer-text{
+  line-height: 16px;
+  font-size: 15px;
+  color :#333;
+}
+
+input[type=checkbox]:checked {
+  background-color: #02291d !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+input[type='checkbox']:after {
+  box-shadow: none !important;
+}
+label{
+  cursor: pointer;
+}
