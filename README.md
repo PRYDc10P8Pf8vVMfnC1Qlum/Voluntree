@@ -1,5 +1,5 @@
 # Volontree
-Watch in edit mode for correct view. <br />
+~~Watch in edit mode for correct view. <br />
 ├── flaskr/ <br />
 │   ├── db.py <br />
 │   ├── schema.sql <br />
@@ -26,7 +26,7 @@ Watch in edit mode for correct view. <br />
 │       └── style.css <br />
 └── .venv/ <br />
 <br />
-<br />
+<br />~~
 
 +---------------------+       +-------------------+       +-------------------+ <br />
 | Client-side         |       | Server-side       |       | Database          | <br />
@@ -38,7 +38,7 @@ Watch in edit mode for correct view. <br />
                                          +--------- Backend ---------+ <br />
 Frameworks: <br />
 - Flask
-- Flaskalchemy/Mongo DB
+- Flaskalchemy
 - Bootstrap
 
 
