@@ -7,12 +7,11 @@ from flask_login import login_required, current_user
 create_event = Blueprint("create_event", __name__)
 
 # @login_required
-@create_event.route("/create_event", methods = ["GET","POST"])
+@create_event.route("/create_event", methods = ["POST"])
 def create_an_event():
     if request.method == 'POST':
-        if request.method == 'POST':
-            file = request.files['photo']
-            file.save('uploads/' + 'test.png')
-            print(request.form, request.files)
+        file = request.files['photo']
+        file.save('uploads/' + 'test.png')
+        print(request.form, request.files)
         return render_template('index.html')
     return render_template('create_event.html', user = current_user)

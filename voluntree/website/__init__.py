@@ -16,14 +16,14 @@ def create_app():
     from .home import home
     # from .auth import auth
     from .create_event import create_event
-    # from .filter import filter
+    from .filter import filter
 
 
     # app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(home, url_prefix='/')
     app.register_blueprint(create_event, url_prefix='/')
     # app.register_blueprint(auth, url_prefix='/')
-    # app.register_blueprint(filter, url_prefix='/')
+    app.register_blueprint(filter, url_prefix='/')
 
 
     # from .models import User, Note
