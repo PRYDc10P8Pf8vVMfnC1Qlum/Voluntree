@@ -6,7 +6,7 @@ from flask_login import login_required, current_user
 
 home = Blueprint("home", __name__)
 
-# @login_required
+@login_required
 @home.route("/", methods = ["GET","POST"])
 def load_home():
     return render_template('index.html')
