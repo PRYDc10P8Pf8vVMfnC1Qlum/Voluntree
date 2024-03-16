@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
     <link rel="stylesheet" href="../static/styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
 <body>
     <style>
-        .footer{
+        .footer {
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -18,18 +22,21 @@
             padding: 0px 0 20px 0;
             background: #fff;
         }
-        .footer-title{
+
+        .footer-title {
             font-size: 30px;
             font-weight: 900;
             line-height: 31px;
             margin-top: 20px;
         }
-        .footer-text{
+
+        .footer-text {
             line-height: 16px;
             font-size: 15px;
-            color :#333;
+            color: #333;
         }
-        .navbar-brand{
+
+        .navbar-brand {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             line-height: 80px;
@@ -39,22 +46,25 @@
             display: flex;
         }
 
-        .logo{
+        .logo {
             width: 55px;
             height: 55px;
             margin-right: 10px;
         }
-        nav{
+
+        nav {
             height: 90px;
             margin: 0px 70px;
         }
-        .logo-text{
+
+        .logo-text {
             padding-top: 2px;
         }
-        .nav-item{
+
+        .nav-item {
             font-size: 20px;
             font-weight: 600;
-            color:#2F3D46;
+            color: #2F3D46;
             margin: 0px 10px;
             transition: 0.2s;
             position: relative;
@@ -62,7 +72,8 @@
             justify-content: center;
             align-items: center;
         }
-        .nav-item::before{
+
+        .nav-item::before {
             content: '';
             position: absolute;
             width: 90%;
@@ -70,22 +81,26 @@
             border-radius: 2px;
             background-color: #2F3D46;
             bottom: 0;
-            left:8px;
+            left: 8px;
             transform-origin: right;
             transform: scaleX(0);
             transition: transform .2s ease-in-out;
         }
-        .nav-item:hover::before{
+
+        .nav-item:hover::before {
             transform-origin: left;
             transform: scaleX(1);
         }
-        .nav-item:active::before{
+
+        .nav-item:active::before {
             background-color: #246c44dc;
         }
-        .nav-item:active{
+
+        .nav-item:active {
             color: #246c44dc;
         }
-        .login-button{
+
+        .login-button {
             line-height: 35px;
             border-radius: 10px;
             padding: 3px 40px;
@@ -95,22 +110,26 @@
             align-items: center;
             font-weight: 700;
         }
-        .sign-in{
+
+        .sign-in {
             border: #2F3D46 2px solid;
             color: #2F3D46;
             text-decoration: none;
             transition: 0.3s;
         }
-        .sign-in:hover{
+
+        .sign-in:hover {
             border-radius: 30px;
             border: #246c44dc 2px solid;
             background-color: #246c44dc;
             color: #fff;
         }
-        .sign-in:active{
+
+        .sign-in:active {
             color: #2F3D46;
         }
-        .sign-up{
+
+        .sign-up {
             border: #2F3D46 solid 2px;
             background: #2F3D46;
             margin-left: 20px;
@@ -118,123 +137,150 @@
             text-decoration: none;
             transition: 0.3s;
         }
-        .sign-up:hover{
+
+        .sign-up:hover {
             border-radius: 30px;
             border: #246c44dc 2px solid;
             background-color: #fff;
             color: #246c44dc;
         }
-        .sign-up:active{
-            background-color: #2F3D46;;
+
+        .sign-up:active {
+            background-color: #2F3D46;
+            ;
         }
 
-        @media (max-width: 1440px){
-            .navbar-brand{
+        @media (max-width: 1440px) {
+            .navbar-brand {
                 font-size: 25px;
             }
-            .logo{
+
+            .logo {
                 width: 45px;
                 height: 45px;
             }
-            nav{
+
+            nav {
                 margin: 0px 40px;
             }
-            .nav-item{
+
+            .nav-item {
                 font-size: 15px;
                 margin: 0px 0px;
                 padding: 2px;
             }
-            .nav-item::before{
+
+            .nav-item::before {
                 height: 1px;
                 width: 85%;
             }
-            .login-button{
+
+            .login-button {
                 line-height: 15px;
                 border-radius: 10px;
                 padding: 0px 20px;
                 font-size: 12px;
                 font-weight: 500;
             }
-            .sign-up{
+
+            .sign-up {
                 margin-left: 10px;
             }
-            .sign-in:hover{
+
+            .sign-in:hover {
                 border-radius: 20px;
             }
-            .sign-up:hover{
+
+            .sign-up:hover {
                 border-radius: 20px;
             }
         }
 
-        @media (max-width: 1024px){
-            .navbar-brand{
+        @media (max-width: 1024px) {
+            .navbar-brand {
                 font-size: 20px;
             }
-            .logo{
+
+            .logo {
                 width: 45px;
                 height: 45px;
             }
-            nav{
+
+            nav {
                 margin: 0px 15px;
             }
-            .nav-item{
+
+            .nav-item {
                 font-size: 13px;
                 margin: 0px 0px;
                 padding: 2px;
             }
-            .nav-item::before{
+
+            .nav-item::before {
                 height: 1px;
             }
-            .login-button{
+
+            .login-button {
                 /* background-color: red; */
                 padding: 0px 15px;
                 font-size: 12px;
                 font-weight: 500;
             }
-            .sign-up{
+
+            .sign-up {
                 margin-left: 10px;
             }
-            .sign-in:hover{
+
+            .sign-in:hover {
                 border-radius: 20px;
             }
-            .sign-up:hover{
+
+            .sign-up:hover {
                 border-radius: 20px;
             }
 
         }
-        @media (max-width: 767px){
-            .navbar-brand{
-            line-height: 60px;
-            font-size: 30px;
+
+        @media (max-width: 767px) {
+            .navbar-brand {
+                line-height: 60px;
+                font-size: 30px;
             }
-            .logo{
+
+            .logo {
                 width: 45px;
                 height: 45px;
             }
-            nav{
+
+            nav {
                 height: 90px;
                 border-bottom: black solid 1px;
                 margin: 0px 10px;
             }
-            #offcanvasNavbar{
+
+            #offcanvasNavbar {
                 padding-top: 10px;
                 width: 50%;
             }
-            .offcanvas-title{
+
+            .offcanvas-title {
                 font-size: 25px;
                 font-weight: 700;
             }
-            .nav-item{
+
+            .nav-item {
                 font-size: 18px;
                 margin: 0px 0px;
                 padding: 0px;
             }
-            .nav-item::before{
+
+            .nav-item::before {
                 height: 1px;
                 width: 50%;
                 left: 25%;
             }
-            .login-button{
+
+            .login-button {
                 line-height: 25px;
                 border-radius: 10px;
                 padding: 6px 20px;
@@ -242,42 +288,51 @@
                 font-weight: 600;
                 width: 180px;
             }
-            .sign-in{
+
+            .sign-in {
                 margin: 40px auto 15px auto;
             }
-            .sign-up{
+
+            .sign-up {
                 margin-left: 0px;
                 margin: 0px auto;
             }
         }
-        @media (max-width: 425px){
-            .navbar-brand{
-            line-height: 60px;
-            font-size: 25px;
+
+        @media (max-width: 425px) {
+            .navbar-brand {
+                line-height: 60px;
+                font-size: 25px;
             }
-            .logo{
+
+            .logo {
                 width: 40px;
                 height: 40px;
             }
-            #offcanvasNavbar{
+
+            #offcanvasNavbar {
                 padding-top: 10px;
                 width: 70%;
             }
-            .offcanvas-title{
+
+            .offcanvas-title {
                 font-size: 25px;
                 font-weight: 700;
             }
-            .nav-item{
+
+            .nav-item {
                 font-size: 18px;
                 margin: 0px 0px;
                 padding: 0px;
             }
-            .nav-item::before{
+
+            .nav-item::before {
                 height: 1px;
                 width: 50%;
                 left: 25%;
             }
-            .login-button{
+
+            .login-button {
                 line-height: 25px;
                 border-radius: 10px;
                 padding: 6px 20px;
@@ -285,10 +340,12 @@
                 font-weight: 600;
                 width: 180px;
             }
-            .sign-in{
+
+            .sign-in {
                 margin: 40px auto 15px auto;
             }
-            .sign-up{
+
+            .sign-up {
                 margin-left: 0px;
                 margin: 0px auto;
             }
@@ -296,11 +353,15 @@
     </style>
     <nav class="navbar top navbar-expand-lg navbar-expand-md">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <a class="navbar-brand" href="index.html"><img class='logo' src="../static/img/logo_dark.png">
+                <div class='logo-text'>VolunTree</div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Меню</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -308,17 +369,17 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="/filter">Волонтерство</a>
+                            <a class="nav-link mx-lg-2" aria-current="page" href="/filter">Волонтерство</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="#platform">Про платформу</a>
+                            <a class="nav-link mx-lg-2" href="#platform">Про платформу</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="#team">Команда</a>
                         </li>
                     </ul>
-                    <a href = "choose.html" class="login-button sign-in">Sign In</a>
-                    <a href = "choose.html" class="login-button sign-up">Sign Up</a>
+                    <a href="choose.html" class="login-button sign-in">Sign In</a>
+                    <a href="choose.html" class="login-button sign-up">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -337,27 +398,30 @@
                     <p class="choose_your_title-text">Обирай своє волонтерство.</p>
                     <a href="#" class="choose_your_title-link"><img src="../static/img/arrow right.png" alt=""></a>
                 </div>
-                <div class="choose_your_description">Перш за все, волонтерство - це здатність допомагати іншим та віддавати свій час та зусилля без будь-якої матеріальної вигоди. Коли люди добровільно віддають свій час на підтримку тих, хто цього потребує, вони не лише надають конкретну допомогу, а й дарують надію та віру в краще майбутнє.</div>
+                <div class="choose_your_description">Перш за все, волонтерство - це здатність допомагати іншим та
+                    віддавати свій час та зусилля без будь-якої матеріальної вигоди. Коли люди добровільно віддають свій
+                    час на підтримку тих, хто цього потребує, вони не лише надають конкретну допомогу, а й дарують надію
+                    та віру в краще майбутнє.</div>
             </div>
             <div class="choose_your_options">
                 <div class="choose_your_options_blok">
-                    <a href= "#" class="choose_your_options_one">
+                    <a href="#" class="choose_your_options_one">
                         <img src="../static/img/soldier.png" alt="">
                         <p class="choose_your_options_one-text">Допомога захисникам</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href="#" class="choose_your_options_one">
                         <img src="../static/img/social.png" alt="">
                         <p class="choose_your_options_one-text">Волонтерство на заходах</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href="#" class="choose_your_options_one">
                         <img src="../static/img/science.png" alt="">
                         <p class="choose_your_options_one-text">Освіта та наука</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href="#" class="choose_your_options_one">
                         <img src="../static/img/ecology.png" alt="">
                         <p class="choose_your_options_one-text">Зоо та екологія</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href="#" class="choose_your_options_one">
                         <img src="../static/img/culture.png" alt="">
                         <p class="choose_your_options_one-text">Культура та мистецтво</p>
                     </a>
@@ -367,7 +431,7 @@
                 </div>
             </div>
         </div>
-        <div class="platform" id = 'platform'>
+        <div class="platform" id='platform'>
             <div class="platform-connects">
                 <div class="platform-connects_title">Платформа</div>
                 <div class="platform-connects_text">Об’єднує всі волонтерські можливості країни в одному місці</div>
@@ -386,14 +450,18 @@
                 <div class="oport-blok_photo"><img src="../static/img/oport2.avif" alt=""></div>
                 <div class="oport-blok_text">
                     <p class="oport-blok_title">Волонтери</p>
-                    <p class="oport-blok_text-s">Волонтери - це ті, хто віддає свій час, енергію та навички безоплатно з метою покращення життя інших людей або допомоги у вирішенні певних соціальних, екологічних, культурних чи гуманітарних проблем.</p>
+                    <p class="oport-blok_text-s">Волонтери - це ті, хто віддає свій час, енергію та навички безоплатно з
+                        метою покращення життя інших людей або допомоги у вирішенні певних соціальних, екологічних,
+                        культурних чи гуманітарних проблем.</p>
                     <a href="/filter" class="oport-blok_button draw-border">Шукати волонтерство</a>
                 </div>
             </div>
             <div class="oport-blok oport-blok-2">
                 <div class="oport-blok_text">
                     <p class="oport-blok_title">Організації</p>
-                    <p class="oport-blok_text-s">Одна з ключових переваг волонтерства полягає в тому, що воно збирає разом людей з різних соціальних, етнічних та культурних середовищ, об'єднуючи їх у спільному бажанні допомагати іншим</p>
+                    <p class="oport-blok_text-s">Одна з ключових переваг волонтерства полягає в тому, що воно збирає
+                        разом людей з різних соціальних, етнічних та культурних середовищ, об'єднуючи їх у спільному
+                        бажанні допомагати іншим</p>
                     <a href="/create_event" class="oport-blok_button draw-border">Створити подію</a>
                 </div>
                 <div class="oport-blok_photo"><img src="../static/img/oport1.avif" alt=""></div>
@@ -402,7 +470,10 @@
                 <div class="oport-blok_photo"><img src="../static/img/oport3.avif" alt=""></div>
                 <div class="oport-blok_text">
                     <p class="oport-blok_title">Доброчинці</p>
-                    <p class="oport-blok_text-s">Доброчинці не обмежуються лише матеріальною допомогою. Вони також вкладають свої знання, навички та досвід у проекти, що сприяють розвитку суспільства та підвищенню якості життя інших. Вони можуть бути менторами, консультантами, або просто джерелом натхнення для тих, хто прагне допомагати.</p>
+                    <p class="oport-blok_text-s">Доброчинці не обмежуються лише матеріальною допомогою. Вони також
+                        вкладають свої знання, навички та досвід у проекти, що сприяють розвитку суспільства та
+                        підвищенню якості життя інших. Вони можуть бути менторами, консультантами, або просто джерелом
+                        натхнення для тих, хто прагне допомагати.</p>
                     <a href="#" class="oport-blok_button draw-border">Добра справа</a>
                 </div>
             </div>
@@ -411,28 +482,46 @@
             <div class="partners-title">Представлені організації</div>
             <div class="partners-blok">
                 {% for org in organizations %}
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">{{ org.name }}</p><p class="partners-card-city">{{ org.location }}</p></div>
-                <!-- <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div> -->
+                {% set truncated_string = org.name[:28] %}
+                {% set last_space_index = truncated_string.rfind(' ') %}
+                <a href="#" class="partners-card"><img src="../static/img/partner.png" alt="">
+                    <p class="partners-card-title">
+                        {% if truncated_string != org.name %}
+                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
+                        {% else %}
+                            {{ truncated_string }}
+                        {% endif %}
+                    </p>
+                    <p class="partners-card-city">
+                        {{ org.location }}
+                    </p>
+                </a>
                 {% endfor %}
             </div>
         </div>
-        <div class="team" id = "team">
+        <div class="team" id="team">
             <div class="team-title">Наша команда</div>
             <div class="team-card-blok">
-                <div class="team-card"><div class="team-card-photo team-card-photo1"></div><p class="team-card-name">Софія</p></div>
-                <div class="team-card"><div class="team-card-photo team-card-photo2"></div><p class="team-card-name">Ліда</p></div>
-                <div class="team-card"><div class="team-card-photo team-card-photo3"></div><p class="team-card-name">Соломія</p></div>
-                <div class="team-card"><div class="team-card-photo team-card-photo4"></div><p class="team-card-name">Ярик</p></div>
-                <div class="team-card"><div class="team-card-photo team-card-photo5"></div><p class="team-card-name">Гордій</p></div>
+                <div class="team-card">
+                    <div class="team-card-photo team-card-photo1"></div>
+                    <p class="team-card-name">Софія</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-photo team-card-photo2"></div>
+                    <p class="team-card-name">Ліда</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-photo team-card-photo3"></div>
+                    <p class="team-card-name">Соломія</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-photo team-card-photo4"></div>
+                    <p class="team-card-name">Ярик</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-photo team-card-photo5"></div>
+                    <p class="team-card-name">Гордій</p>
+                </div>
             </div>
         </div>
     </div>
@@ -441,6 +530,12 @@
         <p class="footer-text">Зроби свій вибір</p>
     </div>
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

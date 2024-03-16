@@ -526,6 +526,8 @@
 
                     <div class="cards d-flex flex-column gap-3">
                         {% for ev in events %}
+                        {% set truncated_string = ev.description[:77] %}
+                        {% set last_space_index = truncated_string.rfind(' ') %}
                         <a class="card-self" href="{{ url_for('event.event_page', eventname=ev.name) }}">
                             <div class="image-holder">
                             </div>
@@ -550,7 +552,11 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="card-text">
-                                        {{ ev.description }}
+                                        {% if truncated_string != ev.description %}
+                                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
+                                        {% else %}
+                                            {{ truncated_string }}
+                                        {% endif %}
                                     </p>
                                 </div>
                                 <div class="card-small-text">{{ ev.organization[0] }}</div>
