@@ -6,7 +6,7 @@ import os
 
 event = Blueprint("event", __name__)
 
-@login_required #HORDEUS DOPILYATY!!! - Yarik
+# @login_required HORDEUS DOPILYATY!!! - Yarik
 @event.route("/event/<string:eventname>", methods = ["GET", "POST"])
 def event_page(eventname):
     if request.method == 'POST':

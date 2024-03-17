@@ -6,7 +6,7 @@ from .models import Event, Organization, db
 
 home = Blueprint("home", __name__)
 
-@login_required
+# @login_required
 @home.route("/", methods = ["GET","POST"])
 def load_home():
     organizations = [Organization.query.all()[k] for k in range(min(6, len(Organization.query.all())))]
