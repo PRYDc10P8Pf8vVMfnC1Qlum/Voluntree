@@ -10,80 +10,368 @@
     <title>signin-signup</title>
 </head>
 <body>
+    <style>
+        /* .footer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 0 20px 0;
+            background: #fff;
+        }
+        .footer-title{
+            font-size: 30px;
+            font-weight: 900;
+            line-height: 31px;
+            margin-top: 20px;
+        }
+        .footer-text{
+            line-height: 16px;
+            font-size: 15px;
+            color :#333;
+        }
+        .navbar-brand{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            line-height: 80px;
+            font-size: 40px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
 
-    {% with messages = get_flashed_messages(with_categories = True) %}
-    {% if messages %}
-        {% for message in messages %}
-        {% if category == 'error' %}
-        <div class = 'alert alert-danger alter-dismissable fade show' role = 'alert'>
-            {{ message }}
-            <button type = 'button' class = 'close' data-dismiss = 'alert'>
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% else %}
-        <div class = 'alert alert-success alter-dismissable fade show' role = 'alert'>
-            {{ message }}
-            <button type = 'button' class = 'close' data-dismiss = 'alert'>
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% endif %}
-        {% endfor %}
-    {% endif %}
-    {% endwith %}
+        .logo{
+            width: 55px;
+            height: 55px;
+            margin-right: 10px;
+        }
+        nav{
+            height: 90px;
+            margin: 0px 70px;
+        }
+        .logo-text{
+            padding-top: 2px;
+        }
+        .nav-item{
+            font-size: 20px;
+            font-weight: 600;
+            color:#2F3D46;
+            margin: 0px 10px;
+            transition: 0.2s;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-item::before{
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 2px;
+            border-radius: 2px;
+            background-color: #2F3D46;
+            bottom: 0;
+            left:8px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .2s ease-in-out;
+        }
+        .nav-item:hover::before{
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+        .nav-item:active::before{
+            background-color: #246c44dc;
+        }
+        .nav-item:active{
+            color: #246c44dc;
+        }
+        .login-button{
+            line-height: 35px;
+            border-radius: 10px;
+            padding: 3px 40px;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+        .sign-in{
+            border: #2F3D46 2px solid;
+            color: #2F3D46;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .sign-in:hover{
+            border-radius: 30px;
+            border: #246c44dc 2px solid;
+            background-color: #246c44dc;
+            color: #fff;
+        }
+        .sign-in:active{
+            color: #2F3D46;
+        }
+        .sign-up{
+            border: #2F3D46 solid 2px;
+            background: #2F3D46;
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .sign-up:hover{
+            border-radius: 30px;
+            border: #246c44dc 2px solid;
+            background-color: #fff;
+            color: #246c44dc;
+        }
+        .sign-up:active{
+            background-color: #2F3D46;;
+        }
 
+        @media (max-width: 1440px){
+            .navbar-brand{
+                font-size: 25px;
+            }
+            .logo{
+                width: 45px;
+                height: 45px;
+            }
+            nav{
+                margin: 0px 40px;
+            }
+            .nav-item{
+                font-size: 15px;
+                margin: 0px 0px;
+                padding: 2px;
+            }
+            .nav-item::before{
+                height: 1px;
+                width: 85%;
+            }
+            .login-button{
+                line-height: 15px;
+                border-radius: 10px;
+                padding: 0px 20px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            .sign-up{
+                margin-left: 10px;
+            }
+            .sign-in:hover{
+                border-radius: 20px;
+            }
+            .sign-up:hover{
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 1024px){
+            .navbar-brand{
+                font-size: 20px;
+            }
+            .logo{
+                width: 45px;
+                height: 45px;
+            }
+            nav{
+                margin: 0px 15px;
+            }
+            .nav-item{
+                font-size: 13px;
+                margin: 0px 0px;
+                padding: 2px;
+            }
+            .nav-item::before{
+                height: 1px;
+            }
+            .login-button{
+                /* background-color: red; */
+                padding: 0px 15px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            .sign-up{
+                margin-left: 10px;
+            }
+            .sign-in:hover{
+                border-radius: 20px;
+            }
+            .sign-up:hover{
+                border-radius: 20px;
+            }
+
+        }
+        @media (max-width: 767px){
+            .navbar-brand{
+            line-height: 60px;
+            font-size: 30px;
+            }
+            .logo{
+                width: 45px;
+                height: 45px;
+            }
+            nav{
+                height: 90px;
+                border-bottom: black solid 1px;
+                margin: 0px 10px;
+            }
+            #offcanvasNavbar{
+                padding-top: 10px;
+                width: 50%;
+            }
+            .offcanvas-title{
+                font-size: 25px;
+                font-weight: 700;
+            }
+            .nav-item{
+                font-size: 18px;
+                margin: 0px 0px;
+                padding: 0px;
+            }
+            .nav-item::before{
+                height: 1px;
+                width: 50%;
+                left: 25%;
+            }
+            .login-button{
+                line-height: 25px;
+                border-radius: 10px;
+                padding: 6px 20px;
+                font-size: 15px;
+                font-weight: 600;
+                width: 180px;
+            }
+            .sign-in{
+                margin: 40px auto 15px auto;
+            }
+            .sign-up{
+                margin-left: 0px;
+                margin: 0px auto;
+            }
+        }
+        @media (max-width: 425px){
+            .navbar-brand{
+            line-height: 60px;
+            font-size: 25px;
+            }
+            .logo{
+                width: 40px;
+                height: 40px;
+            }
+            #offcanvasNavbar{
+                padding-top: 10px;
+                width: 70%;
+            }
+            .offcanvas-title{
+                font-size: 25px;
+                font-weight: 700;
+            }
+            .nav-item{
+                font-size: 18px;
+                margin: 0px 0px;
+                padding: 0px;
+            }
+            .nav-item::before{
+                height: 1px;
+                width: 50%;
+                left: 25%;
+            }
+            .login-button{
+                line-height: 25px;
+                border-radius: 10px;
+                padding: 6px 20px;
+                font-size: 15px;
+                font-weight: 600;
+                width: 180px;
+            }
+            .sign-in{
+                margin: 40px auto 15px auto;
+            }
+            .sign-up{
+                margin-left: 0px;
+                margin: 0px auto;
+            }
+        }
+    </style>
+    <nav class="navbar top navbar-expand-lg navbar-expand-md">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Меню</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                        <a class="nav-link mx-lg-2" aria-current="page" href="filter.html">Волонтерство</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="index.html#platform">Про платформу</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="index.html#team">Команда</a>
+                        </li>
+                    </ul>
+                    <a href = "#" class="login-button sign-in">Sign In</a>
+                    <a href = "#" class="login-button sign-up">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav> */
     <div class="container">
         <div class="signin-signup">
-            <form action="" class="sign-in-form" method="post">
+            <form action="" class="sign-in-form">
                 <h2 class="title">Вхід</h2>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input name = 'mail-login' type="text" placeholder="Пошта">
+                    <input type="text" placeholder="Пошта">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input name = 'password-login' type="password" placeholder="Пароль">
+                    <input type="password" placeholder="Пароль">
                 </div>
                 <input type="submit" value="Увійти" class="btn">
                 <p class="account-text">Не маєте акаунту? <a href="#" id="sign-up-btn2">Зареєструватися</a></p>
             </form>
-            <form action="" class="sign-up-form" method="post">
+            <form action="" class="sign-up-form">
                 <h2 class="title">Реєстрація</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input name = 'name-register' type="text" placeholder="Ім'я користувача">
+                    <input type="text" placeholder="Ім'я користувача">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input name = 'mail-register' type="text" placeholder="Пошта">
+                    <input type="text" placeholder="Пошта">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input name = 'password-register' type="password" placeholder="Пароль">
+                    <input type="password" placeholder="Пароль">
                 </div>
                 <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    <input name = 'password-register-confirmation' type="password" placeholder="Пароль">
-                </div>
-                <div class="input-field">
-                    <input name = 'logo' type="file" value="Логотип організації">
+                    <input type="file" value="Логотип організації">
                 </div>
                 
                 <div class="input-field">
                     <i class="fa fa-address-book"></i>
-                    <input name = 'orgname' type="text" placeholder="Назва організації">
+                    <input type="password" placeholder="Назва організації">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input name = 'org-adress' type="text" placeholder="Адреса">
+                    <input type="text" placeholder="Адреса">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input name = 'socials' type="text" placeholder="Посилання на соц. мережі">
+                    <input type="text" placeholder="Посилання на соц. мережі">
                 </div>
                 <input type="submit" value="Зареєструватися" id='sign-up-btn2' class="btn" onclick="">
-                <!-- <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p> -->
+                <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
             </form>
             <!-- <form action="" class="continue-form" id="continue-form" style="display: none;">
                 <h2 class="title">Реєстрація</h2>
