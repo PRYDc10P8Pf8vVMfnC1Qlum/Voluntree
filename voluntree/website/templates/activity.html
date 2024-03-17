@@ -38,8 +38,7 @@
                             <a class="nav-link mx-lg-2" href="#">Підтримати</a>
                         </li>
                     </ul>
-                    <a href="#" class="login-button sign-in">Sign In</a>
-                    <a href="#" class="login-button sign-up">Sign Up</a>
+                    <a href="/logout" class="login-button sign-in">Log Out</a>
                 </div>
             </div>
         </div>
@@ -77,11 +76,20 @@
             <div class="actions">
                 <div class="apply-button d-flex justify-content-center">
                     <button class="organizers-text">
+                        {% if not is_org %}
                         <div class="button-wrapper">
+                            {% if not liked %}
                             <form class="div5" method="post">
-                                <button class="request">Вподобати</button>
+                                <input type="hidden" name="like" value="like">
+                                <button class="request" type="submit">Вподобати</button>
                             </form>
+                            {% else %}
+                            <form class="div5" method="post">
+                                <p class="request">Вподобано</p>
+                            </form>
+                            {% endif %}
                         </div>
+                        {% endif %}
                         <img class="minimize-window-2-expand-retr-icon" alt=""
                             src="../static/img/minimizewindow2expandretractshrinkbiggerbigsmallsmaller.svg" />
                     </button>
@@ -120,12 +128,12 @@
 
                                 <img class="icon-calendar" alt="" src="../static/img/-icon-calendar.svg" />
                             </div>
-                            <div class="div13">Назва організації</div>
+                            <div class="div13">{{ event.organization.name }}</div>
                             <div class="div14">
-                                <p class="p4">Місто організації</p>
+                                <p class="p4">{{ event.organization.location }}</p>
                             </div>
                             <div class="div15">
-                                <p class="p5">Адреса організації</p>
+                                <p class="p5">{{ event.organization.email }}</p>
                             </div>
                             <div class="organization-frame"></div>
                             <a href="#">

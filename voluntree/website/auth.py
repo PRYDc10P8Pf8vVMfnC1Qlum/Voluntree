@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, Organization
 from re import match
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import db   ##means from __init__.py import db
@@ -69,7 +69,7 @@ def auth_organization():
             email = request.form.get('mail-login')
             password = request.form.get('password-login')
 
-            user = User.query.filter_by(email=email).first()
+            user = Organization.query.filter_by(email=email).first()
             if user:
                 if password == user.password: # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
@@ -84,8 +84,16 @@ def auth_organization():
             email = request.form.get('mail-register')
             password = request.form.get('password-register')
             password_conf = request.form.get('password-register-confirmation')
+            location = request.form.get('org-adress')
+            links = request.form.get('socials')
+            description = request.form.get('description')
+            logo = request.files.get('photo', False)
+            print(request.form)
+            print(request.files)
+            if not all([name, email, password, password_conf, location, links, description, logo]):
+                flash('Field error.', category='error')
             print('register')
-            user = User.query.filter_by(email=email).first()
+            user = Organization.query.filter_by(email=email).first()
             if user:
                 flash('Email already exists.', category='error')
             elif password != password_conf:
@@ -95,25 +103,30 @@ def auth_organization():
                 flash('Incorrect email is given.', category='error')
             else:
                 print('ooooooooooooooo')
-                new_user = User(email=email, name=name, password=password)
+                new_user = Organization(
+                    name = name,
+                    email = email,
+                    password = password,
+                    location = location,
+                    links = links,
+                    description = description)
                 db.session.add(new_user)
                 db.session.commit()
+                logo.save('uploads/' + f'{new_user.id}.png')
                 login_user(new_user, remember=True)
                 flash('Account created!', category='success')
     return render_template("organisation.html", user=current_user)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-
-
     return render_template("login.html", user=current_user)
 
 
-# @auth.route('/logout')
-# @login_required
-# def logout():
-#     logout_user()
-#     return redirect(url_for('auth.login'))
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home.load_home'))
 
 
 # @auth.route('/sign-up', methods=['GET', 'POST'])

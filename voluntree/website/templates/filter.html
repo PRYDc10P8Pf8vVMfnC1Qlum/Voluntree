@@ -379,8 +379,11 @@
                             <a class="nav-link mx-lg-2" href="#team">Команда</a>
                         </li>
                     </ul>
-                    <a href="choose.html" class="login-button sign-in">Sign In</a>
-                    <a href="choose.html" class="login-button sign-up">Sign Up</a>
+                    {% if user %}
+                    <a href="/logout" class="login-button sign-in">Log Out</a>
+                    {% else %}
+                    <a href="/auth" class="login-button sign-in">Log In</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -1,13 +1,18 @@
+import shutil
 from datetime import datetime
-from flask import Blueprint, render_template, request, flash, jsonify
-from flask_login import login_required, current_user
+from flask import Blueprint, render_template, request, flash, jsonify, redirect
+from flask_login import login_required, current_user, AnonymousUserMixin, logout_user
 from .models import Event, Organization, Hashtag, EventHashtag, db
 
 create_event = Blueprint("create_event", __name__)
 
-# @login_required HORDEUS DOPILYATY!!! - Yarik
 @create_event.route("/create_event", methods = ["GET", "POST"])
 def create_an_event():
+    if isinstance(current_user, AnonymousUserMixin):
+        return redirect('/auth')
+    if not isinstance(current_user, Organization):
+        logout_user()
+        return redirect('/auth/organisation')
     if request.method == 'POST':
         title = request.form.get('title')
         email = request.form.get('email')
@@ -19,7 +24,7 @@ def create_an_event():
         event = Event(
             name = title,
             email = email,
-            organization_id = 1, #HORDEUS DOPILYATY!!! - Yarik
+            organization_id = current_user.id,  
             location = location,
             date = datetime(int(date.split('-')[0]), int(date.split('-')[1]), int(date.split('-')[2]), int(time.split(':')[0]), int(time.split(':')[1])),
             description = description
@@ -31,10 +36,9 @@ def create_an_event():
             db.session.add(eh)
         db.session.commit()
 
-        file = x if (x:=request.files.get('photo', None)) is not None else event.organization_id
+        file = x if str((x:=request.files.get('photo', None)).mimetype) != 'application/octet-stream' else event.organization_id
         if not isinstance(file, int):
             file.save('uploads/' + f'e{event.id}.png')
-        
-        print(request.form, request.files)
-        return render_template('index.html')
-    return render_template('create_event.html', user = current_user)
+        else:
+            shutil.copy(f'uploads/{event.organization_id}.png', f'uploads/e{event.id}.png')
+    return redirect('/home')
