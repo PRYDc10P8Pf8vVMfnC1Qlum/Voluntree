@@ -20,11 +20,14 @@ def create_an_event():
         date = request.form.get('date')
         time = request.form.get('time')
         checked_boxes = request.form.getlist('tag')
+        if len(checked_boxes) < 1:
+            flash('You have to pick a tag/tags!', category='error')
+        link = request.form.get('link','') #implement in database first
         location = f'{request.form.get("city")}, {request.form.get("address")}' if request.form.get('format_off') == 'on' else "Дистанційно"
         event = Event(
             name = title,
             email = email,
-            organization_id = current_user.id,  
+            organization_id = current_user.id,
             location = location,
             date = datetime(int(date.split('-')[0]), int(date.split('-')[1]), int(date.split('-')[2]), int(time.split(':')[0]), int(time.split(':')[1])),
             description = description
@@ -41,4 +44,6 @@ def create_an_event():
             file.save('uploads/' + f'e{event.id}.png')
         else:
             shutil.copy(f'uploads/{event.organization_id}.png', f'uploads/e{event.id}.png')
-    return redirect('/home')
+        return redirect('/home')
+    else:
+        return render_template('create_event.html')

@@ -353,7 +353,7 @@
     </style>
     <nav class="navbar top navbar-expand-lg navbar-expand-md">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img class='logo' src="../static/img/logo_dark.png">
+            <a class="navbar-brand" href="/"><img class='logo' src="../static/img/logo_dark.png">
                 <div class='logo-text'>VolunTree</div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -388,7 +388,7 @@
         </div>
     </nav>
     <div class="volunteer_world">
-        <div class="volunteer_world_image"><img src="../static/../static/img/tree.jpg" alt=""></div>
+        <div class="volunteer_world_image"><img src="../static/img/tree.jpg" alt=""></div>
         <div class="volunteer_world_text">
             <p class="open_world_text_big">Відкрий світ волонтерства!</p>
             <p class="open_world_text">Сотні можливостей та однодумців вже чекають на тебе</p>
@@ -399,7 +399,7 @@
             <div class="choose_your_text">
                 <div class="choose_your_title">
                     <p class="choose_your_title-text">Обирай своє волонтерство.</p>
-                    <a href="#" class="choose_your_title-link"><img src="../static/img/arrow right.png" alt=""></a>
+                    <a href="/filter" class="choose_your_title-link"><img src="../static/img/arrow right.png" alt=""></a>
                 </div>
                 <div class="choose_your_description">Перш за все, волонтерство - це здатність допомагати іншим та
                     віддавати свій час та зусилля без будь-якої матеріальної вигоди. Коли люди добровільно віддають свій
@@ -408,29 +408,29 @@
             </div>
             <div class="choose_your_options">
                 <div class="choose_your_options_blok">
-                    <a href="#" class="choose_your_options_one">
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Допомога захисникам') }}" class="choose_your_options_one">
                         <img src="../static/img/soldier.png" alt="">
                         <p class="choose_your_options_one-text">Допомога захисникам</p>
                     </a>
-                    <a href="#" class="choose_your_options_one">
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Волонтерство на заходах') }}" class="choose_your_options_one">
                         <img src="../static/img/social.png" alt="">
                         <p class="choose_your_options_one-text">Волонтерство на заходах</p>
                     </a>
-                    <a href="#" class="choose_your_options_one">
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Освіта та наука') }}" class="choose_your_options_one">
                         <img src="../static/img/science.png" alt="">
                         <p class="choose_your_options_one-text">Освіта та наука</p>
                     </a>
-                    <a href="#" class="choose_your_options_one">
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Зоо та екологія') }}" class="choose_your_options_one">
                         <img src="../static/img/ecology.png" alt="">
                         <p class="choose_your_options_one-text">Зоо та екологія</p>
                     </a>
-                    <a href="#" class="choose_your_options_one">
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Культура та мистецтво') }}" class="choose_your_options_one">
                         <img src="../static/img/culture.png" alt="">
                         <p class="choose_your_options_one-text">Культура та мистецтво</p>
                     </a>
                 </div>
                 <div class="choose_your_options_more">
-                    <a href="#" class="choose_your_options_more_button">Показати більше</a>
+                    <a href="/filter" class="choose_your_options_more_button">Показати більше</a>
                 </div>
             </div>
         </div>
@@ -438,13 +438,13 @@
             <div class="platform-connects">
                 <div class="platform-connects_title">Платформа</div>
                 <div class="platform-connects_text">Об’єднує всі волонтерські можливості країни в одному місці</div>
-                <a href="#" class="platform-connects_button draw-border">Приєднатися</a>
+                <a href="/auth" class="platform-connects_button draw-border">Приєднатися</a>
                 <div class="platform-connects_photo"><img src="../static/img/volun (1).png" alt=""></div>
             </div>
             <div class="platform-stays">
                 <div class="platform-stays_photo"><img src="../static/img/volun (2).png" alt=""></div>
                 <div class="platform-stays_text">Стає медіатором між ефективними ініціативами та волонтерами</div>
-                <a href="#" class="platform-stays_button draw-border">Поділитися можливістю</a>
+                <a href="https://www.instagram.com/" class="platform-stays_button draw-border">Поділитися можливістю</a>
             </div>
         </div>
         <div class="oport">
@@ -477,7 +477,7 @@
                         вкладають свої знання, навички та досвід у проекти, що сприяють розвитку суспільства та
                         підвищенню якості життя інших. Вони можуть бути менторами, консультантами, або просто джерелом
                         натхнення для тих, хто прагне допомагати.</p>
-                    <a href="#" class="oport-blok_button draw-border">Добра справа</a>
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Онлайн волонтерство') }}" class="oport-blok_button draw-border">Добра справа</a>
                 </div>
             </div>
         </div>
@@ -487,7 +487,7 @@
                 {% for org in organizations %}
                 {% set truncated_string = org.name[:28] %}
                 {% set last_space_index = truncated_string.rfind(' ') %}
-                <a href="#" class="partners-card"><img src="../static/img/partner.png" alt="">
+                <a href="#" class="partners-card"><img src="{{ url_for('home.serve_uploads', filename=org.id|string + '.png') }}" alt="">
                     <p class="partners-card-title">
                         {% if truncated_string != org.name %}
                             {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}

@@ -20,6 +20,7 @@ def create_app():
     from .event import event
     from .create_event import create_event
     from .filter import filter_
+    from .profile import profile
 
 
     # app.register_blueprint(views, url_prefix='/')
@@ -28,18 +29,19 @@ def create_app():
     app.register_blueprint(event, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(filter_, url_prefix='/')
+    app.register_blueprint(profile, url_prefix='/')
 
     with app.app_context():
         create_database(app)
 
     login_manager = LoginManager()
-    login_manager.login_view = 'auth.auth_volunteer'
+    login_manager.login_view = 'auth.choose'
     login_manager.init_app(app)
 
     @login_manager.user_loader
     def load_user(id):
         # return models.User.query.get(int(id))
-        return models.Organization.query.get(int(id))
+        return models.User.query.get(int(id))
 
     return app
 

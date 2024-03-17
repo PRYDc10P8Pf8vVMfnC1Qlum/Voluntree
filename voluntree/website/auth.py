@@ -1,3 +1,4 @@
+import shutil
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Organization
 from re import match
@@ -52,8 +53,10 @@ def auth_volunteer():
                 new_user = User(email=email, name=name, password=password)
                 db.session.add(new_user)
                 db.session.commit()
+                shutil.copy('website\static\img\partner.png', f'uploads/u{new_user.id}.png')
                 login_user(new_user, remember=True)
                 flash('Account created!', category='success')
+                return redirect('/home')
     return render_template("volunteer.html", user=current_user)
 
 
@@ -70,11 +73,12 @@ def auth_organization():
             password = request.form.get('password-login')
 
             user = Organization.query.filter_by(email=email).first()
+            print(user.__dict__)
             if user:
                 if password == user.password: # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
                     login_user(user, remember=True)
-                    return redirect(url_for('home'))
+                    return redirect(url_for('home.load_home'))
                 else:
                     flash('Incorrect password, try again.', category='error')
             else:
@@ -87,7 +91,7 @@ def auth_organization():
             location = request.form.get('org-adress')
             links = request.form.get('socials')
             description = request.form.get('description')
-            logo = request.files.get('photo', False)
+            logo = request.files.get('logo')
             print(request.form)
             print(request.files)
             if not all([name, email, password, password_conf, location, links, description, logo]):
@@ -115,6 +119,7 @@ def auth_organization():
                 logo.save('uploads/' + f'{new_user.id}.png')
                 login_user(new_user, remember=True)
                 flash('Account created!', category='success')
+                return redirect('/home')
     return render_template("organisation.html", user=current_user)
 
 @auth.route('/login', methods=['GET', 'POST'])
