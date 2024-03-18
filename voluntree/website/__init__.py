@@ -3,24 +3,33 @@ from os import path
 from flask import Flask, url_for
 from flask_login import LoginManager
 from . import models
-
+#email
+# from flask_redmail import RedMail
 
 DB_NAME = 'voluntree.db'
-
+#email
+# email = RedMail()
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = '1234567890'    
+    app.config['SECRET_KEY'] = '1234567890'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     models.db.init_app(app)
 
+    #email
+    
+    # app.config["EMAIL_HOST"] = "localhost"
+    # app.config["EMAIL_PORT"] = 587
+    # app.config["EMAIL_USER"] = "me@example.com"
+    # app.config["EMAIL_PASSWORD"] = "<PASSWORD>"
+    # email.init_app(app)
+    ####
 
     from .home import home
     from .auth import auth
     from .event import event
     from .create_event import create_event
     from .filter import filter_
-    from .profile import profile
 
 
     # app.register_blueprint(views, url_prefix='/')
@@ -29,18 +38,16 @@ def create_app():
     app.register_blueprint(event, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(filter_, url_prefix='/')
-    app.register_blueprint(profile, url_prefix='/')
 
     with app.app_context():
         create_database(app)
 
     login_manager = LoginManager()
-    login_manager.login_view = 'auth.choose'
+    login_manager.login_view = 'auth.auth_volunteer'
     login_manager.init_app(app)
 
     @login_manager.user_loader
     def load_user(id):
-        # return models.Organizatoin.query.get(int(id))
         return models.User.query.get(int(id))
 
     return app

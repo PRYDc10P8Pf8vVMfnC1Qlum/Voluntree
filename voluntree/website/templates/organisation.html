@@ -12,31 +12,35 @@
 <body>
 
     {% with messages = get_flashed_messages(with_categories = True) %}
-    {% if messages %}
-        {% for message in messages %}
-        {% if category == 'error' %}
-        <div class = 'alert alert-danger alter-dismissable fade show' role = 'alert'>
-            {{ message }}
-            <button type = 'button' class = 'close' data-dismiss = 'alert'>
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {% else %}
-        <div class = 'alert alert-success alter-dismissable fade show' role = 'alert'>
-            {{ message }}
-            <button type = 'button' class = 'close' data-dismiss = 'alert'>
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+
+                <div id ="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    {{message}}
+                </div>
+                {% endif %}
+            {% endfor %}
         {% endif %}
-        {% endfor %}
-    {% endif %}
     {% endwith %}
 
     <div class="container">
         <div class="signin-signup">
             <form action="" class="sign-in-form" method="post">
                 <h2 class="title">Вхід</h2>
+                {% with messages = get_flashed_messages(with_categories = True) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'error-log' %}
+                            <div id ="alert-error">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
+                                {{message}}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
                     <input name = 'mail-login' type="text" placeholder="Пошта">
@@ -50,39 +54,51 @@
             </form>
             <form action="" class="sign-up-form" method="post">
                 <h2 class="title">Реєстрація</h2>
-                <div class="input-field">
+                {% with messages = get_flashed_messages(with_categories = True) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'error-reg' %}
+                            <div id ="alert-error">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
+                                {{message}}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-user"></i>
                     <input name = 'name-register' type="text" placeholder="Ім'я користувача">
                 </div>
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-envelope"></i>
                     <input name = 'mail-register' type="text" placeholder="Пошта">
                 </div>
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-lock"></i>
                     <input name = 'password-register' type="password" placeholder="Пароль">
                 </div>
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-lock"></i>
                     <input name = 'password-register-confirmation' type="password" placeholder="Пароль">
                 </div>
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <input name = 'logo' type="file" value="Логотип організації">
                 </div>
                 
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fa fa-address-book"></i>
-                    <input name = 'description' type="text" placeholder="Назва організації">
+                    <input name = 'orgname' type="text" placeholder="Назва організації">
                 </div>
-                <button type="submit" id='sign-up-btn2' class="btn" style="position: absolute;">Зареєструватися</button>
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-user"></i>
                     <input name = 'org-adress' type="text" placeholder="Адреса">
                 </div>
-                <div class="input-field">
+                <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-envelope"></i>
                     <input name = 'socials' type="text" placeholder="Посилання на соц. мережі">
                 </div>
+                <input type="submit" value="Зареєструватися" id='sign-up-btn2' class="btn" onclick="">
                 <!-- <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p> -->
             </form>
             <!-- <form action="" class="continue-form" id="continue-form" style="display: none;">

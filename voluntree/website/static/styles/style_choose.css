@@ -89,7 +89,7 @@
   
   .split.left {
     left:0;
-    background: url('/choice/img/volunteer.png') center center no-repeat;
+    background: url('/static/img/volunteer.png') center center no-repeat;
     background-size: cover;
   }
   
@@ -103,7 +103,7 @@
   
   .split.right {
     right:0;
-    background: url('/choice/img/organisation.webp') center center no-repeat;
+    background: url('/static/img/organisation.webp') center center no-repeat;
     background-size: cover;
   }
   
