@@ -379,10 +379,10 @@
                             <a class="nav-link mx-lg-2" href="#team">Команда</a>
                         </li>
                     </ul>
-                    {% if user %}
-                    <a href="/logout" class="login-button sign-in">Log Out</a>
+                    {% if not user.is_authenticated %}
+                    <a href = "/auth" class="login-button sign-in">Sign In / Sign Up</a>
                     {% else %}
-                    <a href="/auth" class="login-button sign-in">Log In</a>
+                    <a href = "/user" class="login-button sign-in">Profile</a>
                     {% endif %}
                 </div>
             </div>
@@ -529,8 +529,6 @@
 
                     <div class="cards d-flex flex-column gap-3">
                         {% for ev in events %}
-                        {% set truncated_string = ev.description[:77] %}
-                        {% set last_space_index = truncated_string.rfind(' ') %}
                         <a class="card-self" href="{{ url_for('event.event_page', eventname=ev.name) }}">
                             <div class="image-holder">
                             </div>
@@ -555,11 +553,7 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="card-text">
-                                        {% if truncated_string != ev.description %}
-                                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
-                                        {% else %}
-                                            {{ truncated_string }}
-                                        {% endif %}
+                                        {{ ev.description }}
                                     </p>
                                 </div>
                                 <div class="card-small-text">{{ ev.organization[0] }}</div>
