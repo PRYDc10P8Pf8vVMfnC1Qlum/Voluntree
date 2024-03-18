@@ -40,7 +40,7 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(id):
-        # return models.User.query.get(int(id))
+        # return models.Organizatoin.query.get(int(id))
         return models.User.query.get(int(id))
 
     return app

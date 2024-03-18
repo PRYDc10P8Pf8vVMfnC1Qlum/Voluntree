@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Verify email</title>
+</head>
+<body>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #727171;
+        }
+        .container {
+        position: relative;
+        width: 70vw;
+        height: 80vh;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        }
+        .title {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 800;
+        color: #2F3D46;
+        margin-bottom: 7%;
+        margin-top: 10%;
+        }
+        .icon {
+        text-align: center;
+        }
+        .icon i {
+        font-size: 150px;
+        color: #517970;
+        }
+        .text{
+            margin-left: 30%;
+            margin-top: 7%;
+            width: 40%;
+            text-align: center;
+        }
+        .text p{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        color: #2F3D46;
+        }
+        @media (max-width:779px) {
+        .container {
+            width: 100vw;
+            height: 100vh;
+        }
+        .title{
+            margin-top: 20%
+        }
+        }
+        @media (max-width:635px) {
+        .container::before {
+            display: none;
+        }
+        .title{
+            margin-top: 30%;
+            margin-bottom: 10%;
+            font-size: 30px;
+        }
+        .icon{
+            margin-bottom: 10%;
+        }
+        .text{
+            font-size: 15;
+        }
+        }
+        @media (max-width:390px) {
+        .title{
+            margin: 20%;
+        }
+        .text{
+            margin-left: 30%;
+        }
+        }
+    
+    </style>
+    <div class="container">
+        <div class="left-panel"></div>
+            <form action="" class="sign-up-form">
+                <div class="right-panel">
+                <h2 class="title">Перевірте ваш Email!</h2>
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div class="text"><p>Ми надіслали лист з підтвердженням на вашу пошту. Перейдіть за посиланням у листі, аби підтвердити свій Email.</p></div>
+            </form>
+        </div>
+    </div>
+</body>
