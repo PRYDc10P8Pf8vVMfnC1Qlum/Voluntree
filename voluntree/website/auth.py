@@ -1,3 +1,4 @@
+import shutil
 from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app
 from .models import User, Organization
 from re import match
@@ -57,6 +58,7 @@ def auth_volunteer():
                 new_user = User(email=email, name=name, password=password)
                 db.session.add(new_user)
                 db.session.commit()
+                shutil.copy('website\static\img\partner.png', f'uploads/u{new_user.id}.png')
                 login_user(new_user, remember=True)
                 flash('Account created!', category='success')
                 return redirect(url_for('auth.success'))
@@ -100,6 +102,8 @@ def auth_organization():
                 flash('Email already exists.', category='error-reg')
             elif len(name)<3:
                 flash('Name must be at least 3 characters', category='error-reg')
+            elif len(description)<24:
+                flash('Organization description must be at least 24 characters', category='error-reg')
             elif len(orgname)<3:
                 flash('Organization name must be at least 3 characters', category='error-reg')
             elif not logo:
@@ -116,6 +120,13 @@ def auth_organization():
             elif not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
                 flash('Incorrect email is given.', category='error')
             else:
+                new_user = Organization(
+                    name = name,
+                    email = email,
+                    password = password,
+                    location = location,
+                    links = links,
+                    description = description)
                 #########EMAIL##############
                 # token = jwt.encode({"email": email}, current_app.config["SECRET_KEY"])
         
@@ -134,9 +145,9 @@ def auth_organization():
                 
                 
                 logo.save('uploads/' + f'{new_user.id}.png')
-                # login_user(new_user, remember=True)
+                login_user(new_user, remember=True)
                 flash('Account created!', category='success')
-                return redirect(url_for('auth.email'))
+                return redirect(url_for('home.load_home'))
             
 
                 
