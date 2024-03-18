@@ -52,7 +52,7 @@
                 <input type="submit" value="Увійти" class="btn">
                 <p class="account-text">Не маєте акаунту? <a href="#" id="sign-up-btn2">Зареєструватися</a></p>
             </form>
-            <form action="" class="sign-up-form" method="post">
+            <form action="" class="sign-up-form" enctype="multipart/form-data" method="post">
                 <h2 class="title">Реєстрація</h2>
                 {% with messages = get_flashed_messages(with_categories = True) %}
                     {% if messages %}

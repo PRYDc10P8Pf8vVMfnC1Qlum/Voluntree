@@ -92,8 +92,9 @@ def auth_organization():
             password = request.form.get('password-register')
             password_conf = request.form.get('password-register-confirmation')
             print('register')
-            logo = request.files.get('photo', False)
-            orgname = request.form.get('orgname')
+            logo = request.files.get('photo')
+            print(logo.mimetype)
+            description = request.form.get('orgname')
             organization = Organization.query.filter_by(email=email).first()
             location = request.form.get('org-adress')
             links = request.form.get('socials')
@@ -104,8 +105,8 @@ def auth_organization():
                 flash('Name must be at least 3 characters', category='error-reg')
             elif len(description)<24:
                 flash('Organization description must be at least 24 characters', category='error-reg')
-            elif len(orgname)<3:
-                flash('Organization name must be at least 3 characters', category='error-reg')
+            # elif len(orgname)<3:
+            #     flash('Organization name must be at least 3 characters', category='error-reg')
             elif not logo:
                 flash('Logo must be provided in order to register', category='error-reg')
             elif not links:
