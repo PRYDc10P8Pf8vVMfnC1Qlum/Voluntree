@@ -380,8 +380,8 @@
                         </li>
                     </ul>
                     {% if not user.is_authenticated %}
-                    <a href = "/auth" class="login-button sign-in">Sign In</a>
-                    <a href = "/auth" class="login-button sign-up">Sign Up</a>
+                    <a href="/logout" class="login-button sign-in">Log Out</a>
+                    <a href = "/auth" class="login-button sign-in">Sign In / Sign Up</a>
                     {% else %}
                     <a href = "/user" class="login-button sign-in">Profile</a>
                     {% endif %}
@@ -554,7 +554,11 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="card-text">
-                                        {{ ev.description }}
+                                        {% if truncated_string != ev.description %}
+                                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
+                                        {% else %}
+                                            {{ truncated_string }}
+                                        {% endif %}
                                     </p>
                                 </div>
                                 <div class="card-small-text">{{ ev.organization[0] }}</div>
