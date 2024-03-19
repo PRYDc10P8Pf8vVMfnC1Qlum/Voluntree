@@ -30,4 +30,6 @@ def event_page(eventname):
                     db.session.delete(rel)
                     db.session.commit()
                     liked = False
-    return render_template('activity.html', event=event_, user=current_user, is_org=isinstance(current_user, Organization), liked=liked)
+    likes_amount = len([k for k in User.query.all() if event_ in k.liked_events])
+    print([k.name for k in User.query.all() if event_ in k.liked_events])
+    return render_template('activity.html', event=event_, user=current_user, is_org=isinstance(current_user, Organization), liked=liked, likes = likes_amount)
