@@ -1,0 +1,7 @@
+{% if truncated_string != ev.description %}
+    {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
+{% else %}
+    {{ truncated_string }}
+{% endif %}
+
+was in filter but was unable to run

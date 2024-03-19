@@ -50,7 +50,20 @@
                 </nav>
                 <div id="events-blok">
                     <div class="card-blok">
+
                         {% if is_org %}
+                            {% with messages = get_flashed_messages(with_categories = True) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        {% if category == 'error-event' %}
+                                        <div id ="alert-error">
+                                            <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
+                                            {{message}}
+                                        </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
                         <a class="add_event" href="/create_event">
                             <img src="../static/img/plus.png" alt="">
                             <div>

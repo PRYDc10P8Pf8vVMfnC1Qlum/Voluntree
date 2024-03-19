@@ -31,7 +31,7 @@ def auth_volunteer():
                 if password == user.password: # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
                     login_user(user, remember=True)
-                    return redirect(url_for('home.load_home')) #redirect(url_for('home.load_home'))
+                    return redirect(url_for('home.load_home'))
                 else:
                     flash('Incorrect password, try again.', category='error-log')
             else:
@@ -60,7 +60,8 @@ def auth_volunteer():
                 db.session.commit()
                 shutil.copy('website\static\img\partner.png', f'uploads/u{new_user.id}.png')
                 login_user(new_user, remember=True)
-                flash('Account created!', category='success')
+                # flash('Account created!', category='success')
+                print('redirecting')
                 return redirect(url_for('auth.success'))
 
     return render_template("volunteer.html", user=current_user)
@@ -155,75 +156,70 @@ def auth_organization():
 
     return render_template("organisation.html", user=current_user)
 
-# @auth.route('/login', methods=['GET', 'POST'])
-# def login():
 
 
-#     return render_template("login.html", user=current_user)
+# @auth.route("/user", methods = ["GET","POST"])
+# @login_required
+# def load_user():
+#     orgname = request.form.get('orgname')
+#     if not orgname:
+#         if request.method == 'POST':
+#             name = request.form.get('change-name')
+#             email = request.form.get('change-mail')
+#             password = request.form.get('password-change')
+#             password_conf = request.form.get('password-change-confirmation')
+#             content = request.form.get('content')
 
+#             if password:
+#                 if password != password_conf:
+#                     print('pass')
+#                     flash('Passwords don\'t match.', category='error')
+#                 current_user.password = password
+#                 db.session.commit()
+#             if email:
+#                 if not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
+#                     flash('Incorrect email is given.', category='error')
+#                 current_user.email = email
+#                 db.session.commit()
+#             if name:
+#                 current_user.name = name
+#                 db.session.commit()
+#             if content:
+#                 current_user.description = content
+#                 db.session.commit()
+#         else:
+#             if request.method == 'POST':
+#                 name = request.form.get('change-name')
+#                 email = request.form.get('change-mail')
+#                 password = request.form.get('password-change')
+#                 password_conf = request.form.get('password-change-confirmation')
+#                 content = request.form.get('content')
+#                 print('register')
+#                 logo = request.form.get('logo')
+#                 orgname = request.form.get('orgname')
+#                 organization = Organization.query.filter_by(email=email).first()
+#                 location = request.form.get('org-adress')
+#                 links = request.form.get('socials')
 
-@auth.route("/user", methods = ["GET","POST"])
-@login_required
-def load_user():
-    orgname = request.form.get('orgname')
-    if not orgname:
-        if request.method == 'POST':
-            name = request.form.get('change-name')
-            email = request.form.get('change-mail')
-            password = request.form.get('password-change')
-            password_conf = request.form.get('password-change-confirmation')
-            content = request.form.get('content')
-
-            if password:
-                if password != password_conf:
-                    print('pass')
-                    flash('Passwords don\'t match.', category='error')
-                current_user.password = password
-                db.session.commit()
-            if email:
-                if not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
-                    flash('Incorrect email is given.', category='error')
-                current_user.email = email
-                db.session.commit()
-            if name:
-                current_user.name = name
-                db.session.commit()
-            if content:
-                current_user.description = content
-                db.session.commit()
-        else:
-            if request.method == 'POST':
-                name = request.form.get('change-name')
-                email = request.form.get('change-mail')
-                password = request.form.get('password-change')
-                password_conf = request.form.get('password-change-confirmation')
-                content = request.form.get('content')
-                print('register')
-                logo = request.form.get('logo')
-                orgname = request.form.get('orgname')
-                organization = Organization.query.filter_by(email=email).first()
-                location = request.form.get('org-adress')
-                links = request.form.get('socials')
-
-                if password:
-                    if password != password_conf:
-                        print('pass')
-                        flash('Passwords don\'t match.', category='error')
-                    current_user.password = password
-                    db.session.commit()
-                if email:
-                    if not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
-                        flash('Incorrect email is given.', category='error')
-                    current_user.email = email
-                    db.session.commit()
-                if name:
-                    current_user.name = name
-                    db.session.commit()
-                if content:
-                    current_user.description = content
-                    db.session.commit()
+#                 if password:
+#                     if password != password_conf:
+#                         print('pass')
+#                         flash('Passwords don\'t match.', category='error')
+#                     current_user.password = password
+#                     db.session.commit()
+#                 if email:
+#                     if not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
+#                         flash('Incorrect email is given.', category='error')
+#                     current_user.email = email
+#                     db.session.commit()
+#                 if name:
+#                     current_user.name = name
+#                     db.session.commit()
+#                 if content:
+#                     current_user.description = content
+#                     db.session.commit()
                 
-    return render_template('user.html', orgoruser = current_user)
+#     return render_template('user.html', user = current_user)
 
 
 @auth.route('/logout')
@@ -235,7 +231,6 @@ def logout():
 @auth.route('/delete')
 @login_required
 def delete():
-    
     db.session.delete(current_user)
     db.session.commit()
     logout_user()

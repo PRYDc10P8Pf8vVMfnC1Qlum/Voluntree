@@ -319,10 +319,12 @@
                     </ul>
                     <!-- <a href = "/auth" class="login-button sign-in">Sign In</a>
                     <a href = "/auth" class="login-button sign-up">Sign Up</a> -->
-                    {% if not orgoruser %}
+                    {% if not user.is_authenticated %}
                     <a href = "/auth" class="login-button sign-in">Sign In / Sign Up</a>
+                    {{user.is_authenticated}}
                     {% else %}
-                    <a href = "/user" class="login-button sign-in">Profile</a>
+                    <a href = "/profile" class="login-button sign-in">Profile</a>
+                    <a href="/logout" class="login-button sign-in">Log Out</a>
                     {% endif %}
                 </div>
             </div>
