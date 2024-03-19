@@ -2,14 +2,72 @@ import shutil
 from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app
 from .models import User, Organization
 from re import match
-from werkzeug.security import generate_password_hash, check_password_hash
+# from werkzeug.security import generate_password_hash, check_password_hash
 from .models import db   ##means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 # from .__init__ import email, app
-import jwt
+import hashlib, base64, secrets, hmac
 
 
 auth = Blueprint('auth', __name__)
+
+
+
+"""Hashed"""
+#https://www.upgrad.com/blog/sha-256-algorithm/ - SHA256 - explained
+
+def hash_name(hash_fn) -> str:
+    if hash_fn.name == "SHA256":
+        return "SHA256"
+    return 0
+
+
+def hash_from_name(name: str):
+    if name == "SHA256":
+        def hash_fn(b: bytes) -> bytes:
+            return hashlib.sha256(b).digest()
+
+        hash_fn.name = "SHA256"
+        return hash_fn
+    return 0
+
+
+def hash_str_and_b64_encode(hash_fn, password: str) -> str:
+    pw_bytes = password.encode("utf-8")
+    hash_bytes = hash_fn(pw_bytes)
+    hash_bytes = base64.b64encode(hash_bytes)
+    hashed_password = hash_bytes.decode("ascii")
+    return hashed_password
+
+def gen_salt() -> str:
+    return secrets.token_urlsafe(20)
+
+def get_global_pepper() -> str:
+    """
+    Get the global secret pepper from secure memory.
+    The important thing is that it is NOT stored in the database.
+    """
+    return "giveusmaxgradepls"
+
+
+def update_password_hashed_salted_peppered(hash_fn, password: str) -> None:
+    salt = gen_salt()
+    pepper = get_global_pepper()
+    hashed_password = hash_str_and_b64_encode(hash_fn, pepper + salt + password)
+    name = hash_name(hash_fn)
+    password_hash =  f"{name}${salt}${hashed_password}"
+    return password_hash
+
+def verify_password_hashed_salted_peppered(user, password: str) -> None:
+    hash_fn_name, salt, hashed_password = user.password.split("$")
+    pepper = get_global_pepper()
+    hash_fn = hash_from_name(hash_fn_name)
+    h = hash_str_and_b64_encode(hash_fn, pepper + salt + password)
+
+    if not hmac.compare_digest(hashed_password, h):
+        return False
+    return True
+
 
 
 @auth.route('/auth', methods = ["GET"])
@@ -18,17 +76,18 @@ def choose():
 
 @auth.route('/auth/volunteer', methods = ["GET", "POST"])
 def auth_volunteer():
+    
     if request.method == 'POST':
         name = request.form.get('name-register')
-        print(request.form)
+        # print(request.form)
         if name is None:
-            print('login')
+            # print('login')
             email = request.form.get('mail-login')
             password = request.form.get('password-login')
 
             user = User.query.filter_by(email=email).first()
             if user:
-                if password == user.password: # if check_password_hash(user.password, password):
+                if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
                     login_user(user, remember=True)
                     return redirect(url_for('home.load_home'))
@@ -46,7 +105,7 @@ def auth_volunteer():
             if user:
                 flash('Email already exists.', category='error-reg')
             elif password != password_conf:
-                print('pass')
+                # print('pass')
                 flash('Passwords don\'t match.', category='error-reg')
             elif not bool(match(r'[\w]{7}+', password)):
                 flash('Password must be at least 7 characters and contain only letter and numbers', category='error-reg')
@@ -55,10 +114,14 @@ def auth_volunteer():
             elif len(name)<3:
                  flash('Name must at least 3 characters.', category='error-reg')
             else:
-                new_user = User(email=email, name=name, password=password)
+                hash_fn = hash_from_name("SHA256")
+                password_hash = update_password_hashed_salted_peppered(hash_fn,password)
+                print(password_hash)
+                new_user = User(email=email, name=name, password=password_hash)
+                print(new_user.password)
                 db.session.add(new_user)
                 db.session.commit()
-                shutil.copy('website\static\img\partner.png', f'uploads/u{new_user.id}.png')
+                shutil.copy('voluntree\\website\\static\\img\\partner.png', f'voluntree\\uploads\\u{new_user.id}.png')
                 login_user(new_user, remember=True)
                 # flash('Account created!', category='success')
                 print('redirecting')
@@ -79,7 +142,7 @@ def auth_organization():
 
             user = Organization.query.filter_by(email=email).first()
             if user:
-                if password == user.password: # if check_password_hash(user.password, password):
+                if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
                     # login_user(user, remember=True)
                     return redirect(url_for('home.load_home'))
@@ -122,10 +185,12 @@ def auth_organization():
             elif not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
                 flash('Incorrect email is given.', category='error')
             else:
+                hash_fn = hash_from_name("SHA256")
+                password_hash = update_password_hashed_salted_peppered(hash_fn,password)
                 new_user = Organization(
                     name = name,
                     email = email,
-                    password = password,
+                    password = password_hash,
                     location = location,
                     links = links,
                     description = description)
@@ -141,7 +206,6 @@ def auth_organization():
                 #         "token": token
                 #     }
                 # )
-                new_user = Organization(email=email, name=name, password=password, links = links, location = location, description = '')
                 db.session.add(new_user)
                 db.session.commit()
                 
