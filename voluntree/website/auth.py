@@ -93,7 +93,7 @@ def auth_organization():
             password = request.form.get('password-register')
             password_conf = request.form.get('password-register-confirmation')
             print('register')
-            logo = request.files.get('photo')
+            logo = request.files.get('logo')
             print(logo.mimetype)
             description = request.form.get('orgname')
             organization = Organization.query.filter_by(email=email).first()
@@ -108,7 +108,7 @@ def auth_organization():
                 flash('Organization description must be at least 24 characters', category='error-reg')
             # elif len(orgname)<3:
             #     flash('Organization name must be at least 3 characters', category='error-reg')
-            elif not logo:
+            elif str(logo.mimetype) == 'application/octet-stream':
                 flash('Logo must be provided in order to register', category='error-reg')
             elif not links:
                 flash('Socials must be provided in order to register', category='error-reg')
@@ -226,7 +226,7 @@ def auth_organization():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.choose'))
+    return redirect(url_for('home.load_home'))
 
 @auth.route('/delete')
 @login_required

@@ -296,7 +296,7 @@
     </style>
     <nav class="navbar top navbar-expand-lg navbar-expand-md">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
+            <a class="navbar-brand" href="/"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -375,7 +375,7 @@
             <div class="platform-connects">
                 <div class="platform-connects_title">Платформа</div>
                 <div class="platform-connects_text">Об’єднує всі волонтерські можливості країни в одному місці</div>
-                <a href="#" class="platform-connects_button draw-border">Приєднатися</a>
+                <a href="/auth" class="platform-connects_button draw-border">Приєднатися</a>
                 <div class="platform-connects_photo"><img src="../static/img/volun (1).png" alt=""></div>
             </div>
             <div class="platform-stays">
@@ -391,14 +391,14 @@
                 <div class="oport-blok_text">
                     <p class="oport-blok_title">Волонтери</p>
                     <p class="oport-blok_text-s">Волонтери - це ті, хто віддає свій час, енергію та навички безоплатно з метою покращення життя інших людей або допомоги у вирішенні певних соціальних, екологічних, культурних чи гуманітарних проблем.</p>
-                    <a href="#" class="oport-blok_button draw-border">Шукати волонтерство</a>
+                    <a href="/filter" class="oport-blok_button draw-border">Шукати волонтерство</a>
                 </div>
             </div>
             <div class="oport-blok oport-blok-2">
                 <div class="oport-blok_text">
                     <p class="oport-blok_title">Організації</p>
                     <p class="oport-blok_text-s">Одна з ключових переваг волонтерства полягає в тому, що воно збирає разом людей з різних соціальних, етнічних та культурних середовищ, об'єднуючи їх у спільному бажанні допомагати іншим</p>
-                    <a href="#" class="oport-blok_button draw-border">Створити подію</a>
+                    <a href="/create_event" class="oport-blok_button draw-border">Створити подію</a>
                 </div>
                 <div class="oport-blok_photo"><img src="../static/img/oport1.avif" alt=""></div>
             </div>
@@ -407,7 +407,7 @@
                 <div class="oport-blok_text">
                     <p class="oport-blok_title">Доброчинці</p>
                     <p class="oport-blok_text-s">Доброчинці не обмежуються лише матеріальною допомогою. Вони також вкладають свої знання, навички та досвід у проекти, що сприяють розвитку суспільства та підвищенню якості життя інших. Вони можуть бути менторами, консультантами, або просто джерелом натхнення для тих, хто прагне допомагати.</p>
-                    <a href="#" class="oport-blok_button draw-border">Добра справа</a>
+                    <a href="{{ url_for('filter.filter_events_with_tag', tag='Онлайн волонтерство') }}" class="oport-blok_button draw-border">Добра справа</a>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
         <p class="footer-title">Voluntree</p>
         <p class="footer-text">Зроби свій вибір</p>
     </div>
-    <script src="js/script.js"></script>
+    <script src="../static/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
 </html>
