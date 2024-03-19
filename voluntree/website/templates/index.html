@@ -348,29 +348,29 @@
             </div>
             <div class="choose_your_options">
                 <div class="choose_your_options_blok">
-                    <a href= "#" class="choose_your_options_one">
+                    <a href= "{{ url_for('filter.filter_events_with_tag', tag='Допомога захисникам') }}" class="choose_your_options_one">
                         <img src="../static/img/soldier.png" alt="">
                         <p class="choose_your_options_one-text">Допомога захисникам</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href= "{{ url_for('filter.filter_events_with_tag', tag='Волонтерство на заходах') }}" class="choose_your_options_one">
                         <img src="../static/img/social.png" alt="">
                         <p class="choose_your_options_one-text">Волонтерство на заходах</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href= "{{ url_for('filter.filter_events_with_tag', tag='Освіта та наука') }}" class="choose_your_options_one">
                         <img src="../static/img/science.png" alt="">
                         <p class="choose_your_options_one-text">Освіта та наука</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href= "{{ url_for('filter.filter_events_with_tag', tag='Зоо та екологія') }}" class="choose_your_options_one">
                         <img src="../static/img/ecology.png" alt="">
                         <p class="choose_your_options_one-text">Зоо та екологія</p>
                     </a>
-                    <a href= "#" class="choose_your_options_one">
+                    <a href= "{{ url_for('filter.filter_events_with_tag', tag='Культура та мистецтво') }}" class="choose_your_options_one">
                         <img src="../static/img/culture.png" alt="">
                         <p class="choose_your_options_one-text">Культура та мистецтво</p>
                     </a>
                 </div>
                 <div class="choose_your_options_more">
-                    <a href="#" class="choose_your_options_more_button">Показати більше</a>
+                    <a href="/filter" class="choose_your_options_more_button">Показати більше</a>
                 </div>
             </div>
         </div>
@@ -417,18 +417,22 @@
         <div class="partners">
             <div class="partners-title">Представлені організації</div>
             <div class="partners-blok">
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <!-- <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div>
-                <div class="partners-card"><img src="../static/img/partner.png" alt=""> <p class="partners-card-title">ГО “Якась”</p><p class="partners-card-city">Київ</p></div> -->
-
+                {% for org in organizations[:8] %}
+                {% set truncated_string = org.name[:28] %}
+                {% set last_space_index = truncated_string.rfind(' ') %}
+                <a href="#" class="partners-card"><img src="{{ url_for('home.serve_uploads', filename=org.id|string + '.png') }}" alt="">
+                    <p class="partners-card-title">
+                        {% if truncated_string != org.name %}
+                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
+                        {% else %}
+                            {{ truncated_string }}
+                        {% endif %}
+                    </p>
+                    <p class="partners-card-city">
+                        {{ org.location }}
+                    </p>
+                </a>
+                {% endfor %}
             </div>
         </div>
         <div class="team" id = "team">
