@@ -234,7 +234,7 @@ def delete():
     db.session.delete(current_user)
     db.session.commit()
     logout_user()
-    return redirect(url_for('auth.choose'))
+    return redirect(url_for('home.load_home'))
 
 
 @auth.route('/auth/success')

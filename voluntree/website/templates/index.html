@@ -311,20 +311,17 @@
                         <a class="nav-link mx-lg-2" aria-current="page" href="/filter">Волонтерство</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="#platform">Про платформу</a>
+                        <a class="nav-link mx-lg-2" href="/#platform">Про платформу</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#team">Команда</a>
+                            <a class="nav-link mx-lg-2" href="/#team">Команда</a>
                         </li>
                     </ul>
-                    <!-- <a href = "/auth" class="login-button sign-in">Sign In</a>
-                    <a href = "/auth" class="login-button sign-up">Sign Up</a> -->
                     {% if not user.is_authenticated %}
                     <a href = "/auth" class="login-button sign-in">Sign In / Sign Up</a>
-                    {{user.is_authenticated}}
                     {% else %}
                     <a href = "/profile" class="login-button sign-in">Profile</a>
-                    <a href="/logout" class="login-button sign-in">Log Out</a>
+                    <a href="/logout" class="login-button sign-up">Log Out</a>
                     {% endif %}
                 </div>
             </div>
@@ -342,7 +339,7 @@
             <div class="choose_your_text">
                 <div class="choose_your_title">
                     <p class="choose_your_title-text">Обирай своє волонтерство.</p>
-                    <a href="#" class="choose_your_title-link"><img src="../static/img/arrow right.png" alt=""></a>
+                    <a href="/filter" class="choose_your_title-link"><img src="../static/img/arrow right.png" alt=""></a>
                 </div>
                 <div class="choose_your_description">Перш за все, волонтерство - це здатність допомагати іншим та віддавати свій час та зусилля без будь-якої матеріальної вигоди. Коли люди добровільно віддають свій час на підтримку тих, хто цього потребує, вони не лише надають конкретну допомогу, а й дарують надію та віру в краще майбутнє.</div>
             </div>
