@@ -9,36 +9,40 @@ profile = Blueprint("profile", __name__)
 @profile.route("/profile", methods = ["GET", "POST"])
 @login_required
 def get_profile():
-    events = get_events(current_user)
+    cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+    events = get_events(cu)
     if request.method == 'POST':
         new_photo = request.files.get('photo')
         new_password = request.form.get('new-password')
         old_password = request.form.get('current-password')
         new_name = request.form.get('name')
-        if old_password == current_user.password:
+        if old_password == cu.password:
             if new_photo is not None and str(new_photo.mimetype) != 'application/octet-stream':
-                if isinstance(current_user, Organization):
-                    new_photo.save('uploads/' + f'{current_user.id}.png')
+                if isinstance(cu, Organization):
+                    new_photo.save('uploads/' + f'{cu.id}.png')
                 else:
-                    new_photo.save('uploads/' + f'u{current_user.id}.png')
-            current_user.name = new_name
+                    new_photo.save('uploads/' + f'u{cu.id}.png')
+            cu.name = new_name
             if new_password:
-                current_user.password = new_password
+                cu.password = new_password
+        else:
+            flash('Паролі не співпадають!', category='error-password')
         db.session.commit()
         return redirect('/profile')
-    return render_template('user.html', user=current_user, is_org=isinstance(current_user, Organization), events=events, photo=False)
+    return render_template('user.html', user=cu, is_org=isinstance(cu, Organization), events=events, photo=False)
 
 @profile.route('/delete_profile', methods = ['GET', 'POST'])
 @login_required
 def delete_acc():
-    if isinstance(current_user, Organization):
-        for ev in current_user.events:
+    cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+    if isinstance(cu, Organization):
+        for ev in cu.events:
             try:
                 os.remove(f'uploads/e{ev.id}.png')
             except Exception:
                 pass
             db.session.delete(ev)
-        user = Organization.query.get(current_user.id)
+        user = Organization.query.get(cu.id)
         logout_user()
         try:
             os.remove(f'uploads/{user.id}.png')
@@ -46,14 +50,14 @@ def delete_acc():
             pass
         db.session.delete(user)
         db.session.commit()
-    if isinstance(current_user, User):
-        for ev in current_user.liked_events:
+    if isinstance(cu, User):
+        for ev in cu.liked_events:
             try:
                 os.remove(f'uploads/e{ev.id}.png')
             except Exception:
                 pass
             db.session.delete(ev)
-        user = User.query.get(current_user.id)
+        user = User.query.get(cu.id)
         logout_user()
         try:
             os.remove(f'uploads/u{user.id}.png')
@@ -63,9 +67,9 @@ def delete_acc():
         db.session.commit()
     return redirect('/home')
 
-def get_events(current_user):
-    if isinstance(current_user, Organization):
-        events = current_user.events
+def get_events(cu):
+    if isinstance(cu, Organization):
+        events = cu.events
     else:
-        events = current_user.liked_events
+        events = cu.liked_events
     return events

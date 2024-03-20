@@ -4,12 +4,19 @@ from flask_login import UserMixin
 
 db = SQLAlchemy()
 
+class AllUsers(db.Model, UserMixin):
+    '''All users table'''
+    __tablename__ = 'all_users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    is_org = db.Column(db.Boolean)
+
 class Organization(db.Model, UserMixin):
     '''Organizations table'''
     __tablename__ = 'organization'
 
     id = db.Column(db.Integer, primary_key=True)
-    unique_id = db.Column(db.String(10))
     name = db.Column(db.String(150))
     email = db.Column(db.String(150), unique = True)
     password = db.Column(db.String(150))
@@ -17,12 +24,6 @@ class Organization(db.Model, UserMixin):
     events = db.relationship('Event', back_populates = 'organization')
     links = db.Column(db.String)
     description = db.Column(db.String)
-
-@db.event.listens_for(Organization, "after_insert")
-def organization_after_insert(mapper, connection, target):
-    '''Add unique_id to organization object after every insertion'''
-    unique_id = f'o{target.id}'
-    connection.execute(Organization.__table__.update().where(Organization.id == target.id).values({"unique_id": unique_id}))
 
 class Event(db.Model):
     '''Event table'''
@@ -44,18 +45,11 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    unique_id = db.Column(db.String(10))
     name = db.Column(db.String)
     email = db.Column(db.String(150), unique = True)
     password = db.Column(db.String(150))
     liked_events = db.relationship('Event', secondary='user_liked_events', \
                                    back_populates='liked_by')
-
-@db.event.listens_for(User, "after_insert")
-def user_after_insert(mapper, connection, target):
-    '''Add unique_id to user object after every insertion'''
-    unique_id = f'u{target.id}'
-    connection.execute(User.__table__.update().where(User.id == target.id).values({"unique_id": unique_id}))
 
 class Hashtag(db.Model):
     '''Hashtag table'''

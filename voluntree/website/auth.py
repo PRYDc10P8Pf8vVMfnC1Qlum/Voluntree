@@ -1,6 +1,6 @@
 import shutil
 from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app
-from .models import User, Organization
+from .models import User, Organization, AllUsers
 from re import match
 # from werkzeug.security import generate_password_hash, check_password_hash
 from .models import db   ##means from __init__.py import db
@@ -78,6 +78,7 @@ def choose():
 def auth_volunteer():
     
     if request.method == 'POST':
+        
         name = request.form.get('name-register')
         # print(request.form)
         if name is None:
@@ -86,10 +87,11 @@ def auth_volunteer():
             password = request.form.get('password-login')
 
             user = User.query.filter_by(email=email).first()
+            all_user = AllUsers.query.filter_by(user_id = user.id).first()
             if user:
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
-                    login_user(user, remember=True)
+                    login_user(all_user, remember=True)
                     return redirect(url_for('home.load_home'))
                 else:
                     flash('Incorrect password, try again.', category='error-log')
@@ -118,16 +120,22 @@ def auth_volunteer():
                 password_hash = update_password_hashed_salted_peppered(hash_fn,password)
                 print(password_hash)
                 new_user = User(email=email, name=name, password=password_hash)
-                print(new_user.password)
                 db.session.add(new_user)
                 db.session.commit()
-                shutil.copy('voluntree\\website\\static\\img\\partner.png', f'voluntree\\uploads\\u{new_user.id}.png')
-                login_user(new_user, remember=True)
+                new_all_user = AllUsers(is_org = False, user_id = new_user.id)
+                db.session.add(new_all_user)
+                db.session.commit()
+                print(new_user.password)
+                
+                shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_user.id}.png')
+                login_user(new_all_user, remember=True)
                 # flash('Account created!', category='success')
                 print('redirecting')
-                return redirect(url_for('auth.success'))
+                print()
+                cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+                return render_template("success.html", user = cu)
 
-    return render_template("volunteer.html", user=current_user)
+    return render_template("volunteer.html")
 
 
 @auth.route('/auth/organisation', methods = ["GET", 'POST'])
@@ -141,10 +149,11 @@ def auth_organization():
             password = request.form.get('password-login')
 
             user = Organization.query.filter_by(email=email).first()
+            all_user = AllUsers.query.filter_by(user_id = user.id).first()
             if user:
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
-                    # login_user(user, remember=True)
+                    login_user(all_user, remember=True)
                     return redirect(url_for('home.load_home'))
                 else:
                     flash('Incorrect password, try again.', category='error-logror')
@@ -194,31 +203,23 @@ def auth_organization():
                     location = location,
                     links = links,
                     description = description)
-                #########EMAIL##############
-                # token = jwt.encode({"email": email}, current_app.config["SECRET_KEY"])
-        
-                # # Send verification email
-                # email.send(
-                #     subject="Verify email",
-                #     receivers=email,
-                #     html_template="email/verify.html",
-                #     body_params={
-                #         "token": token
-                #     }
-                # )
                 db.session.add(new_user)
+                db.session.commit()
+                new_all_user = AllUsers(user_id=new_user.id, is_org = True )
+                db.session.add(new_all_user)
                 db.session.commit()
                 
                 
                 logo.save('uploads/' + f'{new_user.id}.png')
-                login_user(new_user, remember=True)
+                login_user(new_all_user, remember=True)
                 flash('Account created!', category='success')
-                return redirect(url_for('home.load_home'))
+                cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+                return render_template("success.html", user = cu)
             
 
                 
 
-    return render_template("organisation.html", user=current_user)
+    return render_template("organisation.html")
 
 
 
@@ -295,6 +296,8 @@ def logout():
 @auth.route('/delete')
 @login_required
 def delete():
+    cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+    db.session.delete(cu)
     db.session.delete(current_user)
     db.session.commit()
     logout_user()
@@ -304,11 +307,12 @@ def delete():
 @auth.route('/auth/success')
 @login_required
 def success():
-    return render_template("success.html", user = current_user)
+    cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+    return render_template("success.html", user = cu)
 
-@auth.route('/auth/email')
-def email():
-    return render_template("email.html", user = current_user)
+# @auth.route('/auth/email')
+# def email():
+#     return render_template("email.html", user = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id)))
 
 ###################EMAIL
 # @auth.route("/verify-email/<token>")

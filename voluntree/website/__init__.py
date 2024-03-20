@@ -49,11 +49,8 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(id):
-        user = models.User.query.get(int(id)).unique_id[0]
-        if user == 'u':
-            return models.User.query.get(int(id))
-        if user == 'o':
-            return models.Organization.query.get(int(id))
+        return models.AllUsers.query.get(int(id))
+    
     return app
 
 def create_database(app):
