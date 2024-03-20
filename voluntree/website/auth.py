@@ -172,7 +172,6 @@ def auth_organization():
             description = request.form.get('orgname')
             organization = Organization.query.filter_by(email=email).first()
             location = request.form.get('org-adress')
-            links = request.form.get('socials')
 
             if organization:
                 flash('Email already exists.', category='error-reg')
@@ -184,8 +183,6 @@ def auth_organization():
             #     flash('Organization name must be at least 3 characters', category='error-reg')
             elif str(logo.mimetype) == 'application/octet-stream':
                 flash('Logo must be provided in order to register', category='error-reg')
-            elif not links:
-                flash('Socials must be provided in order to register', category='error-reg')
             elif not location:
                 flash('Location must be provided', category='error-reg')
             elif password != password_conf:
@@ -203,7 +200,6 @@ def auth_organization():
                     email = email,
                     password = password_hash,
                     location = location,
-                    links = links,
                     description = description)
                 db.session.add(new_user)
                 db.session.commit()

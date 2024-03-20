@@ -23,6 +23,7 @@ def create_an_event():
         checked_boxes = request.form.getlist('tag')
         if len(checked_boxes) < 1:
             flash('You have to pick a tag/tags!', category='error-event')
+            redirect(url_for('create_event.create_an_event'))
         link = request.form.get('link','') #implement in database first
         location = f'{request.form.get("city")}, {request.form.get("address")}' if request.form.get('format_off') == 'on' else "Дистанційно"
         event = Event(

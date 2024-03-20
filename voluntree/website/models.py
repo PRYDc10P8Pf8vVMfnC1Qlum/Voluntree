@@ -22,7 +22,6 @@ class Organization(db.Model, UserMixin):
     password = db.Column(db.String(150))
     location = db.Column(db.String(150))
     events = db.relationship('Event', back_populates = 'organization')
-    links = db.Column(db.String)
     description = db.Column(db.String)
 
 class Event(db.Model):
