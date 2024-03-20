@@ -82,9 +82,6 @@
                     <i class="fas fa-lock"></i>
                     <input name = 'password-register-confirmation' type="password" placeholder="Пароль">
                 </div>
-                <div class="input-field" style="height: 35px; margin-bottom: 0;">
-                    <input name = 'logo' type="file" value="Логотип організації">
-                </div>
                 
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fa fa-address-book"></i>
@@ -94,32 +91,16 @@
                     <i class="fas fa-user"></i>
                     <input name = 'org-adress' type="text" placeholder="Адреса">
                 </div>
-                <div class="input-field" style="height: 35px; margin-bottom: 0;">
-                    <i class="fas fa-envelope"></i>
-                    <input name = 'socials' type="text" placeholder="Посилання на соц. мережі">
+                <div class="input-field-button" style="height: 25px; margin-bottom: 0; position: relative;">
+                    <label for="logo" class="custom-file-upload">
+                        Завантажити логотип
+                    </label>
+                    <input id="logo" name="logo" type="file" style="display: none;">
                 </div>
-                <input type="submit" value="Зареєструватися" id='sign-up-btn2' class="btn" onclick="">
-                <!-- <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p> -->
-            </form>
-            <!-- <form action="" class="continue-form" id="continue-form" style="display: none;">
-                <h2 class="title">Реєстрація</h2>
-                <div class="input-field">
-                    <input type="file" value="Organisation logo">
-                </div>
+                <input type="submit" value="Зареєструватися" class = 'btn2' id='my-submit' onclick="">
                 
-                <div class="input-field">
-                    <i class="fa fa-address-book"></i>
-                    <input type="password" placeholder="Organisation name">
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Address">
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Socials">
-                </div>
-            </form> -->
+            </form>
+
         </div>
         <div class="panels-container">
             <div class="panel left-panel">
@@ -150,8 +131,8 @@
             Continue.style.display = "block";
             Signin.style.display = "none";
             }
-
         }
+
     </script>
 </body>
 </html>

@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, request, flash, jsonify, redirect
 from flask_login import login_required, current_user, AnonymousUserMixin, logout_user
 from .models import Event, Organization, EventHashtag, db, User, UserLikedEvents
 import os
+from .auth import *
 
 profile = Blueprint("profile", __name__)
 
@@ -11,12 +12,15 @@ profile = Blueprint("profile", __name__)
 def get_profile():
     cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
     events = get_events(cu)
+
+    hash_fn = hash_from_name("SHA256")
     if request.method == 'POST':
         new_photo = request.files.get('photo')
         new_password = request.form.get('new-password')
         old_password = request.form.get('current-password')
         new_name = request.form.get('name')
-        if old_password == cu.password:
+
+        if verify_password_hashed_salted_peppered(current_user, old_password):
             if new_photo is not None and str(new_photo.mimetype) != 'application/octet-stream':
                 if isinstance(cu, Organization):
                     new_photo.save('uploads/' + f'{cu.id}.png')
@@ -24,9 +28,10 @@ def get_profile():
                     new_photo.save('uploads/' + f'u{cu.id}.png')
             cu.name = new_name
             if new_password:
-                cu.password = new_password
+                cu.password = update_password_hashed_salted_peppered(hash_fn, new_password)
         else:
             flash('Паролі не співпадають!', category='error-password')
+
         db.session.commit()
         return redirect('/profile')
     return render_template('user.html', user=cu, is_org=isinstance(cu, Organization), events=events, photo=False)

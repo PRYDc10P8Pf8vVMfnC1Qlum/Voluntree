@@ -122,6 +122,7 @@ def auth_volunteer():
                 new_user = User(email=email, name=name, password=password_hash)
                 db.session.add(new_user)
                 db.session.commit()
+
                 new_all_user = AllUsers(is_org = False, user_id = new_user.id)
                 db.session.add(new_all_user)
                 db.session.commit()
@@ -129,6 +130,7 @@ def auth_volunteer():
                 
                 shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_user.id}.png')
                 login_user(new_all_user, remember=True)
+
                 # flash('Account created!', category='success')
                 print('redirecting')
                 print()

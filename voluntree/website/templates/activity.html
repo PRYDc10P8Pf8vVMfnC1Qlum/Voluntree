@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-expand-md container">
+    <nav class="navbar navbar-expand-lg navbar-expand-md container">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img class="logo" src="../static/img/logo_dark.png" />
                 <div class="logo-text">VolunTree</div>
@@ -46,7 +46,7 @@
     </nav>
     <div class="wrapper margined container">
         <img class="w-100 act-image" src="{{ url_for('home.serve_uploads', filename='e' + event.id|string + '.png') }}" />
-        <div class="d-flex flex-column flex-lg-row mt-3 gap-3">
+        <div class="info-container">
             <div class="main-info">
                 <div class="important-info-box">
                     <div class="heading-holder">
@@ -68,16 +68,13 @@
                     </div>
                 </div>
                 <div class="locations">
-                    <div class="locations-text">Місце проведення</div>
-                    <div class="locations-box">
-                        <div class="location-item">{{ event.location }}</div>
-                    </div>
+                    <div class="locations-text">Місце проведення:  {{ event.location }}</div>
                 </div>
             </div>
             <div class="actions">
-                <div class="apply-button d-flex justify-content-center">
+                <div class="apply-button">
                     {% if not is_org %}
-                    <button class="organizers-text">
+                    <div class="organizers-text">
                         <div class="button-wrapper">
                             {% if not liked %}
                             <form class="div5" method="post">
@@ -91,76 +88,35 @@
                             </form>
                             {% endif %}
                         </div>
-                        <img class="minimize-window-2-expand-retr-icon" alt=""
-                        src="../static/img/minimizewindow2expandretractshrinkbiggerbigsmallsmaller.svg" />
-                    </button>
+                    </div>
                     {% endif %}
                     <div class="liked_by">
                         Liked by {{ likes }} users.
                     </div>
                 </div>
-                <div class="share">
-                    <div class="share-text-holder">
-                        <h1 class="share-text">
-                            Поширити
-                        </h1>
-                    </div>
-                    <div class="share-row">
-                        <a href="#" class="inst-logo share-row-item">
-                            <img src="../static/img/instagram.svg" alt="inst">
-                            <div class="inst-text">Instagram</div>
-                        </a>
-                        <a href="#" class="tg-logo share-row-item">
-                            <img src="../static/img/telegram.svg" alt="tg">
-                            <div class="tg-text">Telegram</div>
-                        </a>
-                        <a href="#" class="twitter-logo share-row-item">
-                            <img src="../static/img/twittermediatwittersocial.svg" alt="twitter">
-                            <div class="twitter-text">Twitter</div>
-                        </a>
-                    </div>
-                </div>
                 <div class="organizator">
-                    <div class="organizator-text">Організатори:</div>
+                    <div class="organizator-text">Організатор:</div>
                     <div class="organizator-card">
-                        <div class="component-parent">
-                            <div class="component">
-                                <div class="component-child"></div>
-                                <div class="div10">назва організації</div>
-                                <div class="div11">14 -18 лютого 2024</div>
-                                <div class="div12">Декілька міст</div>
-                                <img class="icon-location-pin" alt="" src="../static/img/-icon-location-pin.svg" />
-
-                                <img class="icon-calendar" alt="" src="../static/img/-icon-calendar.svg" />
+                        <div class="organizator-info">
+                            <div class="organizator-img">
+                                <img src="{{ url_for('home.serve_uploads', filename= event.organization_id|string + '.png') }}" alt="">
                             </div>
-                            <div class="div13">{{ event.organization.name }}</div>
-                            <div class="div14">
-                                <p class="p4">{{ event.organization.location }}</p>
+                            <div class="oranizator-title">{{ event.organization.name }}</div>
+                        </div>
+                        <div class="event">
+                            <div class="event-loc">
+                                <div class="event-loc-photo"><img loading="lazy" alt="" src="../static/img/mapfoldnavigationmapmapsgpstravelfold.svg" /></div>
+                                <div class="event-loc-title">{{ event.organization.location }}</div>
                             </div>
-                            <div class="div15">
-                                <p class="p5">{{ event.organization.email }}</p>
+                            <div class="event-post">
+                                <div class="event-post-photo"><img loading="lazy" alt="" src="../static/img/locationpin3navigationmapmapspingpslocation.svg" /></div>
+                                <div class="event-post-title">{{ event.organization.email }}</div>
                             </div>
-                            <div class="organization-frame"></div>
-                            <a href="#">
-                                <img class="facebook-1-media-facebook-soc-icon" loading="lazy" alt=""
-                                    src="../static/img/facebook1mediafacebooksocial.svg" />
-                            </a>
-                            <a href="#">
-                                <img class="instagram-icon2" alt="" src="../static/img/instagram-1.svg" />
-                            </a>
-                            <a href="#">
-                                <img class="twitter-media-twitter-social-icon1" alt=""
-                                    src="../static/img/twittermediatwittersocial-1.svg" />
-                            </a>
-                            <img class="map-fold-navigation-map-maps-icon" loading="lazy" alt=""
-                                src="../static/img/mapfoldnavigationmapmapsgpstravelfold.svg" />
-
-                            <img class="location-pin-3-navigation-map-icon" loading="lazy" alt=""
-                                src="../static/img/locationpin3navigationmapmapspingpslocation.svg" />
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="footer container">
