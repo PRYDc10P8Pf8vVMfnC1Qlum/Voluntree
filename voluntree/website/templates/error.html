@@ -300,7 +300,7 @@
     </style>
     <nav class="navbar top navbar-expand-lg navbar-expand-md">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
+            <a class="navbar-brand" href="/"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -312,17 +312,21 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                        <a class="nav-link mx-lg-2" aria-current="page" href="filter.html">Волонтерство</a>
+                        <a class="nav-link mx-lg-2" aria-current="page" href="/filter">Волонтерство</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="#platform">Про платформу</a>
+                        <a class="nav-link mx-lg-2" href="/#platform">Про платформу</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#team">Команда</a>
+                            <a class="nav-link mx-lg-2" href="/#team">Команда</a>
                         </li>
                     </ul>
-                    <a href = "choose.html" class="login-button sign-in">Sign In</a>
-                    <a href = "choose.html" class="login-button sign-up">Sign Up</a>
+                    {% if not user.is_authenticated %}
+                    <a href = "/auth" class="login-button sign-in">Sign In / Sign Up</a>
+                    {% else %}
+                    <a href = "/profile" class="login-button sign-in">Profile</a>
+                    <a href="/logout" class="login-button sign-up">Log Out</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

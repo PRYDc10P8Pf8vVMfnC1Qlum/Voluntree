@@ -121,7 +121,7 @@ def auth_volunteer():
                 print(new_user.password)
                 db.session.add(new_user)
                 db.session.commit()
-                shutil.copy('voluntree\\website\\static\\img\\partner.png', f'voluntree\\uploads\\u{new_user.id}.png')
+                shutil.copy('website/static/img/partner.png', f'uploads/u{new_user.id}.png')
                 login_user(new_user, remember=True)
                 # flash('Account created!', category='success')
                 print('redirecting')
