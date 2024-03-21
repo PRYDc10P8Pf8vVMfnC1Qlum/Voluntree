@@ -69,6 +69,9 @@
                 </div>
                 <div class="locations">
                     <div class="locations-text">Місце проведення:  {{ event.location }}</div>
+                    {% if event.location == 'Дистанційно' %}
+                        <a class="locations-text" href="{{ url_for('home.redirect_to', hrefed=event.link|string) }}">ПОСИЛАННЯ</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="actions">

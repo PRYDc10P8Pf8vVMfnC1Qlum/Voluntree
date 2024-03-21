@@ -37,6 +37,7 @@ class Event(db.Model):
     location = db.Column(db.String(150))
     date = db.Column(db.Date)
     description = db.Column(db.String)
+    link = db.Column(db.String)
     liked_by = db.relationship('User', secondary='user_liked_events', back_populates='liked_events')
 
 class User(db.Model, UserMixin):

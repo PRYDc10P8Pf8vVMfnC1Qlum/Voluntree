@@ -20,7 +20,7 @@ def get_profile():
         old_password = request.form.get('current-password')
         new_name = request.form.get('name')
 
-        if verify_password_hashed_salted_peppered(current_user, old_password):
+        if verify_password_hashed_salted_peppered(cu, old_password):
             if new_photo is not None and str(new_photo.mimetype) != 'application/octet-stream':
                 if isinstance(cu, Organization):
                     new_photo.save('uploads/' + f'{cu.id}.png')

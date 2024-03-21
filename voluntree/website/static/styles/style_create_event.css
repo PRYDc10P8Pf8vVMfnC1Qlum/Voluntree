@@ -322,3 +322,25 @@ body {
     background: #1b4a4f;
     border-radius: 10px;
 }
+#alert-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  cursor: pointer !important;
+}
+
+#closebtn {
+  cursor: pointer !important;
+  color: #721c24;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}

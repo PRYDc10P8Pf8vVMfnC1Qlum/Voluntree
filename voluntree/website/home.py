@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, flash, jsonify, send_from_directory
+from flask import Blueprint, render_template, request, flash, jsonify, send_from_directory, redirect, url_for
 from flask_login import login_required, current_user, AnonymousUserMixin
 from .models import Event, Organization, db, User
+from werkzeug.exceptions import HTTPException
 # from . import db
 # import json
 
@@ -16,6 +17,11 @@ def load_home():
 @home.route('/uploads/<path:filename>')
 def serve_uploads(filename):
     return send_from_directory('../uploads', filename)
+
+@home.route('/redirect/<path:hrefed>')
+def redirect_to(hrefed):
+    return redirect(hrefed)
+
 # @home.errorhandler(404)
 # def page_not_found(error):
 #     return render_template("error.html"), 404
