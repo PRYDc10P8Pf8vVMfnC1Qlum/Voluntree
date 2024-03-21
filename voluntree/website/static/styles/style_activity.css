@@ -169,6 +169,8 @@ nav {
 .description-text{
   margin-top: 20px;
   font-size: 25px;
+  word-wrap: break-word;
+  width: 450px;
 }
 
 .locations{
@@ -455,6 +457,9 @@ nav {
       padding: 0;
       margin: 0 30px;
   }
+  .description-text{
+    width: 380px;
+  }
 }
 @media (max-width: 425px) {
   .navbar-brand {
@@ -509,5 +514,8 @@ nav {
   }
   .event-post-title{
       font-size: 12px;
+  }
+  .description-text{
+    width: 300px;
   }
 }

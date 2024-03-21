@@ -8,7 +8,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-ul {
+.ul-class  {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -93,36 +93,36 @@ a {
   height: 1px;
   width: 100%;
 }
-.header__wrapper .cols__container .content p {
+.header__wrapper .cols__container .content {
   font-size: 1rem;
   color: #1d1d1d;
-  line-height: 1.8em;
+  word-wrap: break-word;
 }
-.header__wrapper .cols__container .content ul {
+.header__wrapper .cols__container .content .ul-class {
   gap: 30px;
   justify-content: center;
   align-items: center;
   margin-top: 25px;
 }
-.header__wrapper .cols__container .content ul li {
+.header__wrapper .cols__container .content .ul-class li {
   display: flex;
 }
-.header__wrapper .cols__container .content ul i {
+.header__wrapper .cols__container .content .ul-class i {
   font-size: 1.3rem;
 }
-.header__wrapper .cols__container .right__col nav {
+.header__wrapper .cols__container .right__col .nav-class {
   display: flex;
   align-items: center;
   padding: 30px 0;
   justify-content: space-between;
   flex-direction: column;
 }
-.header__wrapper .cols__container .right__col nav ul {
+.header__wrapper .cols__container .right__col .nav-class .ul-class {
   display: flex;
   gap: 20px;
   flex-direction: column;
 }
-.header__wrapper .cols__container .right__col nav ul li a {
+.header__wrapper .cols__container .right__col .nav-class .ul-class li a {
   text-transform: uppercase;
   color: #333;
 }
@@ -182,7 +182,7 @@ a {
 
 /* Responsiveness */
 
-@media (min-width: 868px) {
+@media (min-width: 960px) {
   .header__wrapper .cols__container {
     max-width: 1200px;
     margin: 0 auto;
@@ -196,7 +196,7 @@ a {
   .header__wrapper .cols__container .left__col {
     padding: 25px 0px;
   }
-  .header__wrapper .cols__container .right__col nav ul {
+  .header__wrapper .cols__container .right__col .nav-class .ul-class {
     flex-direction: row;
     gap: 30px;
   }
@@ -205,6 +205,10 @@ a {
     overflow: auto;
     padding: 0 0 30px;
   }
+  form{
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media (min-width: 1017px) {
@@ -212,10 +216,10 @@ a {
     margin: 0;
     margin-right: auto;
   }
-  .header__wrapper .cols__container .right__col nav {
+  .header__wrapper .cols__container .right__col .nav-class {
     flex-direction: row;
   }
-  .header__wrapper .cols__container .right__col nav button {
+  .header__wrapper .cols__container .right__col .nav-class button {
     margin-top: 0;
   }
 }
@@ -249,19 +253,22 @@ a {
     border-radius: 20px;
     font-size: 14px;
     align-items: center;
+    margin-bottom: 20px;
+    color: #333;
+    text-decoration: none;
 }
 .image-holder{
     background-color: rgb(120, 120, 120);
-    width: 250px;
+    width: 200px;
     height: 150px;
-    margin-right: 30px;
+    margin-right: 20px;
     border-radius: 20px;
 }
 
 .card-body{
     display: flex;
     flex-direction: column;
-    padding-right: 30px;
+    /* padding-right: 30px; */
 }
 .logos-row{
     display: flex;
@@ -275,7 +282,7 @@ a {
     justify-content: space-between;
 }
 .date-img img{
-    width: 50px;
+    width: 30px;
 }
 .location{
     flex: 0 1 40%;
@@ -284,7 +291,7 @@ a {
     justify-content: space-around;
 }
 .location-img img{
-    width: 40px;
+    width: 30px;
 }
 .card-text-date{
     padding-left: 10px;
@@ -292,6 +299,10 @@ a {
 .card-content{
     margin-bottom: 15px;
     font-weight: 700;
+    max-width: 200px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card-small-text{
     font-size: 12px;
@@ -306,13 +317,13 @@ a {
 #settings-blok{
     display: none;
 }
-ul{
+.ul-class {
     width: 100%;
 }
-li{
+.li-class{
     width: 50%;
 }
-button{
+.button-class{
     width: 100%;
     border: none;
     padding: 20px 50px;
@@ -332,7 +343,7 @@ button{
     background-color: #fff;
     transition: 0.5s;
 }
-button:hover{
+.button-class:hover{
     background-color: #657b74;
     border-radius: 10px;
 }
@@ -371,6 +382,10 @@ button:hover{
     }
     form{
       width: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    .change-info{
       margin: 0;
       padding: 0;
     }
@@ -416,7 +431,6 @@ button:hover{
         border-radius: 50px;
         width: 300px;
       }
-
 }
 
 .add_event{
@@ -473,6 +487,11 @@ button:hover{
   }
   .photo-wrapper.active{
     border: none;
+  }
+  .card-text-location{
+    font-size: 12px;
+    width: 100px;
+    word-wrap: break-word;
   }
   .photo-wrapper .image{
     position: absolute;
@@ -562,6 +581,10 @@ button:hover{
   .form .input-box {
     width: 100%;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .input-box label {
     color: #333;
@@ -590,9 +613,9 @@ button:hover{
   }
 
   .change-info{
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 .change-image{
   flex: 0 1 30%;
@@ -678,7 +701,7 @@ form{
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   #settings-blok{
     display: flex;
     flex-direction: column;
@@ -733,15 +756,15 @@ form{
     transition: 0.2s;
     margin: 0;
   }
-}
-
-
-@media (max-width: 860px) {
   .exit{
     flex-direction: column;
   }
   .exit-profile{
-    margin-right: 0px;
-
+    margin: 0;
+    }
+ .add_event{
+    padding: 10px 15px;
+    width: 80%;
   }
 }
+

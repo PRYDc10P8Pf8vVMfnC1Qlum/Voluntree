@@ -76,9 +76,7 @@ def choose():
 
 @auth.route('/auth/volunteer', methods = ["GET", "POST"])
 def auth_volunteer():
-    
     if request.method == 'POST':
-        
         name = request.form.get('name-register')
         # print(request.form)
         if name is None:
@@ -87,7 +85,7 @@ def auth_volunteer():
             password = request.form.get('password-login')
 
             user = User.query.filter_by(email=email).first()
-            all_user = AllUsers.query.filter_by(user_id = user.id).first()
+            all_user = AllUsers.query.filter_by(user_id = user.id, is_org = False).first()
             if user:
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
@@ -151,7 +149,7 @@ def auth_organization():
             password = request.form.get('password-login')
 
             user = Organization.query.filter_by(email=email).first()
-            all_user = AllUsers.query.filter_by(user_id = user.id).first()
+            all_user = AllUsers.query.filter_by(user_id = user.id, is_org = True).first()
             if user:
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
