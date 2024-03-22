@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/styles/style_filter.css">
+    <link rel="stylesheet" href="../static/styles/card.css">
+</head>
+
+<body>
+    <style>
+        .footer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 0 20px 0;
+            background: #fff;
+        }
+        .footer-title{
+            font-size: 30px;
+            font-weight: 900;
+            line-height: 31px;
+            margin-top: 20px;
+        }
+        .footer-text{
+            line-height: 16px;
+            font-size: 15px;
+            color :#333;
+        }
+        .navbar-brand{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            line-height: 80px;
+            font-size: 40px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .logo{
+            width: 55px;
+            height: 55px;
+            margin-right: 10px;
+        }
+        nav{
+            height: 90px;
+            margin: 0px 70px;
+        }
+        .logo-text{
+            padding-top: 2px;
+        }
+        .nav-item{
+            font-size: 20px;
+            font-weight: 600;
+            color:#2F3D46;
+            margin: 0px 10px;
+            transition: 0.2s;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-item::before{
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 2px;
+            border-radius: 2px;
+            background-color: #2F3D46;
+            bottom: 0;
+            left:8px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .2s ease-in-out;
+        }
+        .nav-item:hover::before{
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+        .nav-item:active::before{
+            background-color: #246c44dc;
+        }
+        .nav-item:active{
+            color: #246c44dc;
+        }
+        .login-button{
+            line-height: 35px;
+            border-radius: 10px;
+            padding: 3px 40px;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+        .sign-in{
+            border: #2F3D46 2px solid;
+            color: #2F3D46;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .sign-in:hover{
+            border-radius: 30px;
+            border: #246c44dc 2px solid;
+            background-color: #246c44dc;
+            color: #fff;
+        }
+        .sign-in:active{
+            color: #2F3D46;
+        }
+        .sign-up{
+            border: #2F3D46 solid 2px;
+            background: #2F3D46;
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .sign-up:hover{
+            border-radius: 30px;
+            border: #246c44dc 2px solid;
+            background-color: #fff;
+            color: #246c44dc;
+        }
+        .sign-up:active{
+            background-color: #2F3D46;;
+        }
+
+        @media (max-width: 1440px){
+            .navbar-brand{
+                font-size: 25px;
+            }
+            .logo{
+                width: 45px;
+                height: 45px;
+            }
+            nav{
+                margin: 0px 40px;
+            }
+            .nav-item{
+                font-size: 15px;
+                margin: 0px 0px;
+                padding: 2px;
+            }
+            .nav-item::before{
+                height: 1px;
+                width: 85%;
+            }
+            .login-button{
+                line-height: 15px;
+                border-radius: 10px;
+                padding: 0px 20px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            .sign-up{
+                margin-left: 10px;
+            }
+            .sign-in:hover{
+                border-radius: 20px;
+            }
+            .sign-up:hover{
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 1024px){
+            .navbar-brand{
+                font-size: 20px;
+            }
+            .logo{
+                width: 45px;
+                height: 45px;
+            }
+            nav{
+                margin: 0px 15px;
+            }
+            .nav-item{
+                font-size: 13px;
+                margin: 0px 0px;
+                padding: 2px;
+            }
+            .nav-item::before{
+                height: 1px;
+            }
+            .login-button{
+                /* background-color: red; */
+                padding: 0px 15px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            .sign-up{
+                margin-left: 10px;
+            }
+            .sign-in:hover{
+                border-radius: 20px;
+            }
+            .sign-up:hover{
+                border-radius: 20px;
+            }
+
+        }
+        @media (max-width: 767px){
+            .navbar-brand{
+            line-height: 60px;
+            font-size: 30px;
+            }
+            .logo{
+                width: 45px;
+                height: 45px;
+            }
+            nav{
+                height: 90px;
+                border-bottom: black solid 1px;
+                margin: 0px 10px;
+            }
+            #offcanvasNavbar{
+                padding-top: 10px;
+                width: 50%;
+            }
+            .offcanvas-title{
+                font-size: 25px;
+                font-weight: 700;
+            }
+            .nav-item{
+                font-size: 18px;
+                margin: 0px 0px;
+                padding: 0px;
+            }
+            .nav-item::before{
+                height: 1px;
+                width: 50%;
+                left: 25%;
+            }
+            .login-button{
+                line-height: 25px;
+                border-radius: 10px;
+                padding: 6px 20px;
+                font-size: 15px;
+                font-weight: 600;
+                width: 180px;
+            }
+            .sign-in{
+                margin: 40px auto 15px auto;
+            }
+            .sign-up{
+                margin-left: 0px;
+                margin: 0px auto;
+            }
+        }
+        @media (max-width: 425px){
+            .navbar-brand{
+            line-height: 60px;
+            font-size: 25px;
+            }
+            .logo{
+                width: 40px;
+                height: 40px;
+            }
+            #offcanvasNavbar{
+                padding-top: 10px;
+                width: 70%;
+            }
+            .offcanvas-title{
+                font-size: 25px;
+                font-weight: 700;
+            }
+            .nav-item{
+                font-size: 18px;
+                margin: 0px 0px;
+                padding: 0px;
+            }
+            .nav-item::before{
+                height: 1px;
+                width: 50%;
+                left: 25%;
+            }
+            .login-button{
+                line-height: 25px;
+                border-radius: 10px;
+                padding: 6px 20px;
+                font-size: 15px;
+                font-weight: 600;
+                width: 180px;
+            }
+            .sign-in{
+                margin: 40px auto 15px auto;
+            }
+            .sign-up{
+                margin-left: 0px;
+                margin: 0px auto;
+            }
+        }
+    </style>
+    <nav class="navbar top navbar-expand-lg navbar-expand-md">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img class = 'logo' src = "../static/img/logo_dark.png"><div class= 'logo-text'>VolunTree</div></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Меню</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                        <a class="nav-link mx-lg-2" aria-current="page" href="/filter">Волонтерство</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="/#platform">Про платформу</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="/#team">Команда</a>
+                        </li>
+                    </ul>
+                    {% if not user.is_authenticated %}
+                    <a href = "/auth" class="login-button sign-in">Sign In / Sign Up</a>
+                    {% else %}
+                    <a href = "/profile" class="login-button sign-in">Profile</a>
+                    <a href="/logout" class="login-button sign-up">Log Out</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper container content-wrapper">
+        <div class="m-auto d-flex">
+            <div class="d-flex m-auto flex-column">
+                <div
+                    class="d-flex align-items-center align-items-md-start justify-content-center justify-content-md-start">
+                    <h1>Волонтерства</h1>
+                </div>
+                <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-5">
+                    <form class="filter d-flex flex-column" method="post">
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Допомога захисникам" id="1"
+                                name="tag">
+                            <label class="form-check-label" for="1">
+                                Допомога захисникам
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Донорство крові" id="2" name="tag">
+                            <label class="form-check-label" for="2">
+                                Донорство крові
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Правозахист" id="3" name="tag">
+                            <label class="form-check-label" for="3">
+                                Правозахист
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Волонтерство у пробації" id="4"
+                                name="tag">
+                            <label class="form-check-label" for="4">
+                                Волонтерство у пробації
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Спорт" id="5" name="tag">
+                            <label class="form-check-label" for="5">
+                                Спорт
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Освіта та наука" id="6" name="tag">
+                            <label class="form-check-label" for="6">
+                                Освіта та наука
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Онлайн волонтерство" id="7"
+                                name="tag">
+                            <label class="form-check-label" for="7">
+                                Онлайн волонтерство
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Волонтерство з ВПО" id="8"
+                                name="tag">
+                            <label class="form-check-label" for="8">
+                                Волонтерство з ВПО
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Волонтерство на заходах" id="9"
+                                name="tag">
+                            <label class="form-check-label" for="9">
+                                Волонтерство на заходах
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Екологія та зоозахист" id="10"
+                                name="tag">
+                            <label class="form-check-label" for="10">
+                                Екологія та зоозахист
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Інтелектуальне волонтерство" id="11"
+                                name="tag">
+                            <label class="form-check-label" for="11">
+                                Інтелектуальне волонтерство
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Культура та мистецтво" id="12"
+                                name="tag">
+                            <label class="form-check-label" for="12">
+                                Культура та мистецтво
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Міжнародне волонтерство" id="13"
+                                name="tag">
+                            <label class="form-check-label" for="13">
+                                Міжнародне волонтерство
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Переклади та журналістика" id="14"
+                                name="tag">
+                            <label class="form-check-label" for="14">
+                                Переклади та журналістика
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Психологічна допомога"
+                                id="flexCheckDefault" name="tag">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Психологічна допомога
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Регулярне волонтерство" id="15"
+                                name="tag">
+                            <label class="form-check-label" for="15">
+                                Регулярне волонтерство
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Соціальна допомога" id="16"
+                                name="tag">
+                            <label class="form-check-label" for="16">
+                                Соціальна допомога
+                            </label>
+                        </div>
+                        <div class="form-check category">
+                            <input class="form-check-input" type="checkbox" value="Розвиток міста" id="17" name="tag">
+                            <label class="form-check-label" for="17">
+                                Розвиток міста
+                            </label>
+                        </div>
+                        <div class="button-box">
+                            <button type="submit" class="find btn btn-primary"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Фільтрувати
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="cards d-flex flex-column gap-3">
+                        {% for ev in events %}
+                        <a class="card-self" href="{{ url_for('event.event_page', eventname=ev.name) }}">
+                            <img class="image-holder" src="{{ url_for('home.serve_uploads', filename='e' + ev.id|string + '.png') }}">
+                            </img>
+                            <div class="card-body">
+                                <div class="logos-row">
+                                    <div class="date">
+                                        <div class="date-img">
+                                            <img src="../static/img/calendar.png" alt="smth">
+                                        </div>
+                                        <div class="card-text-date">
+                                            {{ ev.date }}
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <div class="location-img">
+                                            <img src="../static/img/location.png" alt="smth">
+                                        </div>
+                                        <div class="card-text-location">
+                                            {{ ev.location }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-text">
+                                        {{ ev.description }}
+                                        
+                                    </p>
+                                </div>
+                                <div class="card-small-text">{{ ev.organization[0] }}</div>
+                            </div>
+                        </a>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="footer-title">Voluntree</p>
+        <p class="footer-text">Зроби свій вибір</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

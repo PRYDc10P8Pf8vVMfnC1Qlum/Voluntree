@@ -40,6 +40,7 @@ def get_profile():
 @login_required
 def delete_acc():
     cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
+    glob_user = AllUsers.query.get(current_user.id)
     if isinstance(cu, Organization):
         for ev in cu.events:
             try:
@@ -56,12 +57,6 @@ def delete_acc():
         db.session.delete(user)
         db.session.commit()
     if isinstance(cu, User):
-        for ev in cu.liked_events:
-            try:
-                os.remove(f'uploads/e{ev.id}.png')
-            except Exception:
-                pass
-            db.session.delete(ev)
         user = User.query.get(cu.id)
         logout_user()
         try:
@@ -70,6 +65,8 @@ def delete_acc():
             pass
         db.session.delete(user)
         db.session.commit()
+    db.session.delete(glob_user)
+    db.session.commit()
     return redirect('/home')
 
 def get_events(cu):
