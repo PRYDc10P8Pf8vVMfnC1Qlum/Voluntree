@@ -1,7 +1,7 @@
 from datetime import datetime
 from os import path
-from flask import Flask, url_for
-from flask_login import LoginManager
+from flask import Flask, url_for, render_template
+from flask_login import LoginManager, current_user
 from . import models
 #email
 # from flask_redmail import RedMail
@@ -16,14 +16,10 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     models.db.init_app(app)
 
-    #email
-    
-    # app.config["EMAIL_HOST"] = "localhost"
-    # app.config["EMAIL_PORT"] = 587
-    # app.config["EMAIL_USER"] = "me@example.com"
-    # app.config["EMAIL_PASSWORD"] = "<PASSWORD>"
-    # email.init_app(app)
-    ####
+    #error
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template("error.html", user = current_user)
 
     from .home import home
     from .auth import auth

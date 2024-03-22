@@ -22,12 +22,4 @@ def serve_uploads(filename):
 def redirect_to(hrefed):
     return redirect(hrefed)
 
-# @home.errorhandler(404)
-# def page_not_found(error):
-#     return render_template("error.html"), 404
-# @home.errorhandler(401)
-# def unauthorized_page(error):
-#     return render_template("error.html"), 401
-# @home.errorhandler(500)
-# def server_error_page(error):
-#     return render_template("error.html"), 500
+
