@@ -158,9 +158,9 @@ def auth_organization():
                     login_user(all_user, remember=True)
                     return redirect(url_for('home.load_home'))
                 else:
-                    flash('Incorrect password, try again.', category='error-logror')
+                    flash('Incorrect password, try again.', category='error-log')
             else:
-                flash('Email does not exist.', category='error-logrror')
+                flash('Email does not exist.', category='error-log')
         else:
             name = request.form.get('name-register')
             email = request.form.get('mail-register')
@@ -191,7 +191,7 @@ def auth_organization():
             elif not bool(match(r'[\w]{7}+', password)):
                 flash('Password must be at least 7 characters and contain only letter and numbers', category='error-reg')
             elif not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
-                flash('Incorrect email is given.', category='error')
+                flash('Incorrect email is given.', category='error-reg')
             else:
                 hash_fn = hash_from_name("SHA256")
                 password_hash = update_password_hashed_salted_peppered(hash_fn,password)
