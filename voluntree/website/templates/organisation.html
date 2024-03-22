@@ -10,21 +10,6 @@
     <title>signin-signup</title>
 </head>
 <body>
-
-    {% with messages = get_flashed_messages(with_categories = True) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                {% if category == 'error' %}
-
-                <div id ="alert-error">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    {{message}}
-                </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-
     <div class="container">
         <div class="signin-signup">
             <form action="" class="sign-in-form" method="post">
@@ -35,7 +20,12 @@
                             {% if category == 'error-log' %}
                             <div id ="alert-error">
                                 <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
-                                {{message}}
+                                Login error: {{message}}
+                            </div>
+                            {% elif category == 'error-reg' %}
+                            <div id ="alert-error">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
+                                Registration error: {{message}}
                             </div>
                             {% endif %}
                         {% endfor %}
@@ -68,7 +58,7 @@
                 {% endwith %}
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-user"></i>
-                    <input name = 'name-register' type="text" placeholder="Ім'я користувача">
+                    <input name = 'name-register' type="text" placeholder="Назва організації">
                 </div>
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-envelope"></i>
@@ -85,7 +75,7 @@
                 
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fa fa-address-book"></i>
-                    <input name = 'orgname' type="text" placeholder="Назва організації">
+                    <input name = 'description' type="text" placeholder="Опис організації">
                 </div>
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-user"></i>

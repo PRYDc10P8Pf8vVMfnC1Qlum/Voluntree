@@ -26,7 +26,12 @@
                             {% if category == 'error-log' %}
                             <div id ="alert-error">
                                 <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
-                                {{message}}
+                                Login error: {{message}}
+                            </div>
+                            {% elif category == 'error-reg' %}
+                            <div id ="alert-error">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
+                                Registration error: {{message}}
                             </div>
                             {% endif %}
                         {% endfor %}

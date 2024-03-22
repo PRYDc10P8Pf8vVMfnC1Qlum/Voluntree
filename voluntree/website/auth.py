@@ -85,8 +85,9 @@ def auth_volunteer():
             password = request.form.get('password-login')
 
             user = User.query.filter_by(email=email).first()
-            all_user = AllUsers.query.filter_by(user_id = user.id, is_org = False).first()
+            
             if user:
+                all_user = AllUsers.query.filter_by(user_id = user.id, is_org = False).first()
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
                     login_user(all_user, remember=True)
@@ -126,7 +127,7 @@ def auth_volunteer():
                 db.session.commit()
                 print(new_user.password)
                 
-                shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_user.id}.png')
+                shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_all_user.id}.png')
                 login_user(new_all_user, remember=True)
 
                 # flash('Account created!', category='success')
@@ -149,8 +150,9 @@ def auth_organization():
             password = request.form.get('password-login')
 
             user = Organization.query.filter_by(email=email).first()
-            all_user = AllUsers.query.filter_by(user_id = user.id, is_org = True).first()
+            
             if user:
+                all_user = AllUsers.query.filter_by(user_id = user.id, is_org = True).first()
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
                     flash('Logged in successfully!', category='success')
                     login_user(all_user, remember=True)
@@ -167,7 +169,7 @@ def auth_organization():
             print('register')
             logo = request.files.get('logo')
             print(logo.mimetype)
-            description = request.form.get('orgname')
+            description = request.form.get('description')
             organization = Organization.query.filter_by(email=email).first()
             location = request.form.get('org-adress')
 
@@ -206,7 +208,7 @@ def auth_organization():
                 db.session.commit()
                 
                 
-                logo.save('uploads/' + f'{new_user.id}.png')
+                logo.save('uploads/' + f'{new_all_user.id}.png')
                 login_user(new_all_user, remember=True)
                 flash('Account created!', category='success')
                 cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
