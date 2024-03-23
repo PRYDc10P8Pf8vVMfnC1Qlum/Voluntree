@@ -364,7 +364,7 @@
                         {% endif %}
                         <div class="cards">
                             {% for ev in events %}
-                            {% set truncated_string = ev.description[:77] %}
+                            {% set truncated_string = (ev.name + ': ' + ev.description)[:77] %}
                             {% set last_space_index = truncated_string.rfind(' ') %}
                             <a class="card-self" href="{{ url_for('event.event_page', eventname=ev.name) }}">
                                 <img class="image-holder"
