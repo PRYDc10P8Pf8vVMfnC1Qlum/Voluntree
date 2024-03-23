@@ -127,7 +127,7 @@ def auth_volunteer():
                 db.session.commit()
                 print(new_user.password)
                 
-                shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_all_user.id}.png')
+                shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_user.id}.png')
                 login_user(new_all_user, remember=True)
 
                 # flash('Account created!', category='success')
@@ -208,7 +208,7 @@ def auth_organization():
                 db.session.commit()
                 
                 
-                logo.save('uploads/' + f'{new_all_user.id}.png')
+                logo.save('uploads/' + f'{new_user.id}.png')
                 login_user(new_all_user, remember=True)
                 flash('Account created!', category='success')
                 cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))

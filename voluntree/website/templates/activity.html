@@ -113,7 +113,8 @@
                             </div>
                             <div class="event-post">
                                 <div class="event-post-photo"><img loading="lazy" alt="" src="../static/img/locationpin3navigationmapmapspingpslocation.svg" /></div>
-                                <div class="event-post-title">{{ event.organization.email }}</div>
+                                <a class="event-post-title" href="{{ url_for('event.create_email', to=event.organization.email) }}">Для пропозицій</a>
+                                <a class="event-post-title" href="{{ url_for('event.create_email', to=event.email) }}">Щодо події</a>
                             </div>
                         </div>
                     </div>

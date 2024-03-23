@@ -34,3 +34,7 @@ def event_page(eventname):
     likes_amount = len([k for k in User.query.all() if event_ in k.liked_events])
     print([k.name for k in User.query.all() if event_ in k.liked_events])
     return render_template('activity.html', event=event_, user=cu, is_org=isinstance(cu, Organization), liked=liked, likes = likes_amount)
+
+@event.route('/create_email/<path:to>')
+def create_email(to):
+    return redirect('https://mail.google.com/mail/?view=cm&to='+to)

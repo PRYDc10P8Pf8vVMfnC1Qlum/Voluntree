@@ -344,7 +344,11 @@
             <div class="right__col">
                 <div class = 'nav-class'>
                     <ul class = 'ul-class'>
+                        {% if is_org %}
                         <li class = 'li-class'><button class = 'button-class' onclick="Show1()">Мої події</button></li>
+                        {% else %}
+                        <li class = 'li-class'><button class = 'button-class' onclick="Show1()">Вподобані події</button></li>
+                        {% endif %}
                         <li class = 'li-class'><button class = 'button-class' onclick="Show2()">Налаштування</button></li>
                     </ul>
                 </div>

@@ -381,7 +381,7 @@
             <div class="platform-stays">
                 <div class="platform-stays_photo"><img src="../static/img/volun (2).png" alt=""></div>
                 <div class="platform-stays_text">Стає медіатором між ефективними ініціативами та волонтерами</div>
-                <a href="#" class="platform-stays_button draw-border">Поділитися можливістю</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" class="platform-stays_button draw-border">Поділитися можливістю</a>
             </div>
         </div>
         <div class="oport">
@@ -396,9 +396,13 @@
             </div>
             <div class="oport-blok oport-blok-2">
                 <div class="oport-blok_text">
-                    <p class="oport-blok_title">Організації</p>
+                    <p class="oport-blok_title" id="not_allowed">Організації</p>
                     <p class="oport-blok_text-s">Одна з ключових переваг волонтерства полягає в тому, що воно збирає разом людей з різних соціальних, етнічних та культурних середовищ, об'єднуючи їх у спільному бажанні допомагати іншим</p>
+                    {% if is_org %}
                     <a href="/create_event" class="oport-blok_button draw-border">Створити подію</a>
+                    {% else %}
+                    <a href="#not_allowed" class="oport-blok_button draw-border" style="cursor: no-drop;">Створити подію</a>
+                    {% endif %}
                 </div>
                 <div class="oport-blok_photo"><img src="../static/img/oport1.avif" alt=""></div>
             </div>
@@ -417,7 +421,8 @@
                 {% for org in organizations[:8] %}
                 {% set truncated_string = org.name[:28] %}
                 {% set last_space_index = truncated_string.rfind(' ') %}
-                <a href="#" class="partners-card"><img src="{{ url_for('home.serve_uploads', filename=org.id|string + '.png') }}" alt="">
+                <a href="#" class="partners-card" style="pointer-events: none; cursor: default; text-decoration: none;">
+                    <img src="{{ url_for('home.serve_uploads', filename=org.id|string + '.png') }}" alt="">
                     <p class="partners-card-title">
                         {% if truncated_string != org.name %}
                             {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}

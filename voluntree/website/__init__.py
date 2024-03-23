@@ -50,7 +50,7 @@ def create_app():
     return app
 
 def create_database(app):
-    if not path.exists('website/' + DB_NAME):
+    if not path.exists('instance/' + DB_NAME):
         models.db.create_all()
 #         o1 = models.Organization(
 #             name = 'Українська Волонтерська Служба',
@@ -172,24 +172,24 @@ def create_database(app):
 #             email = 'elon.musk@gmail.com',
 #             password = 'JHKB89ihsdc10'
 #         )
-#         h1 = models.Hashtag(name = 'Допомога захисникам')
-#         h2 = models.Hashtag(name = 'Освіта та наука')
-#         h3 = models.Hashtag(name = 'Розвиток міста')
-#         h4 = models.Hashtag(name = 'Інтелектуальне волонтерство')
-# #         h5 = models.Hashtag(name = 'Регулярне волонтерство')
-#         h6 = models.Hashtag(name = 'Донорство крові')
-#         h7 = models.Hashtag(name = 'Правозахист')
-#         h8 = models.Hashtag(name = 'Волонтерство у пробації')
-#         h9 = models.Hashtag(name = 'Спорт')
-#         h10 = models.Hashtag(name = 'Онлайн волонтерство')
-#         h11 = models.Hashtag(name = 'Волонтерство з ВПО')
-#         h12 = models.Hashtag(name = 'Волонтерство на заходах')
-#         h13 = models.Hashtag(name = 'Екологія та зоозахист')
-#         h14 = models.Hashtag(name = 'Культура та мистецтво')
-#         h15 = models.Hashtag(name = 'Міжнародне волонтерство')
-#         h16 = models.Hashtag(name = 'Переклади та журналістика')
-#         h17 = models.Hashtag(name = 'Психологічна допомога')
-#         h18  = models.Hashtag(name = 'Соціальна допомога')
+        # h1 = models.Hashtag(name = 'Допомога захисникам')
+        # h2 = models.Hashtag(name = 'Освіта та наука')
+        # h3 = models.Hashtag(name = 'Розвиток міста')
+        # h4 = models.Hashtag(name = 'Інтелектуальне волонтерство')
+#         h5 = models.Hashtag(name = 'Регулярне волонтерство')
+        # h6 = models.Hashtag(name = 'Донорство крові')
+        # h7 = models.Hashtag(name = 'Правозахист')
+        # h8 = models.Hashtag(name = 'Волонтерство у пробації')
+        # h9 = models.Hashtag(name = 'Спорт')
+        # h10 = models.Hashtag(name = 'Онлайн волонтерство')
+        # h11 = models.Hashtag(name = 'Волонтерство з ВПО')
+        # h12 = models.Hashtag(name = 'Волонтерство на заходах')
+        # h13 = models.Hashtag(name = 'Екологія та зоозахист')
+        # h14 = models.Hashtag(name = 'Культура та мистецтво')
+        # h15 = models.Hashtag(name = 'Міжнародне волонтерство')
+        # h16 = models.Hashtag(name = 'Переклади та журналістика')
+        # h17 = models.Hashtag(name = 'Психологічна допомога')
+        # h18  = models.Hashtag(name = 'Соціальна допомога')
         # eh1 = models.EventHashtag(event_id = 1, hashtag_id = 2)
         # eh2 = models.EventHashtag(event_id = 1, hashtag_id = 3)
         # eh3 = models.EventHashtag(event_id = 1, hashtag_id = 4)
@@ -218,6 +218,7 @@ def create_database(app):
         # ue3 = models.UserLikedEvents(user_id = 1, event_id = 3)
         # models.db.session.add_all([o1, e1, e2, o2, e3, o3, e4, e5, o4, e6, e7, o5, e8, h1, \
         #     h2, h3, h4, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, u1])
+        # models.db.session.add_all([h1, h2, h3, h4, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18])
         # models.db.session.add_all([eh1, eh2, eh3, eh4, eh5, eh6, eh7, eh8, eh9, eh10, eh11, eh12, \
         # eh13, eh14, eh15, eh16, eh17, eh18, eh19, eh20, eh21, eh22, ue1, ue2, ue3])
         # models.db.session.commit()
