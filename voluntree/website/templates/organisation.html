@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../static/styles/style_organization.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <title>signin-signup</title>
 </head>
+
 <body>
     <div class="container">
         <div class="signin-signup">
             <form action="" class="sign-in-form" method="post">
                 <h2 class="title">Вхід</h2>
                 {% with messages = get_flashed_messages(with_categories = True) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            {% if category == 'error-log' %}
-                            <div id ="alert-error">
-                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
-                                Login error: {{message}}
-                            </div>
-                            {% elif category == 'error-reg' %}
-                            <div id ="alert-error">
-                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
-                                Registration error: {{message}}
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
+                {% if messages %}
+                {% for category, message in messages %}
+                {% if category == 'error-log' %}
+                <div id="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                        style="position: relative;">&times;</span>
+                    Login error: {{message}}
+                </div>
+                {% elif category == 'error-reg' %}
+                <div id="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                        style="position: relative;">&times;</span>
+                    Registration error: {{message}}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
                 {% endwith %}
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input name = 'mail-login' type="text" placeholder="Пошта">
+                    <input name='mail-login' type="text" placeholder="Пошта">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input name = 'password-login' type="password" placeholder="Пароль">
+                    <input name='password-login' type="password" placeholder="Пароль">
                 </div>
                 <input type="submit" value="Увійти" class="btn">
                 <p class="account-text">Не маєте акаунту? <a href="#" id="sign-up-btn2">Зареєструватися</a></p>
@@ -45,41 +50,42 @@
             <form action="" class="sign-up-form" enctype="multipart/form-data" method="post">
                 <h2 class="title">Реєстрація</h2>
                 {% with messages = get_flashed_messages(with_categories = True) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            {% if category == 'error-reg' %}
-                            <div id ="alert-error">
-                                <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position: relative;">&times;</span>
-                                {{message}}
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
+                {% if messages %}
+                {% for category, message in messages %}
+                {% if category == 'error-reg' %}
+                <div id="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                        style="position: relative;">&times;</span>
+                    {{message}}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
                 {% endwith %}
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-user"></i>
-                    <input name = 'name-register' type="text" placeholder="Назва організації">
+                    <input name='name-register' type="text" placeholder="Назва організації">
                 </div>
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-envelope"></i>
-                    <input name = 'mail-register' type="text" placeholder="Пошта">
+                    <input name='mail-register' type="text" placeholder="Пошта">
                 </div>
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-lock"></i>
-                    <input name = 'password-register' type="password" placeholder="Пароль">
+                    <input name='password-register' type="password" placeholder="Пароль">
                 </div>
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-lock"></i>
-                    <input name = 'password-register-confirmation' type="password" placeholder="Пароль">
+                    <input name='password-register-confirmation' type="password" placeholder="Пароль">
                 </div>
-                
+
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fa fa-address-book"></i>
-                    <input name = 'description' type="text" placeholder="Опис організації">
+                    <input name='description' type="text" placeholder="Опис організації">
                 </div>
                 <div class="input-field" style="height: 35px; margin-bottom: 0;">
                     <i class="fas fa-user"></i>
-                    <input name = 'org-adress' type="text" placeholder="Адреса">
+                    <input name='org-adress' type="text" placeholder="Адреса">
                 </div>
                 <div class="input-field-button" style="height: 25px; margin-bottom: 0; position: relative;">
                     <label for="logo" class="custom-file-upload">
@@ -87,8 +93,8 @@
                     </label>
                     <input id="logo" name="logo" type="file" style="display: none;">
                 </div>
-                <input type="submit" value="Зареєструватися" class = 'btn2' id='my-submit' onclick="">
-                
+                <input type="submit" value="Зареєструватися" class='btn2' id='my-submit' onclick="">
+
             </form>
 
         </div>
@@ -108,21 +114,22 @@
                     <p>Пориньте у світ волонтерства разом з Voluntree!</p>
                     <button class="btn" id="sign-up-btn">Зареєструватися</button>
                 </div>
-                
+
             </div>
         </div>
     </div>
-    
+
     <script src="../static/js/script_organization.js">
         function myFun() {
             var Continue = document.getElementById("continue-form");
             var Signin = document.getElementById()
             if (custDiv.style.display === "none") {
-            Continue.style.display = "block";
-            Signin.style.display = "none";
+                Continue.style.display = "block";
+                Signin.style.display = "none";
             }
         }
 
     </script>
 </body>
+
 </html>

@@ -53,6 +53,9 @@
   }
 }
 
+body{
+  width: 100%;
+}
 .top-icon-1 {
   animation: 3s infinite alternate icon1;
   top: 30%;
