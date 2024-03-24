@@ -19,7 +19,7 @@ nav {
 }
 .logo-text {
   padding-top: 2px;
-  color: #2F3D46;
+  color: #2f3d46;
 }
 .nav-item {
   font-size: 20px;
@@ -98,41 +98,36 @@ nav {
   background-color: #2f3d46;
 }
 
-
-
-
-.wrapper{
+.wrapper {
   width: 100%;
 }
 
-.center-flexed{
+.center-flexed {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.flexed{
+.flexed {
   display: flex;
 }
 
-.info-container{
+.info-container {
   display: flex;
   margin-bottom: 50px;
 }
 
-.main-info{
+.main-info {
   flex: 0 0 50%;
 }
-.actions{
+.actions {
   display: flex;
   flex-direction: column;
   flex: 0 0 50%;
   padding: 20px 70px;
 }
 
-
-
-.date{
+.date {
   width: 541px;
   height: 53px;
   font-size: 28px;
@@ -141,63 +136,65 @@ nav {
   max-width: 100%;
 }
 
-.volunteerings{
+.volunteerings {
   margin-top: 25px;
   margin-bottom: 20px;
 }
 
-.volunteerings-row{
+.volunteerings-row {
   display: flex;
   padding: 2px;
   margin: 5px;
 }
-
-.volunteering-item{
-  background-color: #ADC179;
+.heading {
+  word-wrap: break-word;
+  width: 550px;
+}
+.volunteering-item {
+  background-color: #adc179;
   margin: 2px;
   margin-right: 25px;
   padding: 6px;
   color: #f7fbfa;
   border-radius: 5px;
 }
-.description-heading{
+.description-heading {
   margin: 0;
   font-weight: 600;
   font-size: 20px;
 }
 
-.description-text{
+.description-text {
   margin-top: 20px;
   font-size: 25px;
   word-wrap: break-word;
   width: 450px;
 }
 
-.locations{
+.locations {
   margin-top: 40px;
 }
 
-.locations-text{
+.locations-text {
   font-size: 25px;
   color: #333;
 }
 
-
-
-.act-image{
-  max-height: 700px;
+.act-image {
+  object-fit: contain;
+  height: 700px;
   border-radius: 35px;
   margin: 40px 0;
 }
 
-.apply-button{
+.apply-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.request{
+.request {
   font: inherit;
   color: inherit;
   background-color: transparent;
@@ -212,61 +209,63 @@ nav {
   transition: 0.5s;
 }
 
-.request:hover{
+.request:hover {
   color: red;
 }
 
-.organizator{
+.organizator {
   margin-top: 40px;
 }
-.organizator-text{
+.organizator-text {
   font-size: 30px;
-  color:#333;
+  color: #333;
   margin-bottom: 20px;
 }
-.organizator-card{
+.organizator-card {
   margin: 10px;
   border: 2px #333 solid;
   border-radius: 30px;
   padding: 20px;
 }
-.organizator-info{
+.organizator-info {
   display: flex;
   margin-bottom: 20px;
 }
-.organizator-img{
-  min-width: 100px;
+.organizator-img {
+  width: 150px;
   height: 100px;
 }
-.organizator-img img{
+.organizator-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
-.oranizator-title{
+.oranizator-title {
   margin: 0 15px;
   display: flex;
   align-items: center;
   font-weight: 800;
 }
-.event{
+.event {
   margin-top: 40px;
 }
-.event-loc{
+.event-loc {
   margin-bottom: 10px;
 }
-.event-loc, .event-post{
+.event-loc,
+.event-post {
   display: flex;
 }
-.event-loc-title, .event-post-title{
+.event-loc-title,
+.event-post-title {
   margin-left: 20px;
 }
 
-.footer{
+.footer {
   text-align: center;
   margin-top: 80px;
   margin-bottom: 30px;
 }
-
 
 @media (max-width: 1440px) {
   .navbar-brand {
@@ -340,32 +339,31 @@ nav {
   .sign-up:hover {
     border-radius: 20px;
   }
-  .heading{
-      font-size: 25px;
+  .heading {
+    font-size: 25px;
   }
-  .date{
-      font-size: 20px;
+  .date {
+    font-size: 20px;
   }
-  .description-text{
-      margin-top: 15px;
-      font-size: 20px;
+  .description-text {
+    margin-top: 15px;
+    font-size: 20px;
   }
-  .locations{
-      margin-top: 30px;
+  .locations {
+    margin-top: 30px;
   }
-  .locations-text{
-      font-size: 20px;
-      color: #333;
+  .locations-text {
+    font-size: 20px;
+    color: #333;
   }
-    
 }
 @media (max-width: 1000px) {
-  .info-container{
-      flex-direction: column;
-      padding: 0 50px;
+  .info-container {
+    flex-direction: column;
+    padding: 0 50px;
   }
-  .main-info{
-      margin-bottom : 40px;
+  .main-info {
+    margin-bottom: 40px;
   }
 }
 @media (max-width: 767px) {
@@ -415,50 +413,58 @@ nav {
     margin-left: 0px;
     margin: 0px auto;
   }
-
-  .organizator{
-      margin-top: 30px;
-      flex: 0 0 100%;
-    }
-    .organizator-text{
-      font-size: 20px;
-      color:#333;
-      margin-bottom: 20px;
-    }
-    .organizator-card{
-      border: 2px #333 solid;
-      border-radius: 30px;
-      padding: 15px;
-      margin: 0;
-    }
-    .organizator-info{
-      display: flex;
-      margin-bottom: 20px;
-    }
-    .organizator-img{
-      min-width: 100px;
-      height: 100px;
-    }
-    .organizator-img img{
-      width: 100%;
-      height: 100%;
-    }
-    .oranizator-title{
-      margin: 0 15px;
-      display: flex;
-      align-items: center;
-      font-weight: 800;
-    }
-    .info-container{
-      padding: 0;
+  .heading {
+    width: 400px;
   }
-  .actions{
-      flex: 0 0 100%; 
-      padding: 0;
-      margin: 0 30px;
+  .organizator {
+    margin-top: 30px;
+    flex: 0 0 100%;
   }
-  .description-text{
+  .organizator-text {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .organizator-card {
+    border: 2px #333 solid;
+    border-radius: 30px;
+    padding: 15px;
+    margin: 0;
+  }
+  .organizator-info {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .organizator-img {
+    width: 100px;
+    height: 100px;
+  }
+  .organizator-img img {
+    width: 100%;
+    height: 100%;
+  }
+  .oranizator-title {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+  }
+  .info-container {
+    padding: 0;
+  }
+  .actions {
+    flex: 0 0 100%;
+    padding: 0;
+    margin: 0 30px;
+  }
+  .description-text {
     width: 380px;
+  }
+  .act-image {
+    object-fit: contain;
+    height: 300px;
+    border-radius: 35px;
+    margin: 40px 0;
   }
 }
 @media (max-width: 425px) {
@@ -503,19 +509,28 @@ nav {
     margin-left: 0px;
     margin: 0px auto;
   }
-  .organizator-info{
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+  .organizator-info {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-  .organizator-info img{
-      width: 100px;
+  .organizator-info img {
+    width: 100px;
   }
-  .event-post-title{
-      font-size: 12px;
+  .event-post-title {
+    font-size: 12px;
   }
-  .description-text{
+  .description-text {
     width: 300px;
   }
+}
+
+.event-post-title {
+  color: #333;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.event-post-title:hover {
+  text-decoration: underline;
 }

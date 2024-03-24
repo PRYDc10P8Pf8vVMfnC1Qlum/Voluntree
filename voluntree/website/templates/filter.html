@@ -506,6 +506,7 @@
             </div>
         </form>
         <div class="cards">
+            {% if events %}
             {% for ev in events %}
             {% set truncated_string = (ev.name + ': ' + ev.description)[:77] %}
             {% set last_space_index = truncated_string.rfind(' ') %}
@@ -535,8 +536,7 @@
                     <div class="card-content">
                         <p class="card-text">
                             {% if truncated_string != ev.description %}
-                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else
-                            truncated_string) ~ '...' }}
+                            {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
                             {% else %}
                             {{ truncated_string }}
                             {% endif %}
@@ -546,9 +546,11 @@
                 </div>
             </a>
             {% endfor %}
+            {% else %}
+            <h2>Таких подій ще нема.</h2>
+            {% endif %}
         </div>
     </div>
-
     <script>
         const selectBtn = document.querySelector(".select-btn"),
             items = document.querySelectorAll(".item");

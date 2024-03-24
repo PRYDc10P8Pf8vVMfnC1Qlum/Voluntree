@@ -1,978 +1,970 @@
-body{
-    font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
 }
-.volunteer_world{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #A9D8CF;
+.volunteer_world {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a9d8cf;
 }
-.volunteer_world_image{
-    width: 50%;
+.volunteer_world_image {
+  width: 50%;
 }
-.volunteer_world_image img{
-    width: 100%;
+.volunteer_world_image img {
+  width: 100%;
 }
-.volunteer_world_text{
-    padding: 100px;
-    width: 50%;
+.volunteer_world_text {
+  padding: 100px;
+  width: 50%;
 }
-.open_world_text_big{
-    font-weight: 900;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 65px;
-    color: #2F3D46;
-    margin-bottom: 60px;
+.open_world_text_big {
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  font-size: 65px;
+  color: #2f3d46;
+  margin-bottom: 60px;
 }
-.open_world_text{
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    color: #686A6C;
-}
-
-
-.main-container{
-    width: 100%;
-}
-.choose_your{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 1000px;
-    width: 100%;
-}
-.choose_your_text{
-    width: 40%;
-    padding: 80px 20px 120px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-
-}
-.choose_your_options{
-    width: 60%;
-    height: 100%;
-    padding: 60px 40px 80px 155px;
-}
-.choose_your_title{
-    display: flex;
-    justify-content: space-between;
-    font-weight: 900;
-    color: #2F3D46;
-    padding: 20px;
-    /* align-items: center; */
-}
-.choose_your_title-text{
-    font-size: 60px;
-}
-.choose_your_title-link{
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-    margin-top: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #70CFA7;
-    border-radius: 50%;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.choose_your_title-link:hover{
-    background-color: #396854;
-    margin-top: 30px;
-    width: 60px;
-    height: 60px;
-}
-.choose_your_description{
-    width: 480px;
-    font-size: 18px;
-    padding: 10px 30px 10px 10px;
-}   
-
-
-.choose_your_options{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+.open_world_text {
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #686a6c;
 }
 
-.choose_your_options_blok{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.main-container {
+  width: 100%;
+}
+.choose_your {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1000px;
+  width: 100%;
+}
+.choose_your_text {
+  width: 40%;
+  padding: 80px 20px 120px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.choose_your_options {
+  width: 60%;
+  height: 100%;
+  padding: 60px 40px 80px 155px;
+}
+.choose_your_title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+  color: #2f3d46;
+  padding: 20px;
+  /* align-items: center; */
+}
+.choose_your_title-text {
+  font-size: 60px;
+}
+.choose_your_title-link {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  margin-top: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #70cfa7;
+  border-radius: 50%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.choose_your_title-link:hover {
+  background-color: #396854;
+  margin-top: 30px;
+  width: 60px;
+  height: 60px;
+}
+.choose_your_description {
+  width: 480px;
+  font-size: 18px;
+  padding: 10px 30px 10px 10px;
 }
 
-.choose_your_options_one{
-    display: flex;
-    align-items: center;
-    padding: 20px 0px 20px 0;
-    border-bottom: #2F3D46 2px solid;
-    text-decoration: none;
-    color:#2F3D46;
-    position: relative;
-    padding: 20px;
+.choose_your_options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.choose_your_options_one img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    
+.choose_your_options_blok {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.choose_your_options_one-text{
-    display: block;
-    margin-left: 30px;
-    font-weight: 800;
-    font-size: 35px;
+.choose_your_options_one {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px 20px 0;
+  border-bottom: #2f3d46 2px solid;
+  text-decoration: none;
+  color: #2f3d46;
+  position: relative;
+  padding: 20px;
 }
 
-.choose_your_options_more{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.choose_your_options_one img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
 }
 
-.choose_your_options_more_button{
-    text-decoration: none;
-    background-color: #2F3D46;
-    padding: 15px 70px;
-    color: #fff;
-    font-weight: 700;
-    margin-top: 30px;
-    border-radius: 10px;
-    border: 2px solid #2F3D46;
-    transition: 0.5s;
+.choose_your_options_one-text {
+  display: block;
+  margin-left: 30px;
+  font-weight: 800;
+  font-size: 35px;
 }
-.choose_your_options_more_button:hover{
-    background-color: #2f3d4600;
-    color: #2F3D46;
-    font-weight: 700;
-    margin-top: 30px;
-    border-radius: 10px;
 
+.choose_your_options_more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choose_your_options_more_button {
+  text-decoration: none;
+  background-color: #2f3d46;
+  padding: 15px 70px;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: 2px solid #2f3d46;
+  transition: 0.5s;
+}
+.choose_your_options_more_button:hover {
+  background-color: #2f3d4600;
+  color: #2f3d46;
+  font-weight: 700;
+  margin-top: 30px;
+  border-radius: 10px;
 }
 .choose_your_options_one::before {
-    background: #70cfa7c1;
-    content: "";
-    inset: 0;
-    position: absolute;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.5s ease-in-out;
-    z-index: -1;
+  background: #70cfa7c1;
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
 }
 .choose_your_options_one:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.platform{
-    display: flex;
-
+.platform {
+  display: flex;
 }
 
-.platform-connects{
-    width: 50%;
-    padding: 60px 80px 60px 60px;
-    background-color: #2F3D46;
-    color: #fff;
+.platform-connects {
+  width: 50%;
+  padding: 60px 80px 60px 60px;
+  background-color: #2f3d46;
+  color: #fff;
 }
 
-.platform-connects_title{
-    font-size:60px;
-    font-weight: 900;
-    margin-bottom: 70px;
+.platform-connects_title {
+  font-size: 60px;
+  font-weight: 900;
+  margin-bottom: 70px;
 }
 
-
-.platform-connects_text{
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 50px;
+.platform-connects_text {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 50px;
 }
 
-.platform-connects_photo{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+.platform-connects_photo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.platform-connects_photo img{
-    width: 100%;
+.platform-connects_photo img {
+  width: 100%;
 }
 
-.platform-stays{
-    width: 50%;
-    padding: 220px 50px 50px 50px;
-    background-color: rgba(91, 163, 110, 0.824);
-    color: #fff;
+.platform-stays {
+  width: 50%;
+  padding: 220px 50px 50px 50px;
+  background-color: rgba(91, 163, 110, 0.824);
+  color: #fff;
 }
 
-
-.platform-stays_text{
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 30px;
+.platform-stays_text {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
-
-.platform-stays_button, .platform-connects_button{
-    color: #fff;
-    padding: 15px 0px;
-    text-decoration: none;
-    margin-bottom: 60px;
-    width: 300px;
-    text-align: center;
-    display: block;
-    font-weight: 600;
-    font-size: 20px;
+.platform-stays_button,
+.platform-connects_button {
+  color: #fff;
+  padding: 15px 0px;
+  text-decoration: none;
+  margin-bottom: 60px;
+  width: 300px;
+  text-align: center;
+  display: block;
+  font-weight: 600;
+  font-size: 20px;
 }
 
-.platform-stays_photo{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 60px;
+.platform-stays_photo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
-.platform-stays_photo img{
-    width: 100%;
+.platform-stays_photo img {
+  width: 100%;
 }
 
 .draw-border {
-    box-shadow: inset 0 0 0 4px #ffffff;
-    color: #ffffff;
-    transition: color 0.25s 0.0833333333s;
-    position: relative;
-  }
-  .draw-border::before, .draw-border::after {
-    border: 0 solid transparent;
-    box-sizing: border-box;
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: 0;
-    right: 0;
-  }
-  .draw-border::before {
-    border-bottom-width: 4px;
-    border-left-width: 4px;
-  }
-  .draw-border::after {
-    border-top-width: 4px;
-    border-right-width: 4px;
-  }
-  .draw-border:hover {
-    color: #239898;
-  }
-  .draw-border:hover::before, .draw-border:hover::after {
-    border-color: #239898;
-    transition: border-color 0s, width 0.25s, height 0.25s;
-    width: 100%;
-    height: 100%;
-  }
-  .draw-border:hover::before {
-    transition-delay: 0s, 0s, 0.25s;
-  }
-  .draw-border:hover::after {
-    transition-delay: 0s, 0.25s, 0s;
-  }
-
-
-
-.oport{
-    width: 100%;
-    padding: 70px 70px 0px 70px;
+  box-shadow: inset 0 0 0 4px #ffffff;
+  color: #ffffff;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
 }
-.oport-title{
-    text-align: center;
-    font-size: 50px;
-    font-weight: 800;
-    margin-bottom: 70px;
+.draw-border::before,
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
 }
-.oport-blok{
-    display: flex;
-    align-items: center;
-    margin-bottom:100px;
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
 }
-.oport-blok_photo{
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:hover {
+  color: #239898;
+}
+.draw-border:hover::before,
+.draw-border:hover::after {
+  border-color: #239898;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.oport {
+  width: 100%;
+  padding: 70px 70px 0px 70px;
+}
+.oport-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 70px;
+}
+.oport-blok {
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.oport-blok_photo {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.oport-blok_photo img {
+  border-radius: 30px;
+  width: 750px;
+  height: 600px;
+  border: 8px rgb(50, 75, 50) solid;
+}
+.oport-blok_text {
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 30px 30px 30px 30px;
+  width: 100%;
+}
+.oport-blok_title {
+  font-size: 60px;
+  font-weight: 900;
+  margin-bottom: 50px;
+}
+.oport-blok_text-s {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+.oport-blok_button {
+  padding: 15px 30px;
+  border: 2px solid black;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.partners {
+  width: 100%;
+  padding: 10px 70px 30px 70px;
+}
+.partners-title {
+  font-size: 70px;
+  font-weight: 900;
+  margin-bottom: 60px;
+}
+.partners-blok {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.partners-card {
+  color: #333;
+  flex: 0 1 25%;
+  padding: 15px 25px 5px 25px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.partners-card img {
+  border-radius: 20px;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.partners-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+.partners-card-city {
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.team {
+  width: 100%;
+  padding: 0px 70px 60px 70px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    180deg,
+    rgba(81, 121, 112, 1) 0%,
+    rgba(131, 159, 153, 1) 97%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.team-title {
+  font-size: 60px;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+.team-card-blok {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.team-card {
+  flex: 0 0 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin: 0 60px 40px 60px;
+  border-radius: 20px;
+}
+.team-card-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.team-card-photo1 {
+  background: url("../img/Sofia.jpg") 0px 0px/100% auto no-repeat;
+}
+.team-card-photo2 {
+  background: url("../img/Lida.jpg") 0px -15px/100% auto no-repeat;
+}
+.team-card-photo3 {
+  background: url("../img/Solomia.jpg") 0px -40px/100% auto no-repeat;
+}
+.team-card-photo4 {
+  background: url("../img/Yarik.png") 0px -10px/100% auto no-repeat;
+}
+.team-card-photo5 {
+  background: url("../img/Hordiy.jpg") 0px -25px/110% auto no-repeat;
+}
+.team-card-name {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+@media (max-width: 1440px) {
+  .open_world_text_big {
+    font-size: 55px;
+    margin-bottom: 30px;
+  }
+  .open_world_text {
+    font-size: 18px;
+  }
+  .volunteer_world_text {
+    padding: 50px;
     width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.oport-blok_photo img{
+  }
+  .oport {
+    padding: 50px;
+  }
+  .oport-blok_photo img {
     border-radius: 30px;
-    width: 750px;
-    height: 600px;
+    width: 480px;
+    height: 400px;
     border: 8px rgb(50, 75, 50) solid;
-}
-.oport-blok_text{
-    margin-right: 50px;
-    margin-left: 50px;
-    padding: 30px 30px 30px 30px;
+  }
+  .oport-blok_text {
+    margin-right: 30px;
+    margin-left: 30px;
+    padding: 0px;
     width: 100%;
-}
-.oport-blok_title{
-    font-size: 60px;
+  }
+  .oport-blok_title {
+    font-size: 50px;
     font-weight: 900;
-    margin-bottom: 50px;
-}
-.oport-blok_text-s{
-    font-size:  20px;
-    margin-bottom: 50px;
-}
-.oport-blok_button{
-    padding: 15px 30px;
+    margin-bottom: 30px;
+  }
+  .oport-blok_text-s {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  .oport-blok_button {
+    padding: 15px 25px;
     border: 2px solid black;
     text-decoration: none;
     color: black;
     font-weight: 600;
+  }
+  .team {
+    padding: 30px 20px 0 20px;
+  }
+  .team-card {
+    padding: 20px;
+    margin: 0 40px 40px 40px;
+  }
 }
 
+@media (max-width: 1024px) {
+  .open_world_text_big {
+    font-size: 45px;
+    line-height: 45px;
+    margin-bottom: 50px;
+  }
+  .volunteer_world_image {
+    width: 40%;
+  }
+  .open_world_text {
+    font-size: 18px;
+  }
+  .volunteer_world_text {
+    padding: 40px 60px 40px 40px;
+    width: 60%;
+  }
 
-.partners{
+  .choose_your {
+    flex-direction: column;
+    height: auto;
+  }
+  .choose_your_text {
     width: 100%;
-    padding: 10px 70px 30px 70px;
-}
-.partners-title{
-   font-size: 70px;
-   font-weight: 900;
-   margin-bottom: 60px;
-}
-.partners-blok{
-    display: flex;
-    flex-wrap: wrap;
+    padding: 20px 20px 0px 20px;
+    align-items: center;
+  }
+  .choose_your_options {
+    width: 100%;
+    height: 100%;
+    padding: 20px 120px 80px 120px;
+  }
+  .choose_your_title {
+    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.partners-card{
-    flex: 0 1 25%;
-    padding: 15px 25px 5px 25px;
+  }
+  .choose_your_title-link {
+    margin-top: 15px;
+  }
+  .choose_your_title-text {
+    font-size: 60px;
+    text-align: center;
+  }
+  .choose_your_description {
+    display: none;
+  }
+  .choose_your_options_one {
+    padding: 20px 0 20px 80px;
+  }
+
+  .platform-connects {
+    padding: 30px 30px 30px 30px;
+  }
+
+  .platform-connects_title {
+    font-size: 45px;
+    margin-bottom: 35px;
+  }
+
+  .platform-connects_text {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+  .platform-stays {
+    width: 50%;
+    padding: 130px 30px 30px 30px;
+  }
+
+  .platform-stays_text {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .platform-stays_button,
+  .platform-connects_button {
+    color: #fff;
+    padding: 15px 0px;
+    text-decoration: none;
+    margin-bottom: 60px;
+    width: 200px;
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .oport {
+    padding: 30px;
+  }
+  .oport-blok {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .oport-blok_photo img {
+    width: 380px;
+    height: 300px;
+    border: 5px rgb(50, 75, 50) solid;
+  }
+  .oport-blok_text {
+    padding: 0px;
+    width: 100%;
+  }
+  .oport-blok_title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+  .oport-blok_text-s {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .oport-blok_button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  .partners {
+    padding: 0px 50px 30px 50px;
+  }
+  .partners-title {
+    font-size: 60px;
+    margin-bottom: 40px;
+  }
+  .partners-card {
+    padding: 10px 10px 5px 10px;
     border: 2px solid #fff;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    transition: 0.5s;
-}
-/* .partners-card:hover{
-   background-color: #2F3D46;
-   color: #fff;
-} */
-.partners-card img{
-    width: 100%;
-    margin-bottom: 15px;
-}
-.partners-card-title{
-    font-size: 20px;
-    font-weight: 700;
-    margin-left: 10px;
-    margin-bottom: 0px;
-}
-.partners-card-city{
-    font-size: 15px;
-    font-weight: 500;
-    margin-left: 10px;
-}
-
-.team{
-    width: 100%;
-    padding: 0px 70px 60px 70px;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(180deg, rgba(81,121,112,1) 0%, rgba(131,159,153,1) 97%, rgba(255,255,255,1) 100%);
-    align-items: center;
-    justify-content: center;
-    color:#fff;
-}
-.team-title{
-    font-size: 60px;
-    margin-bottom: 40px;
-    font-weight: 800;
-}
-.team-card-blok{
+    margin-bottom: 5px;
+    transition-duration: 0.3s;
+  }
+  .partners-card img {
+    align-self: center;
     width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .partners-card-title {
+    font-size: 18px;
+  }
+  .partners-card-city {
+    font-size: 12px;
+  }
+  .team-card {
+    flex: 0 1 15%;
+    padding: 25px;
+    margin: 0 15px 40px 15px;
+  }
+  .team-card-photo {
+    width: 150px;
+    height: 150px;
+  }
 }
-.team-card{
-    flex: 0 0 15%;
+
+@media (max-width: 767px) {
+  .open_world_text_big {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 40px;
+  }
+  .open_world_text {
+    font-size: 15px;
+  }
+  .volunteer_world_text {
+    padding: 30px 50px 30px 30px;
+    width: 60%;
+  }
+  .choose_your_options_one {
+    padding: 20px 0 20px 40px;
+  }
+  .choose_your_options_one img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+  }
+  .choose_your_options_one-text {
+    font-size: 25px;
+  }
+  .choose_your_options {
+    padding: 20px 40px 80px 40px;
+  }
+  .platform-connects {
+    padding: 20px 20px 20px 20px;
+  }
+
+  .platform-connects_title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .platform-connects_text {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  .platform-stays {
+    width: 50%;
+    padding: 100px 20px 20px 20px;
+  }
+
+  .platform-stays_text {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .platform-stays_button,
+  .platform-connects_button {
+    color: #fff;
+    padding: 10px 0px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    width: 150px;
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .platform-stays_button {
+    width: 180px;
+  }
+  .draw-border::before {
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+  }
+  .draw-border::after {
+    border-top-width: 2px;
+    border-right-width: 2px;
+  }
+  .platform-stays_photo {
+    margin-bottom: 30px;
+  }
+  .draw-border {
+    box-shadow: inset 0 0 0 2px #ffffff;
+  }
+  .oport {
+    padding: 30px;
+  }
+  .oport-title {
+    font-size: 30px;
+  }
+  .oport-blok {
+    margin-bottom: 40px;
+  }
+  .oport-blok_photo img {
+    width: 280px;
+    height: 200px;
+    border: 5px rgb(50, 75, 50) solid;
+  }
+  .oport-blok_text {
+    padding: 0px;
+    width: 100%;
+  }
+  .oport-blok_text-s {
+    font-size: 12px;
+  }
+  .oport-blok_title {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .oport-blok_button {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+  .partners-card {
+    flex: 0 1 45%;
+  }
+}
+
+@media (max-width: 640px) {
+  .open_world_text_big {
+    font-size: 30px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+  .open_world_text {
+    font-size: 12px;
+  }
+  .volunteer_world_text {
+    padding: 25px 50px 25px 25px;
+    width: 60%;
+  }
+
+  .oport {
+    padding: 50px 30px;
+  }
+  .oport-title {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+  .oport-blok {
+    margin-bottom: 50px;
+    flex-direction: column;
+  }
+  .oport-blok_photo img {
+    width: 440px;
+    height: 300px;
+    border: 5px rgb(50, 75, 50) solid;
+  }
+  .oport-blok_photo {
+    margin-bottom: 20px;
+  }
+  .oport-blok-2 {
+    flex-direction: column-reverse;
+  }
+  .oport-blok_text {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    margin: 0 60px 40px 60px;
-    border-radius: 20px;
+    padding: 0px;
+    width: 100%;
+  }
+  .oport-blok_text-s {
+    font-size: 15px;
+    text-align: center;
+  }
+  .oport-blok_title {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  .oport-blok_button {
+    padding: 15px 25px;
+    font-size: 16px;
+  }
+
+  .team {
+    padding: 30px 20px 0 20px;
+  }
+  .team-title {
+    font-size: 40px;
+    text-align: center;
+  }
+  .team-card {
+    flex: 0 1 10%;
+    padding: 15px;
+    margin: 0 10px 40px 10px;
+  }
+  .team-card-photo {
+    width: 120px;
+    height: 120px;
+  }
 }
-.team-card-photo{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+
+@media (max-width: 510px) {
+  .choose_your_title-text {
+    font-size: 30px;
+    text-align: center;
+  }
+  .choose_your_options_one {
+    padding: 20px 0 20px 0px;
+  }
+  .choose_your_options_one img {
+    width: 60px;
+  }
+  .choose_your_options_one-text {
+    font-size: 18px;
+  }
+  .volunteer_world {
+    flex-direction: column;
+  }
+  .volunteer_world_image {
+    width: 100%;
+  }
+  .open_world_text_big {
+    font-size: 40px;
+    line-height: 45px;
+    margin-bottom: 30px;
+  }
+  .open_world_text {
+    font-size: 15px;
+  }
+  .volunteer_world_text {
+    padding: 75px 30px;
+    width: 100%;
+  }
+
+  .oport-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+  .oport-blok_photo img {
+    width: 330px;
+    height: 270px;
+    border: 5px rgb(50, 75, 50) solid;
+  }
+  .oport-blok_photo {
     margin-bottom: 20px;
-}
-.team-card-photo1{
-    background: url("../img/Sofia.jpg") 0px 0px/100% auto no-repeat;
-}
-.team-card-photo2{
-    background: url("../img/Lida.jpg") 0px -15px/100% auto no-repeat;
-}
-.team-card-photo3{
-    background: url("../img/Solomia.jpg") 0px -40px/100% auto no-repeat;
-}
-.team-card-photo4{
-    background: url("../img/Yarik.png") 0px -10px/100% auto no-repeat;
-}
-.team-card-photo5{
-    background: url("../img/Hordiy.jpg") 0px -25px/110% auto no-repeat;
-}
-.team-card-name{
+  }
+  .oport-blok_text-s {
+    font-size: 12px;
+    text-align: center;
+  }
+  .oport-blok_title {
     font-size: 20px;
-    font-weight: 800;
+    margin-bottom: 15px;
+  }
+  .oport-blok_button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  .partners {
+    padding: 0px 20px;
+  }
+  .partners-title {
+    font-size: 30px;
+    text-align: center;
+  }
 }
+@media (max-width: 424px) {
+  .volunteer_world {
+    flex-direction: column;
+  }
+  .volunteer_world_image {
+    width: 100%;
+  }
+  .open_world_text_big {
+    font-size: 40px;
+    line-height: 45px;
+    margin-bottom: 30px;
+  }
+  .open_world_text {
+    font-size: 15px;
+  }
+  .volunteer_world_text {
+    padding: 75px 30px;
+    width: 100%;
+  }
+  .platform {
+    flex-direction: column;
+  }
+  .platform-connects {
+    padding: 20px 20px 40px 20px;
+    width: 100%;
+  }
+  .platform-stays {
+    width: 100%;
+    padding-top: 30px;
+  }
+  .oport-blok_photo img {
+    width: 280px;
+    height: 210px;
+  }
+  .oport {
+    padding: 20px 30px;
+  }
 
-
-@media (max-width: 1440px){
-    .open_world_text_big{
-        font-size: 55px;
-        margin-bottom: 30px;
-    }
-    .open_world_text{
-        font-size: 18px;
-    }
-    .volunteer_world_text{
-        padding: 50px;
-        width: 50%;
-    }
-    .oport{
-        padding: 50px;
-    }
-    .oport-blok_photo img{
-        border-radius: 30px;
-        width: 480px;
-        height: 400px;
-        border: 8px rgb(50, 75, 50) solid;
-    }
-    .oport-blok_text{
-        margin-right: 30px;
-        margin-left: 30px;
-        padding:0px;
-        width: 100%;
-    }
-    .oport-blok_title{
-        font-size: 50px;
-        font-weight: 900;
-        margin-bottom: 30px;
-    }
-    .oport-blok_text-s{
-        font-size:  18px;
-        margin-bottom: 30px;
-    }
-    .oport-blok_button{
-        padding: 15px 25px;
-        border: 2px solid black;
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-    }
-    .team{
-        padding: 30px 20px 0 20px;
-    }
-    .team-card{
-        padding: 20px;
-        margin: 0 40px 40px 40px;
-    }
+  .team-title {
+    font-size: 35px;
+  }
+  .team-card {
+    padding: 15px 30px 10px 30px;
+    margin: 0 10px 40px 10px;
+  }
+  .team-card-photo {
+    width: 150px;
+    height: 150px;
+  }
 }
-
-  
-
-@media (max-width: 1024px){
-    .open_world_text_big{
-        font-size: 45px;
-        line-height: 45px;
-        margin-bottom: 50px;
-    }
-    .volunteer_world_image{
-        width: 40%;
-    }
-    .open_world_text{
-        font-size: 18px;
-    }
-    .volunteer_world_text{
-        padding: 40px 60px 40px 40px;
-        width: 60%;
-    }
-
-
-    .choose_your{
-        flex-direction: column;
-        height: auto;
-    }
-    .choose_your_text{
-        width: 100%;
-        padding: 20px 20px 0px 20px;
-        align-items: center;
-    }
-    .choose_your_options{
-        width: 100%;
-        height: 100%;
-        padding: 20px 120px 80px 120px;
-    }
-    .choose_your_title{
-        justify-content: space-between;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .choose_your_title-link{
-        margin-top: 15px;
-    }
-    .choose_your_title-text{
-        font-size: 60px;
-        text-align: center;
-    }
-    .choose_your_description{
-        display: none;
-    }  
-    .choose_your_options_one{
-        padding: 20px 0 20px 80px;
-    }
-
-    .platform-connects{
-        padding: 30px 30px 30px 30px;
-    }
-    
-    .platform-connects_title{
-        font-size:45px;
-        margin-bottom: 35px;
-    }
-    
-    .platform-connects_text{
-        font-size: 22px;
-        margin-bottom: 40px;
-    }
-    .platform-stays{
-        width: 50%;
-        padding: 130px 30px 30px  30px;
-    }
-    
-    
-    .platform-stays_text{
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 30px;
-    }
-    
-    .platform-stays_button, .platform-connects_button{
-        color: #fff;
-        padding: 15px 0px;
-        text-decoration: none;
-        margin-bottom: 60px;
-        width: 200px;
-        text-align: center;
-        display: block;
-        font-weight: 600;
-        font-size: 15px;
-    }
-
-    .oport{
-        padding: 30px;
-    }
-    .oport-blok{
-        display: flex;
-        align-items: center;
-        margin-bottom:50px;
-    }
-    .oport-blok_photo img{
-        width: 380px;
-        height: 300px;
-        border: 5px rgb(50, 75, 50) solid;
-    }
-    .oport-blok_text{
-        padding:0px;
-        width: 100%;
-    }
-    .oport-blok_title{
-        font-size: 30px;
-        font-weight: 900;
-        margin-bottom: 30px;
-    }
-    .oport-blok_text-s{
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-    .oport-blok_button{
-        padding: 10px 20px;
-        font-size: 15px;
-    }
-
-    .partners{
-        padding: 0px 50px 30px 50px;
-    }
-    .partners-title{
-       font-size: 60px;
-       margin-bottom: 40px;
-    }
-    .partners-card{
-        padding: 10px 10px 5px 10px;
-        border: 2px solid #fff;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 5px;
-        transition-duration: 0.3s;
-    }
-    .partners-card img{
-        align-self: center;
-        width: 90%;
-        margin-bottom: 10px;
-    }
-    .partners-card-title{
-        font-size: 18px;
-    }
-    .partners-card-city{
-        font-size: 12px;
-    }
-    .team-card{
-        flex: 0 1 15%;
-        padding: 25px;
-        margin: 0 15px 40px 15px;
-    }
-    .team-card-photo{
-        width: 150px;
-        height: 150px;
-    }
-}
-
-
-@media (max-width: 767px){
-    .open_world_text_big{
-        font-size: 40px;
-        line-height: 40px;
-        margin-bottom: 40px;
-    }
-    .open_world_text{
-        font-size: 15px;
-    }
-    .volunteer_world_text{
-        padding: 30px 50px 30px 30px;
-        width: 60%;
-    }
-    .choose_your_options_one{
-        padding: 20px 0 20px 40px;
-    }
-    .choose_your_options_one img{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80px;
-    }
-    .choose_your_options_one-text{
-        font-size: 25px;
-    }
-    .choose_your_options{
-        padding: 20px 40px 80px 40px;
-    }
-    .platform-connects{
-        padding: 20px 20px 20px 20px;
-    }
-    
-    .platform-connects_title{
-        font-size:30px;
-        margin-bottom: 30px;
-    }
-    
-    .platform-connects_text{
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-    .platform-stays{
-        width: 50%;
-        padding: 100px 20px 20px  20px;
-    }
-
-    .platform-stays_text{
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-    .platform-stays_button, .platform-connects_button{
-        color: #fff;
-        padding: 10px 0px;
-        text-decoration: none;
-        margin-bottom: 30px;
-        width: 150px;
-        text-align: center;
-        display: block;
-        font-weight: 600;
-        font-size: 13px;
-    }
-    .platform-stays_button{
-        width: 180px;
-    }
-    .draw-border::before {
-        border-bottom-width: 2px;
-        border-left-width: 2px;
-    }
-      .draw-border::after {
-        border-top-width: 2px;
-        border-right-width: 2px;
-    }
-    .platform-stays_photo{
-        margin-bottom: 30px;
-    }
-    .draw-border {
-        box-shadow: inset 0 0 0 2px #ffffff;
-    }
-    .oport{
-        padding: 30px;
-    }
-    .oport-title{
-        font-size: 30px;
-    }
-    .oport-blok{
-        margin-bottom:40px;
-    }
-    .oport-blok_photo img{
-        width: 280px;
-        height: 200px;
-        border: 5px rgb(50, 75, 50) solid;
-    }
-    .oport-blok_text{
-        padding:0px;
-        width: 100%;
-    }
-    .oport-blok_text-s{
-        font-size: 12px;
-    }
-    .oport-blok_title{
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-    .oport-blok_button{
-        padding: 5px 15px;
-        font-size: 12px;
-    }
-    .partners-card{
-        flex: 0 1 45%;
-    }
-}
-
-@media (max-width: 640px){
-    .open_world_text_big{
-        font-size: 30px;
-        line-height: 32px;
-        margin-bottom: 30px;
-    }
-    .open_world_text{
-        font-size: 12px;
-    }
-    .volunteer_world_text{
-        padding: 25px 50px 25px 25px;
-        width: 60%;
-    }
-
-    .oport{
-        padding: 50px 30px;
-    }
-    .oport-title{
-        font-size: 30px;
-        margin-bottom: 40px;
-    }
-    .oport-blok{
-        margin-bottom:50px;
-        flex-direction: column;
-    }
-    .oport-blok_photo img{
-        width: 440px;
-        height: 300px;
-        border: 5px rgb(50, 75, 50) solid;
-    }
-    .oport-blok_photo{
-        margin-bottom: 20px;
-    }
-    .oport-blok-2{
-        flex-direction: column-reverse;
-    }
-    .oport-blok_text{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding:0px;
-        width: 100%;
-    }
-    .oport-blok_text-s{
-        font-size: 15px;
-        text-align: center;
-    }
-    .oport-blok_title{
-        font-size: 40px;
-        margin-bottom: 15px;
-    }
-    .oport-blok_button{
-        padding:15px 25px;
-        font-size: 16px;
-    }
-
-    .team{
-        padding: 30px 20px 0 20px;
-    }
-    .team-title{
-        font-size: 40px;
-        text-align: center;
-    }
-    .team-card{
-        flex: 0 1 10%;
-        padding: 15px;
-        margin: 0 10px 40px 10px;
-    }
-    .team-card-photo{
-        width: 120px;
-        height: 120px;
-    }
-}
-
-
-@media (max-width: 510px){
-    .choose_your_title-text{
-        font-size: 30px;
-        text-align: center;
-    }
-    .choose_your_options_one{
-        padding: 20px 0 20px 0px;
-    }
-    .choose_your_options_one img{
-        width: 60px;
-    }
-    .choose_your_options_one-text{
-        font-size: 18px;
-    }
-    .volunteer_world{
-        flex-direction: column;
-    }
-    .volunteer_world_image{
-        width: 100%;
-    }
-    .open_world_text_big{
-        font-size: 40px;
-        line-height: 45px;
-        margin-bottom: 30px;
-    }
-    .open_world_text{
-        font-size: 15px;
-    }
-    .volunteer_world_text{
-        padding: 75px 30px;
-        width: 100%;
-    }
-
-    .oport-title{
-        font-size: 25px;
-        margin-bottom: 30px;
-    }
-    .oport-blok_photo img{
-        width: 330px;
-        height: 270px;
-        border: 5px rgb(50, 75, 50) solid;
-    }
-    .oport-blok_photo{
-        margin-bottom: 20px;
-    }
-    .oport-blok_text-s{
-        font-size: 12px;
-        text-align: center;
-    }
-    .oport-blok_title{
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-    .oport-blok_button{
-        padding:10px 20px;
-        font-size: 13px;
-    }
-    .partners{
-        padding: 0px 20px;
-    }
-    .partners-title{
-        font-size: 30px;
-        text-align: center;
-    }
-}
-@media (max-width: 424px){
-    .volunteer_world{
-        flex-direction: column;
-    }
-    .volunteer_world_image{
-        width: 100%;
-    }
-    .open_world_text_big{
-        font-size: 40px;
-        line-height: 45px;
-        margin-bottom: 30px;
-    }
-    .open_world_text{
-        font-size: 15px;
-    }
-    .volunteer_world_text{
-        padding: 75px 30px;
-        width: 100%;
-    }
-    .platform{
-        flex-direction: column;
-    }
-    .platform-connects{
-        padding: 20px 20px 40px 20px;
-        width: 100%;
-    }
-    .platform-stays{
-        width: 100%;
-        padding-top: 30px;
-    }
-    .oport-blok_photo img{
-        width: 280px;
-        height: 210px;
-    }
-    .oport{
-        padding: 20px 30px;
-    }
-
-    .team-title{
-        font-size: 35px;
-    }
-    .team-card{
-        padding: 15px 30px 10px 30px;
-        margin: 0 10px 40px 10px;
-    }
-    .team-card-photo{
-        width: 150px;
-        height: 150px;
-    }
-}
-@media (max-width: 369px){
-    .open_world_text_big{
-        font-size: 30px;
-        line-height: 35px;
-        margin-bottom: 20px;
-    }
-    .open_world_text{
-        font-size: 15px;
-    }
-    .partners-card-title{
-        font-size: 15px;
-    }
+@media (max-width: 369px) {
+  .open_world_text_big {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+  .open_world_text {
+    font-size: 15px;
+  }
+  .partners-card-title {
+    font-size: 15px;
+  }
 }

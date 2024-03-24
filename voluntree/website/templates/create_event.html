@@ -62,7 +62,7 @@
                 <div class="format-option">
                     <div class="format">
                         <input type="radio" id="check-offline" name="format_off" onclick="text(0)" checked />
-                        <label for="check-offline">Оффлайн</label>
+                        <label for="check-offline" checked>Оффлайн</label>
                     </div>
                     <div class="format">
                         <input type="radio" id="check-online" name="format_on" onclick="text(1)" />
@@ -75,11 +75,10 @@
                 <input type="text" placeholder="Місто" name="city" />
                 <input type="text" placeholder="Вулиця, будинок" name="address" />
             </div>
-            <div class="input-box link" id="online-code">
+            <div class="input-box link" id="online-code" style="display:none;">
                 <label>Посилання</label>
                 <input type="text" placeholder="Вставте посилання на подію" name="link" />
             </div>
-
             <div class="small-container">
                 <div class="select-btn">
                     <span class="btn-text">Оберіть теги</span>
@@ -200,7 +199,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="photo-container">
                 <div class="photo-wrapper">
                     <div class="image">

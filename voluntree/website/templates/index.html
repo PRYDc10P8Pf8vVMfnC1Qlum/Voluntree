@@ -502,11 +502,11 @@
                 {% set truncated_string = org.name[:28] %}
                 {% set last_space_index = truncated_string.rfind(' ') %}
                 <a href="#" class="partners-card" style="pointer-events: none; cursor: default; text-decoration: none;">
-                    <img src="{{ url_for('home.serve_uploads', filename=org.id|string + '.png') }}" alt="">
+                    <img class='partner-img' src="{{ url_for('home.serve_uploads', filename=org.id|string + '.png') }}"
+                        alt="">
                     <p class="partners-card-title">
                         {% if truncated_string != org.name %}
-                        {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...'
-                        }}
+                        {{ (truncated_string[:last_space_index] if last_space_index != -1 else truncated_string) ~ '...' }}
                         {% else %}
                         {{ truncated_string }}
                         {% endif %}

@@ -85,8 +85,13 @@
   left: 20%;
 }
 
-@media (max-width: 425px){
-  .top-icon-1, .top-icon-2, .top-icon-3, .top-icon-4, .top-icon-5, .top-icon-6{
+@media (max-width: 425px) {
+  .top-icon-1,
+  .top-icon-2,
+  .top-icon-3,
+  .top-icon-4,
+  .top-icon-5,
+  .top-icon-6 {
     display: none;
   }
 }
@@ -250,7 +255,6 @@ nav {
     height: 1px;
   }
   .login-button {
-    /* background-color: red; */
     padding: 0px 15px;
     font-size: 12px;
     font-weight: 500;
@@ -315,7 +319,6 @@ nav {
     height: 200px;
     margin-bottom: 30px;
   }
-  
 }
 @media (max-width: 425px) {
   .navbar-brand {
@@ -400,7 +403,6 @@ body {
   gap: 10px;
   margin-top: -100px;
 }
-
 
 .image img {
   max-height: 240px;
