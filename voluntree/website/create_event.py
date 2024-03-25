@@ -44,6 +44,7 @@ def create_an_event():
 
         link = request.form.get('link','')
         location = f'{request.form.get("city")}, {request.form.get("address")}' if request.form.get('format_off') == 'on' else "Дистанційно"
+        # location = f'{request.form.get("city")}{"," if request.form.get("address") else ""} {request.form.get("address")}' if request.form.get('format_off') == 'on' else "Дистанційно"
 
         # Check for valid link
         if request.form.get('format_off') != 'on' and not re.match(r'^https://', link):
