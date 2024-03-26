@@ -146,7 +146,7 @@ Python file to create an event (only available for organization account). Collec
 python file to display the event that was searched for. First, look for the event, and if the user is authorized, then check if the event is liked by current_user. If the event is liked, it is displayed with ‘Вподобано’; otherwise, ‘Вподобати.’ In case the user liked the event, an instance of UserLikedEvents is created. Also, in the end, it returns the total number of likes that the event has.
 
 # filter.py
-function filter_event is responsible for the filter search bar. By using the tags, the user can adjust the function to display needed events. The function returns the list of events sorted by the most recent ones that fall in the chosen category. If no tags are selected, the function returns every event possible.
+function filter_event is responsible for the filter search bar. By using the tags, the user can adjust the function to display needed events. The function returns the list of events sorted by those that fall in the chosen category. If no tags are selected, the function returns every event possible.
 Function filter_events_with_tags refreshes the page and displays the result events.
 
 # home.py
