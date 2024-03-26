@@ -138,6 +138,8 @@ def delete():
     return redirect(url_for('home.load_home'))
  
 Deleting users is also not that hard. We are deleting the cu user(defined by the if statement) from the AllUsers database and the current user from the needed database. Then, committing, logging out the user and redirecting to the home page
+# hashing
+The passwords are hashed by SHA-256(all the remaining functions), also salt and pepper are added to provide additional security.
 
 # create_event.py
 Python file to create an event (only available for organization account). Collect data from the form, where the title, email, description, date, time, and tags should be filled out in order to create an event. If something is missing or is put incorrectly, the error will arise. Photo is optional, the default photo will be loaded into upload automatically if nothing is put. Then, an instance of an event is created and committed with all the data given.
