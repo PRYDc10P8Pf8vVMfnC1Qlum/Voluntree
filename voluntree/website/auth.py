@@ -2,10 +2,8 @@ import shutil
 from flask import Blueprint, render_template, request, flash, redirect, url_for, current_app
 from .models import User, Organization, AllUsers
 from re import match
-# from werkzeug.security import generate_password_hash, check_password_hash
-from .models import db   ##means from __init__.py import db
+from .models import db
 from flask_login import login_user, login_required, logout_user, current_user
-# from .__init__ import email, app
 import hashlib, base64, secrets, hmac
 
 
@@ -78,14 +76,12 @@ def choose():
 def auth_volunteer():
     if request.method == 'POST':
         name = request.form.get('name-register')
-        # print(request.form)
         if name is None:
-            # print('login')
             email = request.form.get('mail-login')
             password = request.form.get('password-login')
 
             user = User.query.filter_by(email=email).first()
-            
+
             if user:
                 all_user = AllUsers.query.filter_by(user_id = user.id, is_org = False).first()
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
@@ -106,9 +102,8 @@ def auth_volunteer():
             if user:
                 flash('Email already exists.', category='error-reg')
             elif password != password_conf:
-                # print('pass')
                 flash('Passwords don\'t match.', category='error-reg')
-            elif not bool(match(r'[\w]{7}+', password)):
+            elif not bool(match(r'[\w]{7,}', password)):
                 flash('Password must be at least 7 characters and contain only letter and numbers', category='error-reg')
             elif not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
                 flash('Incorrect email is given.', category='error-reg')
@@ -126,11 +121,10 @@ def auth_volunteer():
                 db.session.add(new_all_user)
                 db.session.commit()
                 print(new_user.password)
-                
-                shutil.copy('website\\static\\img\\partner.png', f'uploads\\u{new_user.id}.png')
+
+                shutil.copy('website/static/img/partner.png', f'uploads/u{new_user.id}.png')
                 login_user(new_all_user, remember=True)
 
-                # flash('Account created!', category='success')
                 print('redirecting')
                 print()
                 cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
@@ -148,9 +142,7 @@ def auth_organization():
             print('login')
             email = request.form.get('mail-login')
             password = request.form.get('password-login')
-
             user = Organization.query.filter_by(email=email).first()
-            
             if user:
                 all_user = AllUsers.query.filter_by(user_id = user.id, is_org = True).first()
                 if verify_password_hashed_salted_peppered(user, password): # if check_password_hash(user.password, password):
@@ -179,16 +171,16 @@ def auth_organization():
                 flash('Name must be at least 3 characters', category='error-reg')
             elif len(description)<24:
                 flash('Organization description must be at least 24 characters', category='error-reg')
-            # elif len(orgname)<3:
-            #     flash('Organization name must be at least 3 characters', category='error-reg')
             elif str(logo.mimetype) == 'application/octet-stream':
                 flash('Logo must be provided in order to register', category='error-reg')
+            elif '.jpg' not in logo.filename and '.png' not in logo.filename:
+                flash('Not supported filetype for logo', category='error-reg')
             elif not location:
                 flash('Location must be provided', category='error-reg')
             elif password != password_conf:
                 print('pass')
                 flash('Passwords don\'t match.', category='error-reg')
-            elif not bool(match(r'[\w]{7}+', password)):
+            elif not bool(match(r'[\w]{7,}', password)):
                 flash('Password must be at least 7 characters and contain only letter and numbers', category='error-reg')
             elif not bool(match(r'^[\w][\w+._=$/{}]{1,63}[\w]@[\w._=$/{}]{1,255}\.(com|org|edu|gov|net)\.?u?a?$',email)):
                 flash('Incorrect email is given.', category='error-reg')
@@ -206,17 +198,11 @@ def auth_organization():
                 new_all_user = AllUsers(user_id=new_user.id, is_org = True )
                 db.session.add(new_all_user)
                 db.session.commit()
-                
-                
                 logo.save('uploads/' + f'{new_user.id}.png')
                 login_user(new_all_user, remember=True)
                 flash('Account created!', category='success')
                 cu = Organization.query.get(int(current_user.user_id)) if current_user.is_org else User.query.get(int(current_user.user_id))
                 return render_template("success.html", user = cu)
-            
-
-                
-
     return render_template("organisation.html")
 
 
@@ -281,7 +267,6 @@ def auth_organization():
 #                 if content:
 #                     current_user.description = content
 #                     db.session.commit()
-                
 #     return render_template('user.html', user = current_user)
 
 

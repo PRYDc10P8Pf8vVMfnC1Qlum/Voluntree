@@ -21,5 +21,3 @@ def serve_uploads(filename):
 @home.route('/redirect/<path:hrefed>')
 def redirect_to(hrefed):
     return redirect(hrefed)
-
-

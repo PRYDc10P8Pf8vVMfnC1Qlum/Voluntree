@@ -3,12 +3,8 @@ from os import path
 from flask import Flask, url_for, render_template
 from flask_login import LoginManager, current_user
 from . import models
-#email
-# from flask_redmail import RedMail
 
 DB_NAME = 'voluntree.db'
-#email
-# email = RedMail()
 
 def create_app():
     app = Flask(__name__)
@@ -17,6 +13,7 @@ def create_app():
     models.db.init_app(app)
 
     #error
+    @app.errorhandler(500)
     @app.errorhandler(404)
     def page_not_found(error):
         return render_template("error.html", user = current_user)
@@ -28,7 +25,6 @@ def create_app():
     from .filter import filter_
     from .profile import profile
 
-    # app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(home, url_prefix='/')
     app.register_blueprint(create_event, url_prefix='/')
     app.register_blueprint(event, url_prefix='/')
@@ -46,7 +42,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return models.AllUsers.query.get(int(id))
-    
     return app
 
 def create_database(app):

@@ -22,6 +22,9 @@ def get_profile():
 
         if verify_password_hashed_salted_peppered(cu, old_password):
             if new_photo is not None and str(new_photo.mimetype) != 'application/octet-stream':
+                if '.jpg' not in new_photo.filename and '.png' not in new_photo.filename:
+                    flash('Даний формат файлу не підтримується!', category='error-password')
+                    return redirect('/profile')
                 if isinstance(cu, Organization):
                     new_photo.save('uploads/' + f'{cu.id}.png')
                 else:

@@ -1,6 +1,10 @@
 const selectBtn = document.querySelector(".select-btn"),
       items = document.querySelectorAll(".item");
 
+function myAlert() {
+  alert("У вас немає доступу до цієї функції.\nДоступно лише для організацій!");
+}
+
 selectBtn.addEventListener("click", () => {
     selectBtn.classList.toggle("open");
 });
