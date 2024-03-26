@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../static/styles/style_volunteer.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <title>signin-signup</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/logo_dark.png">
+    <title>Створення акаунту</title>
 </head>
+
 <body>
     <div class="container">
         <div class="signin-signup">
-            <form action="" class="sign-in-form">
+            <form class="sign-in-form" method='post'>
                 <h2 class="title">Вхід</h2>
+                {% with messages = get_flashed_messages(with_categories = True) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                {% if category == 'error-log' %}
+                <div id="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                        style="position: relative;">&times;</span>
+                    Login error: {{message}}
+                </div>
+                {% elif category == 'error-reg' %}
+                <div id="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                        style="position: relative;">&times;</span>
+                    Registration error: {{message}}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Пошта">
+                    <input name='mail-login' type="text" placeholder="Пошта">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Пароль">
+                    <input name='password-login' type="password" placeholder="Пароль">
                 </div>
-                <input type="submit" value="Увійти" class="btn">
-                <p class="account-text">Не маєте акаунту? <a href="#" id="sign-up-btn2">Зареєструватися</a></p>
+                <button type="submit" class="btn">Увійти</button>
+                <p class="account-text">Не маєте акаунту? <a href="#sign-up-form" id="sign-up-btn2">Зареєструватися</a></p>
             </form>
-            <form action="" class="sign-up-form">
+            <form class="sign-up-form" id="sign-up-form" method='post'>
                 <h2 class="title">Реєстрація</h2>
+                {% with messages = get_flashed_messages(with_categories = True) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                {% if category == 'error-reg' %}
+                <div id="alert-error">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"
+                        style="position: relative;">&times;</span>
+                    {{message}}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Ім'я користувача">
+                    <input name='name-register' type="text" placeholder="Ім'я користувача">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Пошта">
+                    <input name='mail-register' type="text" placeholder="Пошта">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Пароль">
+                    <input name='password-register' type="password" placeholder="Пароль">
                 </div>
-                <input type="submit" value="Зареєструватися" id='sign-up-btn2' class="btn">
-                <p class="account-text">Уже маєте аккаунт? <a href="#" id="sign-in-btn2">Sign in</a></p>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input name='password-register-confirmation' type="password" placeholder="Підтвердіть пароль">
+                </div>
+                <button type="submit" id='sign-up-btn2' class="btn">Зареєструватися</button>
             </form>
         </div>
         <div class="panels-container">
@@ -57,12 +96,13 @@
                     <img src="../static/img/logo_dark.png" style="width: 100px;" class="image">
                     <h3>Не маєте акаунту?</h3>
                     <p>Пориньте у світ волонтерства разом з Voluntree!</p>
-                    <button class="btn" id="sign-up-btn">Зареєструватися</button>
+                    <button class="btn" id="sign-up-btn" href='/auth/choose'>Зареєструватися</button>
                 </div>
-                
+
             </div>
         </div>
     </div>
     <script src="../static/js/script_volunteer.js"></script>
 </body>
+
 </html>

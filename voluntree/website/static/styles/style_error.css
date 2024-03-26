@@ -53,6 +53,9 @@
   }
 }
 
+body {
+  width: 100%;
+}
 .top-icon-1 {
   animation: 3s infinite alternate icon1;
   top: 30%;
@@ -85,8 +88,13 @@
   left: 20%;
 }
 
-@media (max-width: 425px){
-  .top-icon-1, .top-icon-2, .top-icon-3, .top-icon-4, .top-icon-5, .top-icon-6{
+@media (max-width: 425px) {
+  .top-icon-1,
+  .top-icon-2,
+  .top-icon-3,
+  .top-icon-4,
+  .top-icon-5,
+  .top-icon-6 {
     display: none;
   }
 }
@@ -250,7 +258,6 @@ nav {
     height: 1px;
   }
   .login-button {
-    /* background-color: red; */
     padding: 0px 15px;
     font-size: 12px;
     font-weight: 500;
